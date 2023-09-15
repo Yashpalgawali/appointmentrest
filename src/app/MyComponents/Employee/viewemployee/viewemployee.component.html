@@ -9,13 +9,13 @@
                     <li class="breadcrumb-item">
                         <a href="#"> <i class="fa fa-home"></i>&nbsp;Home</a>
                     </li>
-                    <li class="breadcrumb-item active" aria-current="page">View Department</li>
+                    <li class="breadcrumb-item active" aria-current="page">View Employee</li>
                 </ol>
             </div>
         </div>
         <div class="card-header">
-            <h4>View Departments 
-                <a href="adddepartment" style="float:right;" class="btn btn-primary mb-3">Add Department</a>
+            <h4>View Employee 
+                <a href="addemployee" style="float:right;" class="btn btn-primary mb-3">Add Employee</a>
             </h4>
     </div>
     
@@ -25,17 +25,24 @@
         <thead>
             <tr>
                 <th>Sr No.</th> 
+                <th>Name</th>
+                <th>Email</th>
+                <th>Designation</th>
+                <th>Department</th>
                 <th>Company</th>
                 <th>Action</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let dept of deptlist;let i = index ">
+            <tr *ngFor="let emp of emplist;let i = index ">
                 <td>{{i+1}}</td>
-                <td>{{dept.dept_name}}</td>
-                <td>{{dept.company.comp_name}}</td>
+                <td>{{emp.emp_name}}</td>
+                <td>{{emp.emp_email}}</td>
+                <td>{{emp.designation.desig_name}}</td>
+                <td>{{emp.department.dept_name}}</td>
+                <td>{{emp.department.company.comp_name}}</td>
                 <td>
-                    <button (click)="getDeptById(dept.dept_id)" class="btn btn-primary" > <i class="fa fa-edit"></i> Edit</button> 
+                    <button (click)="getEmpById(emp.emp_id)" class="btn btn-primary" > <i class="fa fa-edit"></i> Edit</button> 
                 </td>
             </tr> 
         </tbody>

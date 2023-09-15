@@ -9,6 +9,9 @@ import { EditdepartmentComponent } from './MyComponents/Department/editdepartmen
 import { EditdesignationComponent } from './MyComponents/Designation/editdesignation/editdesignation.component';
 import { ViewdesignationComponent } from './MyComponents/Designation/viewdesignation/viewdesignation.component';
 import { AdddesignationComponent } from './MyComponents/Designation/adddesignation/adddesignation.component';
+import { ViewemployeeComponent } from './MyComponents/Employee/viewemployee/viewemployee.component';
+import { AddemployeeComponent } from './MyComponents/Employee/addemployee/addemployee.component';
+import { EditemployeeComponent } from './MyComponents/Employee/editemployee/editemployee.component';
 
 const routes: Routes = [
   { path :"addcompany" , component : AddcompanyComponent},
@@ -19,7 +22,10 @@ const routes: Routes = [
   { path :"editdeptbyid/:id" , component : EditdepartmentComponent},
   { path :"adddesignation" , component : AdddesignationComponent},
   { path :"viewdesignation" , component : ViewdesignationComponent},
-  { path :"editdesigbyid/:id" , component : EditdesignationComponent}
+  { path :"editdesigbyid/:id" , component : EditdesignationComponent},
+  { path :"addemployee" , component : AddemployeeComponent},
+  { path :"viewemployee" , component : ViewemployeeComponent},
+  { path :"editempbyid/:id" , component : EditemployeeComponent}  
 
   
   

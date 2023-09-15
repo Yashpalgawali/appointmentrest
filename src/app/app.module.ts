@@ -13,6 +13,9 @@ import { EditdepartmentComponent } from './MyComponents/Department/editdepartmen
 import { AdddesignationComponent } from './MyComponents/Designation/adddesignation/adddesignation.component';
 import { ViewdesignationComponent } from './MyComponents/Designation/viewdesignation/viewdesignation.component';
 import { EditdesignationComponent } from './MyComponents/Designation/editdesignation/editdesignation.component';
+import { AddemployeeComponent } from './MyComponents/Employee/addemployee/addemployee.component';
+import { ViewemployeeComponent } from './MyComponents/Employee/viewemployee/viewemployee.component';
+import { EditemployeeComponent } from './MyComponents/Employee/editemployee/editemployee.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,10 @@ import { EditdesignationComponent } from './MyComponents/Designation/editdesigna
     EditdepartmentComponent,
     AdddesignationComponent,
     ViewdesignationComponent,
-    EditdesignationComponent
+    EditdesignationComponent,
+    AddemployeeComponent,
+    ViewemployeeComponent,
+    EditemployeeComponent
   ],
   imports: [
     BrowserModule,
