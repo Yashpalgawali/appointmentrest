@@ -23,30 +23,35 @@
            <div class="card-header"><h4>Add Employee</h4></div>
        <div class="card-body">
        <div class="form-group">
-           <label for="emp_name"> Name:</label>
-               <input type="text" class="form-control mb-3" id="emp_name" placeholder="Enter Employee Name" [(ngModel)]="employee.emp_name" name="emp_name" required>
+           <label for="emp_name">Visitor Name:</label>
+               <input type="text" class="form-control mb-3" id="vis_name" placeholder="Enter Employee Name" [(ngModel)]="appoint.vis_name" name="vis_name" required>
           </div>    
           
           <div class="form-group">
              <label for="emp_email"> Email:</label>
-               <input type="email" class="form-control mb-3" id="emp_email" placeholder="Enter Employee Address" [(ngModel)]="employee.emp_email" name="emp_email" required>
+               <input type="email" class="form-control mb-3" id="vis_email" placeholder="Enter Employee Address" [(ngModel)]="appoint.vis_email" name="vis_email" required>
           </div> 
-          
           <div class="form-group">
+            <label for="designation">Employee:</label>
+              <select class="form-control mb-3" style="width:100%;" id="employee"  name="employee" required (change)="getdeptbyempid($event)">
+                  <option selected disabled>Select Employee</option>
+                        <option *ngFor="let emp of emplist" value="{{emp.emp_id}}">{{emp.emp_name}}</option>
+              </select>
+         <div class="form-group">
          <label for="designation">Designation:</label>
-           
            <select class="form-control mb-3" style="width:100%;" id="designation"  name="designation" required >
                <option selected disabled>Select Designation</option>
-                <option *ngFor="let desig of desiglist" value="{{desig.desig_id}}">{{desig.desig_name}}</option>
-                  
+                <option selected value="{{employee.designation.desig_id}}">{{employee.designation.desig_name}}</option>
+                
            </select>
        </div> 
             
        <div class="form-group">
          <label for="company">Company:</label>
-           <select class="form-control mb-3" style="width:100%;" id="company"  name="company" required (change)="getdeptbycompid($event)">
+           <select class="form-control mb-3" style="width:100%;" id="company"  name="company" required >
                <option selected disabled="disabled">Select Company Name</option>
-               <option *ngFor="let comp of clist" value="{{comp.company_id}}">{{comp.comp_name}}</option> 
+               <option selected value="{{employee.department.company.company_id}}">{{employee.department.company.comp_name}}</option>
+                
            </select>
        </div>
        
@@ -54,20 +59,13 @@
            <label for="department">Department:</label>
                <select class="form-control  mb-3" style ="width:100%;" id="department" name="department" required >
                    <option selected disabled> Select Department </option>
-                    <option *ngFor="let dept of deptlist" value="{{dept.dept_id}}">{{dept.dept_name}}</option> 
+                   <option selected value="{{employee.department.dept_id}}">{{employee.department.dept_name}}</option>
                </select>
        </div>
        
-       <div class="form-group">
-           <label for="emp_status">Status:</label>
-               <select class="form-control mb-3" style ="width:100%;" id="emp_status" [(ngModel)]="employee.emp_status" name="emp_status" required >
-                   <option selected disabled> Select Status  </option>
-                       <option value="0">Disabled</option>
-                       <option selected value="1">Enabled</option>
-               </select>
-       </div>
+     
        <button type="submit" class="btn btn-primary">Submit</button> &nbsp;&nbsp;<button type="reset" class="btn btn-primary">Cancel</button>
      </div>
    </div>
-  </form>
  </div>
+</form></div>

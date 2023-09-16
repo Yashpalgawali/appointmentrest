@@ -17,7 +17,7 @@ export class AddemployeeComponent implements OnInit {
               private desigserv : DesignationService,
               private compserv  : CompanyService,
               private deptserv  : DepartmentService,
-              private router : Router) {}
+              private router : Router) { }
    
       employee  : Employee = new Employee() ;
       clist     : any;
