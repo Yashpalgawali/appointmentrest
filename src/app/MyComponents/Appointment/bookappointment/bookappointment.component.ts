@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Appointment } from 'src/app/Models/Appointment';
 import { Employee } from 'src/app/Models/Employee';
 import { AppointmentService } from 'src/app/Services/appointment.service';
@@ -12,7 +13,10 @@ import { EmployeeService } from 'src/app/Services/employee.service';
 export class BookappointmentComponent implements OnInit {
 
   constructor(private appointserv : AppointmentService,
-              private empserv : EmployeeService) {}
+              private empserv : EmployeeService,
+              private router : Router) {
+               
+              }
   appoint  : Appointment = new Appointment();
   employee : Employee = new Employee();
   emplist : any
@@ -22,10 +26,14 @@ export class BookappointmentComponent implements OnInit {
   }
 
   onSubmit() {
-
+    this.appointserv.saveAppointment(this.appoint).subscribe(data=>this.goToViewAppointments());
   }
+  goToViewAppointments()
+  {
+    this.router.navigate(['viewappointments']);
+  }
+
   getdeptbyempid(eid : any) {
-    alert("emp ID  = "+eid.target.value)
     this.empserv.getEmployeeById(eid.target.value).subscribe(data=>this.employee=data);
   }
 }

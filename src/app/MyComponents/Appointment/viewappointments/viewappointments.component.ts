@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AppointmentService } from 'src/app/Services/appointment.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { AppointmentService } from 'src/app/Services/appointment.service';
 })
 export class ViewappointmentsComponent implements OnInit {
 
-  constructor(private appointserv: AppointmentService) {}
+  constructor(private appointserv: AppointmentService,private router : Router) {}
   aplist :any
   ngOnInit(): void {
         this.appointserv.getAllAppointments().subscribe(data=>this.aplist=data);
@@ -16,6 +17,6 @@ export class ViewappointmentsComponent implements OnInit {
 
   getAppointmentById(apid : any)
   {
-    
+    this.router.navigate(['editappointbyid',apid]); 
   }
 }

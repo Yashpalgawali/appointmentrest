@@ -18,6 +18,8 @@ import { ViewemployeeComponent } from './MyComponents/Employee/viewemployee/view
 import { EditemployeeComponent } from './MyComponents/Employee/editemployee/editemployee.component';
 import { BookappointmentComponent } from './MyComponents/Appointment/bookappointment/bookappointment.component';
 import { ViewappointmentsComponent } from './MyComponents/Appointment/viewappointments/viewappointments.component';
+import { EditappointmentComponent } from './MyComponents/Appointment/editappointment/editappointment.component';
+
 
 @NgModule({
   declarations: [
@@ -35,14 +37,17 @@ import { ViewappointmentsComponent } from './MyComponents/Appointment/viewappoin
     ViewemployeeComponent,
     EditemployeeComponent,
     BookappointmentComponent,
-    ViewappointmentsComponent
+    ViewappointmentsComponent,
+    EditappointmentComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule
+    
   ],
+
   providers: [],
   bootstrap: [AppComponent]
 })

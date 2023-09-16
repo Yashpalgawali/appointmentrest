@@ -7,12 +7,12 @@
                    <!-- start: PAGE TITLE & BREADCRUMB -->
                    <ol class="breadcrumb">
                        <li class="breadcrumb-item">
-                           <a  routerLink="/">
+                           <a routerLink="/">
                                <i class="fa fa-home"></i>&nbsp;Home
                            </a>
                        </li>
                        <li class="breadcrumb-item active" aria-current="page">
-                           Add Employee
+                           Edit Appointment
                        </li>
                    </ol>
                </div>
@@ -21,16 +21,16 @@
    <form (ngSubmit)="onSubmit()" method="POST" >	
      
        <div class="card">
-           <div class="card-header"><h4>Add Employee</h4></div>
+           <div class="card-header"><h4>Edit Appointment</h4></div>
        <div class="card-body">
-       <div class="form-group">
+          <div class="form-group">
            <label for="vis_name">Visitor Name:</label>
-               <input type="text" class="form-control mb-3" id="vis_name" placeholder="Enter Employee Name" [(ngModel)]="appoint.vis_name" name="vis_name" required>
+               <input type="text" class="form-control mb-3" id="vis_name" placeholder="Enter Visitor Name" [(ngModel)]="appoint.vis_name" name="vis_name" required>
           </div>    
           
           <div class="form-group">
             <label for="vis_email"> Email:</label>
-              <input type="email" class="form-control mb-3" id="vis_email" placeholder="Enter Employee Address" [(ngModel)]="appoint.vis_email" name="vis_email" required>
+              <input type="email" class="form-control mb-3" id="vis_email" placeholder="Enter Visitor Address" [(ngModel)]="appoint.vis_email" name="vis_email" required>
          </div> 
 
          <div class="form-group">
@@ -55,19 +55,12 @@
                     </span>
             </div>
         </div>
-        <div class="form-group">
-            <label for="vis_purpose"> Purpose:</label>
-             <!-- <input type="text" class="form-control mb-3" id="vis_purpose" placeholder="Enter Purpose Of Appointment " [(ngModel)]="appoint.vis_purpose" name="vis_purpose" required>-->
-             <textarea cols="5" class="form-control mb-3" rows="3" id="vis_purpose" name="vis_purpose" [(ngModel)]="appoint.vis_purpose" required></textarea>
-         </div> 
-
-        <div class="form-group">
+          <div class="form-group">
             <label for="designation">Employee:</label>
               <select class="form-control mb-3" style="width:100%;" id="employee"  name="employee" required (change)="getdeptbyempid($event)">
                   <option selected disabled>Select Employee</option>
                         <option *ngFor="let emp of emplist" value="{{emp.emp_id}}">{{emp.emp_name}}</option>
               </select>
-         </div>   
          <div class="form-group">
          <label for="designation">Designation:</label>
            <select class="form-control mb-3" style="width:100%;" id="designation"  name="designation" required >
@@ -98,5 +91,5 @@
        <button type="submit" class="btn btn-primary">Submit</button> &nbsp;&nbsp;<button type="reset" class="btn btn-primary">Cancel</button>
      </div>
    </div>
-
+ </div>
 </form></div>
