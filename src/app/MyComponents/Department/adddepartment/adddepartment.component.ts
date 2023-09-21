@@ -17,7 +17,7 @@ export class AdddepartmentComponent {
 
   department : Department = new Department();
   clist : any;
-  did : any;
+  did   : any;
   comp !: Company;
   ngOnInit(): void {
         this.compserv.getAllCompanies().subscribe(data=>this.clist=data);

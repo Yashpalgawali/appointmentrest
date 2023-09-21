@@ -20,6 +20,7 @@ import { BookappointmentComponent } from './MyComponents/Appointment/bookappoint
 import { ViewappointmentsComponent } from './MyComponents/Appointment/viewappointments/viewappointments.component';
 import { EditappointmentComponent } from './MyComponents/Appointment/editappointment/editappointment.component';
 import { LoginComponent } from './MyComponents/Login/login/login.component';
+import { LoginService } from './Services/login.service';
 
 
 
@@ -50,7 +51,7 @@ import { LoginComponent } from './MyComponents/Login/login/login.component';
     HttpClientModule
   ],
 
-  providers: [],
+  providers: [LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
