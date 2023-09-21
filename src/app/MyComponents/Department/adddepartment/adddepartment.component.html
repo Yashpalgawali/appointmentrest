@@ -17,7 +17,7 @@
          <div class="card-body">
             <div class="form-group">
                 <label for="company">Company</label>
-                  <select class="form-control mb-3" id="company"  name="company" [(ngModel)]="department.company">
+                  <select class="form-control mb-3" id="company"  name="company" [(ngModel)]="department.comp">
                       <option selected disabled>Please Select Company Name</option>
                        <option *ngFor="let comp of clist" value="{{comp.company_id}}">{{comp.comp_name}}</option>  
                   </select>

@@ -19,6 +19,8 @@ import { EditemployeeComponent } from './MyComponents/Employee/editemployee/edit
 import { BookappointmentComponent } from './MyComponents/Appointment/bookappointment/bookappointment.component';
 import { ViewappointmentsComponent } from './MyComponents/Appointment/viewappointments/viewappointments.component';
 import { EditappointmentComponent } from './MyComponents/Appointment/editappointment/editappointment.component';
+import { LoginComponent } from './MyComponents/Login/login/login.component';
+
 
 
 @NgModule({
@@ -38,14 +40,14 @@ import { EditappointmentComponent } from './MyComponents/Appointment/editappoint
     EditemployeeComponent,
     BookappointmentComponent,
     ViewappointmentsComponent,
-    EditappointmentComponent
+    EditappointmentComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule
-    
   ],
 
   providers: [],

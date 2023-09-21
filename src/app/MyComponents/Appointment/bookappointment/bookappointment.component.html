@@ -25,12 +25,12 @@
        <div class="card-body">
        <div class="form-group">
            <label for="vis_name">Visitor Name:</label>
-               <input type="text" class="form-control mb-3" id="vis_name" placeholder="Enter Employee Name" [(ngModel)]="appoint.vis_name" name="vis_name" required>
+               <input type="text" class="form-control mb-3" id="vis_name" placeholder="Enter Visitor Name" [(ngModel)]="appoint.vis_name" name="vis_name" required>
           </div>    
           
           <div class="form-group">
             <label for="vis_email"> Email:</label>
-              <input type="email" class="form-control mb-3" id="vis_email" placeholder="Enter Employee Address" [(ngModel)]="appoint.vis_email" name="vis_email" required>
+              <input type="email" class="form-control mb-3" id="vis_email" placeholder="Enter Visitor Email" [(ngModel)]="appoint.vis_email" name="vis_email" required>
          </div> 
 
          <div class="form-group">
@@ -81,8 +81,7 @@
          <label for="company">Company:</label>
            <select class="form-control mb-3" style="width:100%;" id="company"  name="company" required >
                <option selected disabled="disabled">Select Company Name</option>
-               <option selected value="{{employee.department.company.company_id}}">{{employee.department.company.comp_name}}</option>
-                
+                   <option selected value="{{employee.department.company.company_id}}">{{employee.department.company.comp_name}}</option>
            </select>
        </div>
        

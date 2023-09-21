@@ -23,7 +23,7 @@ export class CompanyService {
    return this.http.get<Company[]>(`${this.base_url}`);
   }
 
-  public getCompanyById(cid :any)
+  public getCompanyById(cid :any):Observable<Company>
   {
     return this.http.get<Company>(`${this.base_url}${cid}`);
   }
