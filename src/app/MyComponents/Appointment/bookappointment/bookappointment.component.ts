@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { data } from 'jquery';
 import { Appointment } from 'src/app/Models/Appointment';
 import { Employee } from 'src/app/Models/Employee';
 import { AppointmentService } from 'src/app/Services/appointment.service';
@@ -22,7 +23,7 @@ export class BookappointmentComponent implements OnInit {
   emplist : any
   emp : any  
   ngOnInit(): void {
-    this.empserv.getAllEmployees().subscribe(data=>this.emplist=data);
+      this.empserv.getAllEmployees().subscribe(data=>this.emplist=data)
   }
 
   onSubmit() {

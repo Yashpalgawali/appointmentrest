@@ -57,39 +57,39 @@
         </div>
         <div class="form-group">
             <label for="vis_purpose"> Purpose:</label>
-             <!-- <input type="text" class="form-control mb-3" id="vis_purpose" placeholder="Enter Purpose Of Appointment " [(ngModel)]="appoint.vis_purpose" name="vis_purpose" required>-->
              <textarea cols="5" class="form-control mb-3" rows="3" id="vis_purpose" name="vis_purpose" [(ngModel)]="appoint.vis_purpose" required></textarea>
          </div> 
 
         <div class="form-group">
             <label for="designation">Employee:</label>
-              <select class="form-control mb-3" style="width:100%;" id="employee"  name="employee" required (change)="getdeptbyempid($event)">
-                  <option selected disabled>Select Employee</option>
-                        <option *ngFor="let emp of emplist" value="{{emp.emp_id}}">{{emp.emp_name}}</option>
+              <select class="form-control mb-3" style="width:100%;" id="employee"  name="employee" [(ngModel)]="appoint.employee" required (change)="getdeptbyempid($event)">
+                
+                <option selected disabled>Select Employee</option>
+                        <option *ngFor="let emp of emplist" [ngValue]="emp">{{emp.emp_name}}</option>
               </select>
          </div>   
          <div class="form-group">
          <label for="designation">Designation:</label>
            <select class="form-control mb-3" style="width:100%;" id="designation"  name="designation" required >
                <option selected disabled>Select Designation</option>
-                <option selected value="{{employee.designation.desig_id}}">{{employee.designation.desig_name}}</option>
+                <option selected [ngValue]="appoint.employee.designation">{{appoint.employee.designation.desig_name}}</option>
                 
            </select>
        </div> 
             
        <div class="form-group">
          <label for="company">Company:</label>
-           <select class="form-control mb-3" style="width:100%;" id="company"  name="company" required >
+           <select class="form-control mb-3" style="width:100%;" id="company"  name="company" [(ngModel)]="appoint.employee.department.company" required >
                <option selected disabled="disabled">Select Company Name</option>
-                   <option selected value="{{employee.department.company.company_id}}">{{employee.department.company.comp_name}}</option>
+                   <option selected [ngValue]="appoint.employee.department.company">{{appoint.employee.department.company.comp_name}}</option>
            </select>
        </div>
        
        <div class="form-group">
            <label for="department">Department:</label>
-               <select class="form-control  mb-3" style ="width:100%;" id="department" name="department" required >
+               <select class="form-control  mb-3" style ="width:100%;" id="department" name="department" [(ngModel)]="appoint.employee.department"required >
                    <option selected disabled> Select Department </option>
-                   <option selected value="{{employee.department.dept_id}}">{{employee.department.dept_name}}</option>
+                   <option selected [ngValue]="appoint.employee.department">{{employee.department.dept_name}}</option>
                </select>
        </div>
        
