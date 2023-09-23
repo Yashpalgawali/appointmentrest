@@ -29,6 +29,6 @@ export class EmployeeService {
   }
   public updateEmployee(emp : Employee):Observable<Employee[]>
   {
-    return this.http.put<Employee[]>(`${this.base_url}`,emp);
+    return this.http.post<Employee[]>(`${this.base_url}updateemployee`,emp);
   }
 }
