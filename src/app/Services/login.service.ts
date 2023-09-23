@@ -11,13 +11,8 @@ export class LoginService {
   public login(username:string , pass : string)
   {
     const headers = new HttpHeaders({Authorization : 'Basic '+btoa(username+":"+pass)});
-   return this.http.get("http://localhost:5457/users/forgotpass",{headers ,responseType : 'text' as 'json'});
+    return this.http.get("http://localhost:5457/users/forgotpass",{ headers , responseType : 'text' as 'json' });
   }
 
 
-  /*public getUsers(username:string , pass : string)
-  {
-    const headers = new HttpHeaders({Authorization : 'Basic '+btoa(username+":"+pass)});
-    this.http.get("",{headers ,responseType : 'text' as 'json'});
-  }*/
 }

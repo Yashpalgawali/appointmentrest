@@ -23,12 +23,7 @@ export class AdddepartmentComponent {
         this.compserv.getAllCompanies().subscribe(data=>this.clist=data);
   }
   onSubmit() {
-     this.did = this.department.comp;
-     
-      this.compserv.getCompanyById(this.did).subscribe(data=>this.department.company=data);
-      //this.compserv.getCompanyById(this.did).subscribe(data=>this.department.company=data);
-      alert("After getting Company Details by ID "+this.department.company.comp_name)
-   // this.deptserv.saveDepartment(this.department).subscribe(data=>this.goToViewDepartments());
+      this.deptserv.saveDepartment(this.department).subscribe(data=>this.goToViewDepartments());
   }
   public goToViewDepartments()
   {

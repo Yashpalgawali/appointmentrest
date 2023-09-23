@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Company } from '../Models/Company';
@@ -10,7 +10,8 @@ export class CompanyService {
 
   app_url = GlobalComponent.base_url;
   base_url= this.app_url+"company/";
-  constructor(private http: HttpClient) { }
+  
+  constructor(private http: HttpClient ) { }
 
 
   public saveCompany(company : Company):Observable<Company>
@@ -20,7 +21,7 @@ export class CompanyService {
 
   public getAllCompanies():Observable<Company[]>
   {
-   return this.http.get<Company[]>(`${this.base_url}`);
+    return this.http.get<Company[]>(`${this.base_url}`);
   }
 
   public getCompanyById(cid :any):Observable<Company>

@@ -7,7 +7,7 @@
                 <!-- start: PAGE TITLE & BREADCRUMB -->
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-                        <a href="#"> <i class="fa fa-home"></i>&nbsp;Home</a>
+                        <a routerLink=""> <i class="fa fa-home"></i>&nbsp;Home</a>
                     </li>
                     <li class="breadcrumb-item active" aria-current="page">View Department</li>
                 </ol>
@@ -15,7 +15,7 @@
         </div>
         <div class="card-header">
             <h4>View Departments 
-                <a href="adddepartment" style="float:right;" class="btn btn-primary mb-3">Add Department</a>
+                <a routerLink="/adddepartment" style="float:right;" class="btn btn-primary mb-3">Add Department</a>
             </h4>
     </div>
     
@@ -26,6 +26,7 @@
             <tr>
                 <th>Sr No.</th> 
                 <th>Company</th>
+                <th>Department</th>
                 <th>Action</th>
             </tr>
         </thead>

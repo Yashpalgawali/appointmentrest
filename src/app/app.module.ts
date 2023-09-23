@@ -49,6 +49,7 @@ import { LoginService } from './Services/login.service';
     AppRoutingModule,
     FormsModule,
     HttpClientModule
+  
   ],
 
   providers: [LoginService],
