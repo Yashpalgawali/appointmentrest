@@ -14,9 +14,9 @@ export class EmployeeService {
   base_url = this.app_url+"employee/"
   constructor(private http : HttpClient) { }
 
-  public saveEmployee(emp : Employee):Observable<Employee>
+  public saveEmployee(emp : Employee):Observable<Employee[]>
   {
-    return this.http.post<Employee>(`${this.base_url}`,emp);
+    return this.http.post<Employee[]>(`${this.base_url}`,emp);
   }
   public getAllEmployees():Observable<Employee[]>
   {
@@ -29,6 +29,6 @@ export class EmployeeService {
   }
   public updateEmployee(emp : Employee):Observable<Employee[]>
   {
-    return this.http.post<Employee[]>(`${this.base_url}`,emp);
+    return this.http.put<Employee[]>(`${this.base_url}`,emp);
   }
 }

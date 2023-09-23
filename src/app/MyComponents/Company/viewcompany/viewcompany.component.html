@@ -1,14 +1,10 @@
 
 <div class="container" >
-	
-    <!-- start: PAGE HEADER -->
-        <div class="row">
+	    <div class="row">
             <div class="col-sm-12">
-                
-                <!-- start: PAGE TITLE & BREADCRUMB -->
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-                        <a href="#"> <i class="fa fa-home"></i>&nbsp;Home</a>
+                        <a routerLink="/"> <i class="fa fa-home"></i>&nbsp;Home</a>
                     </li>
                     <li class="breadcrumb-item active" aria-current="page">View Company</li>
                 </ol>
@@ -16,9 +12,9 @@
         </div>
         <div class="card-header">
             <h4>View Companies 
-                <a href="addcompany" style="float:right;" class="btn btn-primary mb-3">Add Company</a>
+                <a routerLink="/addcompany" style="float:right;" class="btn btn-primary mb-3">Add Company</a>
             </h4>
-    </div>
+        </div>
     
         <div class="card-body">
             <div class="table-responsive-sm">    
@@ -35,7 +31,8 @@
                 <td>{{i+1}}</td>
                 <td>{{comp.comp_name}}</td>
                 <td>
-                    <button (click)="getCompById(comp.company_id)" class="btn btn-primary" >Edit</button> 
+                    <button (click)="getCompById(comp.company_id)" class="btn btn-primary" > <i class="fa fa-edit"></i> Edit</button> 
+
                 </td>
             </tr> 
         </tbody>

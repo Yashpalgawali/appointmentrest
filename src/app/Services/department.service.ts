@@ -31,7 +31,12 @@ export class DepartmentService {
   {
    return this.http.get<Department[]>(`${this.base_url}getdeptbycompid/${did}`);
   }
-
+  
+  public getDepartmentByCompName(name :any):Observable<Department[]>
+  {
+   return this.http.get<Department[]>(`${this.base_url}getdeptbycompname/${name}`);
+  }
+  
   public updateDepartment(department : Department)
   {
     return this.http.put<Department[]>(`${this.base_url}`,department);
