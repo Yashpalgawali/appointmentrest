@@ -22,6 +22,8 @@ import { EditappointmentComponent } from './MyComponents/Appointment/editappoint
 import { LoginComponent } from './MyComponents/Login/login/login.component';
 import { LoginService } from './Services/login.service';
 import { AdminhomeComponent } from './MyComponents/Admin/adminhome/adminhome.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -51,11 +53,10 @@ import { AdminhomeComponent } from './MyComponents/Admin/adminhome/adminhome.com
     AppRoutingModule,
     FormsModule,
     HttpClientModule
-    
   
   ],
-
-  providers: [LoginService],
+  
+  providers: [LoginService,Location, {provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

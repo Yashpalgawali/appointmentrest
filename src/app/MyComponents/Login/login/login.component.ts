@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { error } from 'jquery';
 import { Login } from 'src/app/Models/Login';
 import { LoginService } from 'src/app/Services/login.service';
 
@@ -14,15 +15,14 @@ export class LoginComponent implements OnInit {
   login : Login = new Login();
   
   ngOnInit(): void {
-    
   }
 
   onSubmit()  {
-    
-    let resp = this.loginserv.login(this.login.username,this.login.password).subscribe(data=>this.gotToAppComponents())
+    this.loginserv.login(this.login.username,this.login.password).subscribe(data=>this.gotToAppComponents());
   }
-  gotToAppComponents()
-  {
-    this.router.navigate(['']);
+
+  gotToAppComponents() { 
+    this.router.navigate(['adminhome']);
   }
+
 }
