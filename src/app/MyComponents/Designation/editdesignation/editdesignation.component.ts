@@ -12,7 +12,8 @@ export class EditdesignationComponent implements OnInit {
   
   constructor(private desigserv:DesignationService,private route :ActivatedRoute,private router : Router) {}
   did : any;
-  designation !: Designation;
+  //designation !: Designation;
+  designation : Designation = new Designation();
   ngOnInit(): void {
     this.did=this.route.snapshot.params['id'];
     this.desigserv.getDesignationById(this.did).subscribe(data=>this.designation=data);

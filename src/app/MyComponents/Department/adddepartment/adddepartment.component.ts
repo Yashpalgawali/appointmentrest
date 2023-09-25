@@ -21,12 +21,12 @@ export class AdddepartmentComponent {
   comp !: Company;
   ngOnInit(): void {
         this.compserv.getAllCompanies().subscribe(data=>this.clist=data);
+        
   }
   onSubmit() {
       this.deptserv.saveDepartment(this.department).subscribe(data=>this.goToViewDepartments());
   }
-  public goToViewDepartments()
-  {
+  public goToViewDepartments() {
     this.router.navigate(['viewdepartment']);
   }
 }

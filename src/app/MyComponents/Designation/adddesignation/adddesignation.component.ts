@@ -11,10 +11,11 @@ import { DesignationService } from 'src/app/Services/designation.service';
 export class AdddesignationComponent implements OnInit{
 
   designation : Designation = new Designation();
+  
   constructor(private desigserv : DesignationService,private route : Router){ }
 
   ngOnInit(): void {
-    
+   
   }
   onSubmit()
   {

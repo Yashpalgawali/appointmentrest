@@ -36,7 +36,7 @@ const routes: Routes = [
   { path :"viewappointments" , component : ViewappointmentsComponent},
   { path :"editappointbyid/:id" , component : EditappointmentComponent} ,
   { path :"login" , component : LoginComponent},
-  { path :"" , component : AdminhomeComponent} 
+  { path :"adminhome" , component : AdminhomeComponent} 
 
   
   
