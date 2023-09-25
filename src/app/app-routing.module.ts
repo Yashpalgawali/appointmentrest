@@ -17,6 +17,7 @@ import { BookappointmentComponent } from './MyComponents/Appointment/bookappoint
 import { EditappointmentComponent } from './MyComponents/Appointment/editappointment/editappointment.component';
 import { LoginComponent } from './MyComponents/Login/login/login.component';
 import { AppComponent } from './app.component';
+import { AdminhomeComponent } from './MyComponents/Admin/adminhome/adminhome.component';
 
 const routes: Routes = [
   { path :"addcompany" , component : AddcompanyComponent},
@@ -35,7 +36,7 @@ const routes: Routes = [
   { path :"viewappointments" , component : ViewappointmentsComponent},
   { path :"editappointbyid/:id" , component : EditappointmentComponent} ,
   { path :"login" , component : LoginComponent},
-  { path :"" , component : AppComponent} 
+  { path :"" , component : AdminhomeComponent} 
 
   
   

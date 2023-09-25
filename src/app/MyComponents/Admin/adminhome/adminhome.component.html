@@ -1,0 +1,63 @@
+<div class="container">
+    <div class="col main pt-5 mt-3">
+     <h3 class="display-4 d-none d-sm-block" style="margin-top:5px;">
+ <i class="fas fa-tachometer-alt" aria-hidden="true"></i>Admin Dashboard
+     </h3>
+           
+     <p class="lead d-none d-sm-block">Overview of Appointments</p>
+     <div class="alert alert-warning fade collapse" role="alert" id="myAlert">
+         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+             <span aria-hidden="true">×</span>
+             <span class="sr-only">Close</span>
+         </button>
+       
+     </div>
+     <div class="row mb-3">
+         <div class="col-xl-3 col-sm-6 py-2">
+              <div class="card bg-success text-white h-100">
+                 <div class="card-body bg-success">
+                     <div class="rotate">
+                       <i class="fa fa-user fa-4x"></i>
+                     </div>
+                     <h6 class="text-uppercase">Confirmed</h6>
+                     <h1 class="display-4" >{{apcount[0]}}</h1>
+                 </div>
+             </div>
+ 
+         </div>
+         <div class="col-xl-3 col-sm-6 py-2">
+             <div class="card text-white bg-warning h-100">
+                <div class="card-body bg-warning"> 
+                     <div class="rotatenew" >
+                         <i class="fa fa-clock fa-4x"></i>
+                     </div>
+                     <h6 class="text-uppercase">Pending </h6>
+                     <h1 class="display-4" >{{apcount[2]}}</h1>
+                 </div>
+             </div>
+ 
+         </div>
+         <div class="col-xl-3 col-sm-6 py-2">
+             <div class="card text-white bg-danger h-100">
+                 <div class="card-body bg-danger">
+                     <div class="rotatenew">
+                         <i class="fas fa-ban fa-4x"></i>
+                     </div>
+                     <h6 class="text-uppercase">Declined</h6>
+                     <h1 class="display-4" >{{apcount[1]}}</h1>
+                 </div>
+             </div>
+         </div>
+         <div class="col-xl-3 col-sm-6 py-2">
+             <div class="card text-white bg-info h-100">
+                 <div class="card-body bg-info">
+                     <div class="rotate">
+                         <i class="fa fa-share fa-4x"></i>
+                     </div>
+                     <h6 class="text-uppercase">Total Appointments</h6>
+                       <h1 class="display-4" >{{apcount[3]}}</h1>
+                 </div>
+             </div>
+         </div>
+     </div>
+    </div>

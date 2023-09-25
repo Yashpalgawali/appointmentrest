@@ -21,6 +21,7 @@ import { ViewappointmentsComponent } from './MyComponents/Appointment/viewappoin
 import { EditappointmentComponent } from './MyComponents/Appointment/editappointment/editappointment.component';
 import { LoginComponent } from './MyComponents/Login/login/login.component';
 import { LoginService } from './Services/login.service';
+import { AdminhomeComponent } from './MyComponents/Admin/adminhome/adminhome.component';
 
 
 
@@ -42,7 +43,8 @@ import { LoginService } from './Services/login.service';
     BookappointmentComponent,
     ViewappointmentsComponent,
     EditappointmentComponent,
-    LoginComponent
+    LoginComponent,
+    AdminhomeComponent
   ],
   imports: [
     BrowserModule,

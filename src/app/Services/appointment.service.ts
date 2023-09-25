@@ -26,4 +26,9 @@ export class AppointmentService {
   {
     return this.http.post<Appointment>(`${this.base_url}`,appoint);
   }
+
+  public getAppointmentCounts()
+  {
+    return this.http.get<Appointment[]>(`${this.base_url}getcounts`);
+  }
 }
