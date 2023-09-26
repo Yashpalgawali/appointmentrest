@@ -36,7 +36,7 @@
          <div class="form-group">
             <label for="apdate">Appointment Date</label>
                 <div class="input-group">
-                    <input class="form-control border-right-0" id="apdate" name="apdate" required>
+                    <input class="form-control border-right-0" id="apdate" name="apdate" [(ngModel)]="appoint.apdate" required>
                         <span class="input-group-append bg-white border-left-0">
                             <span class="input-group-text bg-transparent">
                                     <i class="fa fa-calendar fa-lg"></i>
@@ -47,7 +47,7 @@
         <div class="form-group">
              <label for="aptime">Appointment Time:</label>
                 <div class="input-group">
-                <input class="form-control" type="text" id="aptime"  name="aptime" autocomplete="off"/>
+                <input class="form-control" type="text" id="aptime"  name="aptime"  [(ngModel)]="appoint.aptime" autocomplete="off"/>
                     <span class="input-group-append bg-white border-left-0">
                             <span class="input-group-text bg-transparent">
                                     <i class="fa fa-clock-o fa-lg"></i>

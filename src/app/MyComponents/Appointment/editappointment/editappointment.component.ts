@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { data } from 'jquery';
 import { Appointment } from 'src/app/Models/Appointment';
 import { Employee } from 'src/app/Models/Employee';
@@ -14,7 +14,8 @@ import { EmployeeService } from 'src/app/Services/employee.service';
 export class EditappointmentComponent {
   constructor(private appointserv : AppointmentService,
     private empserv : EmployeeService,
-    private route : ActivatedRoute) {
+    private route : ActivatedRoute,
+    private router : Router) {
      
     }
 
@@ -31,8 +32,13 @@ ngOnInit(): void {
 }
 
 onSubmit() {
-
+  /*alert(this.appoint.employee.emp_id+""+this.appoint.employee.emp_name)
+  alert(this.appoint.employee.department.dept_id+""+this.appoint.employee.department.dept_name)
+  alert(this.appoint.employee.department.company.company_id+""+this.appoint.employee.department.company.comp_name)
+  alert(this.appoint.employee.designation.desig_id+""+this.appoint.employee.designation.desig_name)*/
+  this.appointserv.updateAppointment(this.appoint).subscribe(data=>this.router.navigate(['viewappointments']))
 }
+
 getdeptbyempid(eid : any) {
   this.empserv.getEmployeeById(eid.target.value).subscribe(data=>this.employee=data);
 }

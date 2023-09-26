@@ -31,4 +31,8 @@ export class AppointmentService {
   {
     return this.http.get<Appointment[]>(`${this.base_url}getcounts`);
   }
+  public updateAppointment(appoint : Appointment)
+  {
+    return this.http.put<Appointment[]>(`${this.base_url}`,appoint);
+  }
 }
