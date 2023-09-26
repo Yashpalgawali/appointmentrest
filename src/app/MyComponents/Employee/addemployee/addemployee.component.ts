@@ -24,7 +24,7 @@ export class AddemployeeComponent implements OnInit {
       clist     : any;
       desiglist : any;
       deptlist  : any;
-      company  !: Company
+      company   : Company = new Company();
       ngOnInit(): void {
         this.compserv.getAllCompanies().subscribe(data=>this.clist=data);
         this.desigserv.getAllDesignations().subscribe(data=>this.desiglist=data);
@@ -32,7 +32,8 @@ export class AddemployeeComponent implements OnInit {
 
       onSubmit() {
         this.empserv.saveEmployee(this.employee).subscribe(data=>this.goToViewEmployees());
-      }
+      }  
+      
       goToViewEmployees() {
         this.router.navigate(['viewemployee']);
       }

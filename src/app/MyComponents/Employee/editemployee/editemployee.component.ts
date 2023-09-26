@@ -36,12 +36,13 @@ ngOnInit(): void {
 onSubmit() {
   this.empserv.updateEmployee(this.employee).subscribe(data=>this.goToViewEmployees());
 }
+
 goToViewEmployees()
 {
   this.router.navigate(['viewemployee']);
 }
-getdeptbycompid(cid:any)
-{
-  this.deptserv.getDepartmentByCompId(cid.target.value).subscribe(data=>this.deptlist=data);
+getdeptbycompid(cid:any) {
+  this.deptserv.getDepartmentByCompName(cid.target.value).subscribe(data=>this.deptlist=data);
 }
+
 }

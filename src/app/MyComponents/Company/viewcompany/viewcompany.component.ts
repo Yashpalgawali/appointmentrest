@@ -19,10 +19,10 @@ export class ViewcompanyComponent {
   constructor(private compserv : CompanyService, private router : Router ) { }
 
   ngOnInit(): void {
-   
+   $(document).ready(function(){
+      $('#comptable').DataTable({});
+    })
     this.compserv.getAllCompanies().subscribe(data=>this.complist=data);
-    // DataTables initialisation
-    //let table = new DataTable('#comptable');
   }
 
   getCompById(cid : any)

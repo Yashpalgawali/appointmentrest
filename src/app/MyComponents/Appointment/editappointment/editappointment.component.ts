@@ -34,7 +34,6 @@ onSubmit() {
 
 }
 getdeptbyempid(eid : any) {
-alert("emp ID  = "+eid.target.value)
-this.empserv.getEmployeeById(eid.target.value).subscribe(data=>this.employee=data);
+  this.empserv.getEmployeeById(eid.target.value).subscribe(data=>this.employee=data);
 }
 }

@@ -13,6 +13,10 @@ export class ViewemployeeComponent implements OnInit {
   constructor( private empserv :EmployeeService,private router : Router) {}
   ngOnInit(): void {
     this.empserv.getAllEmployees().subscribe(data=>this.emplist=data);
+
+    $(document).ready(function(){
+      $('#emptable').DataTable();
+    })
   }
 
   getEmpById(eid : any)

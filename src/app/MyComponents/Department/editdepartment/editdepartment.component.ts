@@ -15,7 +15,7 @@ export class EditdepartmentComponent {
 
   did : any;
   clist : any;
-  department !: Department;
+  department : Department = new Department();
   ngOnInit(): void {
     this.did = this.route.snapshot.params['id'];
     this.deptserv.getDepartmentById(this.did).subscribe(data=>this.department=data);

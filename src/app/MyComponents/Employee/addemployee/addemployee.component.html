@@ -61,9 +61,9 @@
        <div class="form-group">
            <label for="emp_status">Status:</label>
                <select class="form-control mb-3" style ="width:100%;" id="emp_status" [(ngModel)]="employee.emp_status" name="emp_status" required >
-                   <option selected disabled> Select Status  </option>
+                   <option  disabled> Select Status  </option>
                        <option value="0">Disabled</option>
-                       <option value="1">Enabled</option>
+                       <option selected value="1">Enabled</option>
                </select>
        </div>
        <button type="submit" class="btn btn-primary">Submit</button> &nbsp;&nbsp;<button type="reset" class="btn btn-primary">Cancel</button>
