@@ -27,6 +27,7 @@ export class BookappointmentComponent implements OnInit {
   }
 
   onSubmit() {
+   // alert(this.appoint.employee.emp_id+" => "+ this.appoint.employee.emp_name )
     this.appointserv.saveAppointment(this.appoint).subscribe(data=>this.goToViewAppointments());
   }
   goToViewAppointments()
@@ -35,6 +36,8 @@ export class BookappointmentComponent implements OnInit {
   }
 
   getdeptbyempid(eid : any) {
-    this.empserv.getEmployeeById(eid.target.value).subscribe(data=>this.employee=data);
+    
+    //this.empserv.getEmployeeById(eid.target.value).subscribe(data=>this.employee=data);
+    //this.empserv.getEmployeeByName(eid.target.value).subscribe(data=>this.employee=data);
   }
 }

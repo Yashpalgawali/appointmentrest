@@ -27,6 +27,10 @@ export class EmployeeService {
   {
     return this.http.get<Employee>(`${this.base_url}${eid}`);
   }
+  public getEmployeeByName(ename :any):Observable<Employee>
+  {
+    return this.http.get<Employee>(`${this.base_url}${ename}`);
+  }
   public updateEmployee(emp : Employee):Observable<Employee[]>
   {
     return this.http.post<Employee[]>(`${this.base_url}updateemployee`,emp);

@@ -32,10 +32,7 @@ ngOnInit(): void {
 }
 
 onSubmit() {
-  /*alert(this.appoint.employee.emp_id+""+this.appoint.employee.emp_name)
-  alert(this.appoint.employee.department.dept_id+""+this.appoint.employee.department.dept_name)
-  alert(this.appoint.employee.department.company.company_id+""+this.appoint.employee.department.company.comp_name)
-  alert(this.appoint.employee.designation.desig_id+""+this.appoint.employee.designation.desig_name)*/
+ 
   this.appointserv.updateAppointment(this.appoint).subscribe(data=>this.router.navigate(['viewappointments']))
 }
 
