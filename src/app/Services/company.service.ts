@@ -13,14 +13,16 @@ export class CompanyService {
   
   constructor(private http: HttpClient ) { }
 
-
   public saveCompany(company : Company):Observable<Company>
   {
+   // const headers = new HttpHeaders({Authorization : 'Basic '+btoa("admin"+":"+"admin")});
     return this.http.post<Company>(`${this.base_url}`,company);
   }
 
   public getAllCompanies():Observable<Company[]>
   {
+    //const headers = new HttpHeaders({Authorization : 'Basic '+btoa("admin"+":"+"admin")});
+    //return this.http.get<Company[]>(`${this.base_url}`,{ headers , responseType : 'text' as 'json' });
     return this.http.get<Company[]>(`${this.base_url}`);
   }
 

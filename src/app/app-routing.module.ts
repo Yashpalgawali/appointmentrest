@@ -18,6 +18,7 @@ import { EditappointmentComponent } from './MyComponents/Appointment/editappoint
 import { LoginComponent } from './MyComponents/Login/login/login.component';
 import { AppComponent } from './app.component';
 import { AdminhomeComponent } from './MyComponents/Admin/adminhome/adminhome.component';
+import { SearchappointmentComponent } from './MyComponents/Appointment/searchappointment/searchappointment.component';
 
 const routes: Routes = [
   { path :"addcompany" , component : AddcompanyComponent},
@@ -36,7 +37,8 @@ const routes: Routes = [
   { path :"viewappointments" , component : ViewappointmentsComponent},
   { path :"editappointbyid/:id" , component : EditappointmentComponent} ,
   { path :"login" , component : LoginComponent},
-  { path :"adminhome" , component : AdminhomeComponent} 
+  { path :"adminhome" , component : AdminhomeComponent} ,
+  { path :"searchappointment" , component : SearchappointmentComponent}
 
   
   

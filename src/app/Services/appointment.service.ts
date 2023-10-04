@@ -9,7 +9,7 @@ import { Appointment } from '../Models/Appointment';
 export class AppointmentService {
 
   app_url = GlobalComponent.base_url;
-  base_url= this.app_url+"adminappointment/";
+  base_url= this.app_url+"appointment/";
   constructor(private http: HttpClient) { }
 
   public getAllAppointments()
@@ -21,6 +21,13 @@ export class AppointmentService {
   {
     return this.http.get<Appointment>(`${this.base_url}${apid}`);
   }
+
+
+  public getAppointmentByEmailId(emailid : any)
+  {alert("Inside getAppointmentByEmailId() \n Email is "+emailid)
+    return this.http.get<Appointment>(`${this.base_url}${emailid}`);
+  }
+
 
   public saveAppointment(appoint : Appointment)
   {

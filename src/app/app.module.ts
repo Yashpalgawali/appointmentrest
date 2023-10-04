@@ -24,6 +24,7 @@ import { LoginService } from './Services/login.service';
 import { AdminhomeComponent } from './MyComponents/Admin/adminhome/adminhome.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { SearchappointmentComponent } from './MyComponents/Appointment/searchappointment/searchappointment.component';
 
 
 
@@ -46,7 +47,8 @@ import { RouterModule } from '@angular/router';
     ViewappointmentsComponent,
     EditappointmentComponent,
     LoginComponent,
-    AdminhomeComponent
+    AdminhomeComponent,
+    SearchappointmentComponent
   ],
   imports: [
     BrowserModule,
