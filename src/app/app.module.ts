@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AddcompanyComponent } from './MyComponents/Company/addcompany/addcompany.component';
@@ -25,6 +25,7 @@ import { AdminhomeComponent } from './MyComponents/Admin/adminhome/adminhome.com
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { SearchappointmentComponent } from './MyComponents/Appointment/searchappointment/searchappointment.component';
+import { HttpInterceptorBasicAuthService } from './Services/http-interceptor-basic-auth.service';
 
 
 
@@ -58,7 +59,7 @@ import { SearchappointmentComponent } from './MyComponents/Appointment/searchapp
   
   ],
   
-  providers: [LoginService,Location, {provide: LocationStrategy, useClass: HashLocationStrategy}],
+  providers: [LoginService,Location, {provide: LocationStrategy, useClass: HashLocationStrategy}, {provide : HTTP_INTERCEPTORS, useClass : HttpInterceptorBasicAuthService , multi : true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

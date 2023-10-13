@@ -13,7 +13,7 @@ declare const $: any;
 export class ViewcompanyComponent implements OnInit, AfterViewInit {
 
   complist : any;
-  comp_id : any;
+  comp_id  : any; 
 
   constructor(private compserv : CompanyService, private router : Router ) { }
   ngAfterViewInit(): void {
