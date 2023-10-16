@@ -59,7 +59,9 @@ import { HttpInterceptorBasicAuthService } from './Services/http-interceptor-bas
   
   ],
   
-  providers: [LoginService,Location, {provide: LocationStrategy, useClass: HashLocationStrategy}, {provide : HTTP_INTERCEPTORS, useClass : HttpInterceptorBasicAuthService , multi : true}],
+  providers: [LoginService,Location, {provide: LocationStrategy, useClass: HashLocationStrategy}, 
+              {provide : HTTP_INTERCEPTORS, useClass : HttpInterceptorBasicAuthService , multi : true}
+            ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

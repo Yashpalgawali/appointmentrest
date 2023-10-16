@@ -13,12 +13,17 @@ export class AddcompanyComponent {
   company : Company = new Company();
 
   constructor(private compserv:CompanyService,private route : Router) { }
-
+  response : any;
   onSubmit() {
    // this.compserv.saveCompany(this.company).subscribe(data=>this.goToViewCompany());
-    this.compserv.saveCompany(this.company).subscribe(data=>this.goToViewCompany()),(error : any )=>console.error(error);
+    this.compserv.saveCompany(this.company).subscribe(data=>{
+                                                              this.response=true;
+                                                              this.goToViewCompany();
+                                                            }
+                                                            ),(error : any )=>console.error(error);
    
   }
+  
   public goToViewCompany()
   {
     this.route.navigate(['viewcompany']);

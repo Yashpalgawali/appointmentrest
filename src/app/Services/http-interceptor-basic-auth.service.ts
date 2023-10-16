@@ -8,7 +8,6 @@ export class HttpInterceptorBasicAuthService implements HttpInterceptor{
 
   constructor() { }
 
-
   intercept(request: HttpRequest<any>, next: HttpHandler)
   {
     let username = 'admin'
@@ -19,8 +18,8 @@ export class HttpInterceptorBasicAuthService implements HttpInterceptor{
       setHeaders : {
         Authorization :  basicHeaderString
       }
-
     })
+
     return next.handle(request)
   }
 }

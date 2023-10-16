@@ -19,23 +19,24 @@ export class CompanyService {
     return this.http.post<Company>(`${this.base_url}`,company  );
   }
 
-  createBasicAuthenticationHeader() {
+  // createBasicAuthenticationHeader() {
 
-    let username = 'admin'
-    let password = 'admin'
-    let basicHeaderString = 'Basic '+window.btoa(username+':'+password)
+  //   let username = 'admin'
+  //   let password = 'admin'
+  //   let basicHeaderString = 'Basic '+window.btoa(username+':'+password)
 
-    return basicHeaderString ;
-  }
+  //   return basicHeaderString ;
+  // }
 
   public getAllCompanies():Observable<Company[]>
   {
-    let basicAuthHeaderString = this.createBasicAuthenticationHeader()
+    // let basicAuthHeaderString = this.createBasicAuthenticationHeader()
 
-    let header = new HttpHeaders({
-        Authorization : basicAuthHeaderString
-    })
-    return this.http.get<Company[]>(`${this.base_url}`,{headers : header});
+    // let header = new HttpHeaders({
+    //     Authorization : basicAuthHeaderString
+    // })
+    // return this.http.get<Company[]>(`${this.base_url}`,{headers : header});
+    return this.http.get<Company[]>(`${this.base_url}`);
   }
 
   public getCompanyById(cid :any):Observable<Company>

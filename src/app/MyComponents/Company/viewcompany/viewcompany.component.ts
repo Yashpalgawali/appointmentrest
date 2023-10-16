@@ -15,6 +15,8 @@ export class ViewcompanyComponent implements OnInit, AfterViewInit {
   complist : any;
   comp_id  : any; 
 
+  response : any;
+  reserr   : any;
   constructor(private compserv : CompanyService, private router : Router ) { }
   ngAfterViewInit(): void {
     $('#comptable').DataTable();

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthenticationBean } from 'src/app/Models/AuthenticationBean';
 import { Login } from 'src/app/Models/Login';
 import { LoginService } from 'src/app/Services/login.service';
 
@@ -12,12 +13,15 @@ export class LoginComponent implements OnInit {
 
   constructor(private loginserv : LoginService,private router : Router) { }
   login : Login = new Login();
-  
+  // errorMessage = "Invalid Credentials";
+  // sucessmessage !: string;
   ngOnInit(): void {
   }
 
   onSubmit()  {
-    this.loginserv.login(this.login.username,this.login.password).subscribe(data=>this.gotToAppComponents()),()=>{this.router.navigate(['login'])};
+    this.loginserv.login(this.login.username,this.login.password)
+                  .subscribe(data=>  this.gotToAppComponents())
+                            ,()=>{ this.router.navigate(['login']) };
   }
 
   gotToAppComponents() { 
