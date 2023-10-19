@@ -22,12 +22,10 @@ export class AppointmentService {
     return this.http.get<Appointment>(`${this.base_url}${apid}`);
   }
 
-
   public getAppointmentByEmailId(emailid : any)
   {
     return this.http.get<Appointment>(`${this.base_url}${emailid}`);
   }
-
 
   public saveAppointment(appoint : Appointment)
   {

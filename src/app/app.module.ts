@@ -25,7 +25,7 @@ import { AdminhomeComponent } from './MyComponents/Admin/adminhome/adminhome.com
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { SearchappointmentComponent } from './MyComponents/Appointment/searchappointment/searchappointment.component';
-import { HttpInterceptorBasicAuthService } from './Services/http-interceptor-basic-auth.service';
+import { HttpInterceptorBasicAuthService } from './Services/http/http-interceptor-basic-auth.service';
 
 
 

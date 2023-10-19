@@ -22,6 +22,7 @@
             <tr>
                 <th>Sr No.</th> 
                 <th>Visitor Name</th>
+                <th>Appointment Status</th>
                 <th>Purpose</th>
                 <th>Email</th>
                 <th>Appoint Date </th>
@@ -37,6 +38,7 @@
             <tr *ngFor="let appoint of aplist;let i = index ">
                 <td>{{i+1}}</td>
                 <td>{{appoint.vis_name}}</td>
+                <td style="text-transform: capitalize;">{{appoint.status}}</td>
                 <td>{{appoint.vis_purpose}}</td>
                 <td>{{appoint.vis_email}}</td>
                 <td>{{appoint.apdate}}</td>

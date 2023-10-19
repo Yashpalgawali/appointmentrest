@@ -86,12 +86,23 @@
        </div>
        
        <div class="form-group">
-           <label for="department">Department:</label>
-               <select class="form-control  mb-3" style ="width:100%;" id="department" name="department" required >
-                   <option selected disabled> Select Department </option>
-                   <option selected value="{{employee.department.dept_id}}">{{employee.department.dept_name}}</option>
-               </select>
-       </div>
+        <label for="department">Department:</label>
+            <select class="form-control  mb-3" style ="width:100%;" id="department" name="department" required >
+                <option selected disabled> Select Department </option>
+                <option selected value="{{employee.department.dept_id}}">{{employee.department.dept_name}}</option>
+            </select>
+    </div>
+
+    <div class="form-group">
+        <label for="status">Appointment Status:</label>
+            <select class="form-control  mb-3" style ="width:100%;" id="status" [(ngModel)]="appoint.status" name="status" required >
+                <option selected disabled> Select Appointment Status </option>
+                <option value="declined"> Declined</option>
+                <option value="confirmed"> Confirmed</option>
+                <option value="pending"> Pending</option>
+               
+            </select>
+    </div>
        
      
        <button type="submit" class="btn btn-primary">Submit</button> &nbsp;&nbsp;<button type="reset" class="btn btn-primary">Cancel</button>
