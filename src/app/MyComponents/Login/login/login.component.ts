@@ -24,9 +24,13 @@ export class LoginComponent implements OnInit {
 
   onSubmit()  {
     
-     this.loginserv.login(this.login.username,this.login.password)
-                  .subscribe(data =>  this.gotToAppComponents())
-                            ,()=>{ this.router.navigate(['login']) };
+    this.basicauthserv.executeAuthenticationService(this.login.username,this.login.password).subscribe(
+                                                            data=>{
+                                                                this.router.navigate(['adminhome'])
+                                                            });
+    //  this.loginserv.login(this.login.username,this.login.password)
+    //               .subscribe(data =>  this.gotToAppComponents())
+    //                         ,()=>{ this.router.navigate(['login']) };
   }
 
   gotToAppComponents() { 

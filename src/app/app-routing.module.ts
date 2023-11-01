@@ -19,25 +19,28 @@ import { LoginComponent } from './MyComponents/Login/login/login.component';
 import { AppComponent } from './app.component';
 import { AdminhomeComponent } from './MyComponents/Admin/adminhome/adminhome.component';
 import { SearchappointmentComponent } from './MyComponents/Appointment/searchappointment/searchappointment.component';
+import { LogoutComponent } from './MyComponents/Login/logout/logout.component';
+import { RouteGuardService } from './Services/route-guard.service';
 
 const routes: Routes = [
-  { path :"addcompany" , component : AddcompanyComponent},
-  { path :"viewcompany" , component : ViewcompanyComponent},
-  { path :"editcompbyid/:id" , component : EditcompanyComponent},
-  { path :"adddepartment" , component : AdddepartmentComponent},
-  { path :"viewdepartment" , component : ViewdepartmentComponent},
-  { path :"editdeptbyid/:id" , component : EditdepartmentComponent},
-  { path :"adddesignation" , component : AdddesignationComponent},
-  { path :"viewdesignation" , component : ViewdesignationComponent},
-  { path :"editdesigbyid/:id" , component : EditdesignationComponent},
-  { path :"addemployee" , component : AddemployeeComponent},
-  { path :"viewemployee" , component : ViewemployeeComponent},
-  { path :"editempbyid/:id" , component : EditemployeeComponent} ,
-  { path :"bookappointment" , component : BookappointmentComponent} ,
-  { path :"viewappointments" , component : ViewappointmentsComponent},
-  { path :"editappointbyid/:id" , component : EditappointmentComponent} ,
+  { path :"addcompany" , component : AddcompanyComponent , canActivate : [RouteGuardService]},
+  { path :"viewcompany" , component : ViewcompanyComponent , canActivate : [RouteGuardService]},
+  { path :"editcompbyid/:id" , component : EditcompanyComponent , canActivate : [RouteGuardService]},
+  { path :"adddepartment" , component : AdddepartmentComponent , canActivate : [RouteGuardService]},
+  { path :"viewdepartment" , component : ViewdepartmentComponent, canActivate : [RouteGuardService]},
+  { path :"editdeptbyid/:id" , component : EditdepartmentComponent, canActivate : [RouteGuardService]},
+  { path :"adddesignation" , component : AdddesignationComponent, canActivate : [RouteGuardService]},
+  { path :"viewdesignation" , component : ViewdesignationComponent, canActivate : [RouteGuardService]},
+  { path :"editdesigbyid/:id" , component : EditdesignationComponent, canActivate : [RouteGuardService]},
+  { path :"addemployee" , component : AddemployeeComponent, canActivate : [RouteGuardService]},
+  { path :"viewemployee" , component : ViewemployeeComponent, canActivate : [RouteGuardService]},
+  { path :"editempbyid/:id" , component : EditemployeeComponent, canActivate : [RouteGuardService]} ,
+  { path :"bookappointment" , component : BookappointmentComponent, canActivate : [RouteGuardService]} ,
+  { path :"viewappointments" , component : ViewappointmentsComponent, canActivate : [RouteGuardService]},
+  { path :"editappointbyid/:id" , component : EditappointmentComponent, canActivate : [RouteGuardService]} ,
   { path :"login" , component : LoginComponent},
-  { path :"adminhome" , component : AdminhomeComponent} ,
+  { path :"logout" , component : LogoutComponent},
+  { path :"adminhome" , component : AdminhomeComponent, canActivate : [RouteGuardService]} ,
   { path :"searchappointment" , component : SearchappointmentComponent}
 
   

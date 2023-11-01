@@ -26,6 +26,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { SearchappointmentComponent } from './MyComponents/Appointment/searchappointment/searchappointment.component';
 import { HttpInterceptorBasicAuthService } from './Services/http/http-interceptor-basic-auth.service';
+import { LogoutComponent } from './MyComponents/Login/logout/logout.component';
 
 
 
@@ -49,7 +50,8 @@ import { HttpInterceptorBasicAuthService } from './Services/http/http-intercepto
     EditappointmentComponent,
     LoginComponent,
     AdminhomeComponent,
-    SearchappointmentComponent
+    SearchappointmentComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
