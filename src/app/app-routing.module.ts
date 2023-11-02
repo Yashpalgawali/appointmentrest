@@ -39,7 +39,8 @@ const routes: Routes = [
   { path :"viewappointments" , component : ViewappointmentsComponent, canActivate : [RouteGuardService]},
   { path :"editappointbyid/:id" , component : EditappointmentComponent, canActivate : [RouteGuardService]} ,
   { path :"login" , component : LoginComponent},
-  { path :"logout" , component : LogoutComponent},
+  { path :"" , component : LoginComponent},
+  { path :"logout" , component : LogoutComponent, canActivate : [RouteGuardService]},
   { path :"adminhome" , component : AdminhomeComponent, canActivate : [RouteGuardService]} ,
   { path :"searchappointment" , component : SearchappointmentComponent}
 

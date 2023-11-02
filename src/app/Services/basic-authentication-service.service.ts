@@ -23,14 +23,14 @@ export class BasicAuthenticationServiceService {
         Authorization: basicAuthHeaderString
       })
       sessionStorage.setItem('token',basicAuthHeaderString)
-      return this.http.get<AuthenticationBean>('http://localhost:5454/users/basicauth/',{headers : headers}).pipe(map(data=>{
+      return this.http.get<AuthenticationBean>(`${this.base_url}`+'basicauth',{headers : headers}).pipe(map(data=>{
                     sessionStorage.setItem('token',basicAuthHeaderString)
                     sessionStorage.setItem('authenticatedUser',username)
       }));
   }
 
   getAuthenticatedUser() {
-    return sessionStorage.getItem('authenticaterUser')
+    return sessionStorage.getItem('authenticatedUser')
   }
 
   getAuthenticatedToken() {
@@ -41,12 +41,12 @@ export class BasicAuthenticationServiceService {
   }
 
   isUserLoggedIn() {
-    let user = sessionStorage.getItem(AUTHENTICATED_USER)
-    return !(user === null)
+    let user = sessionStorage.getItem('token')
+        return !(user === null)
   }
 
-  logout(){
-    sessionStorage.removeItem('authenticaterUser')
+  logout() {
+    sessionStorage.removeItem('authenticatedUser')
     sessionStorage.removeItem('token')
   }
 }

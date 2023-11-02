@@ -13,7 +13,7 @@ export class AdminhomeComponent implements OnInit{
   decline_count !: number ;
   pending_count !: number ;
   confirmed_count !: number ;
-  constructor(private appointserv : AppointmentService) {}
+  constructor(private appointserv : AppointmentService) { }
   ngOnInit(): void {
     this.apcount = this.appointserv.getAppointmentCounts().subscribe(data=>this.apcount=data);
    
