@@ -41,18 +41,13 @@ export class LoginComponent implements OnInit {
     
     this.basicauthserv.executeAuthenticationService(this.login.username,this.login.password).subscribe(
                                                             data=>{
-                                                                
                                                                 this.router.navigate(['adminhome'])
                                                                 this.invalidLogin=false
                                                             },error=> {
                                                               this.errorMessage = "Invalid Credentials";
-                                                              
                                                               this.router.navigate(['login'])
                                                               this.invalidLogin=true
                                                             });
-    //  this.loginserv.login(this.login.username,this.login.password)
-    //               .subscribe(data =>  this.gotToAppComponents())
-    //                         ,()=>{ this.router.navigate(['login']) };
   }
 
   gotToAppComponents() { 
