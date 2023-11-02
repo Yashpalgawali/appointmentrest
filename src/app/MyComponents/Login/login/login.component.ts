@@ -14,13 +14,27 @@ export class LoginComponent implements OnInit {
 
   constructor(private loginserv : LoginService,
               private router    : Router,
-              private basicauthserv : BasicAuthenticationServiceService) { }
+              private basicauthserv : BasicAuthenticationServiceService) { 
+                if(sessionStorage.getItem('authenticatedUser'))
+                {
+                  router.navigate(['adminhome'])
+                }
+                else {
+                  router.navigate(['login'])
+                }
+              }
   
   login : Login = new Login();
-  errorMessage = "Invalid Credentials";
+  errorMessage !:string
   sucessmessage !: string;
   invalidLogin = false;
+  logoutsuccess !: string;
   ngOnInit(): void {
+    if(sessionStorage.getItem('logoutsuccess'))
+    {
+      this.logoutsuccess="Logged Out Successfully"
+      sessionStorage.setItem('logoutsuccess','')
+    }
   }
 
   onSubmit()  {
@@ -31,6 +45,8 @@ export class LoginComponent implements OnInit {
                                                                 this.router.navigate(['adminhome'])
                                                                 this.invalidLogin=false
                                                             },error=> {
+                                                              this.errorMessage = "Invalid Credentials";
+                                                              
                                                               this.router.navigate(['login'])
                                                               this.invalidLogin=true
                                                             });

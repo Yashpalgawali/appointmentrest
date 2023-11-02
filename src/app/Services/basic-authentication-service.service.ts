@@ -46,6 +46,7 @@ export class BasicAuthenticationServiceService {
   }
 
   logout() {
+    
     sessionStorage.removeItem('authenticatedUser')
     sessionStorage.removeItem('token')
   }

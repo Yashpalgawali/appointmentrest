@@ -27,7 +27,7 @@ export class AppComponent  implements OnInit{
   }
 
   ngOnInit(): void {
-    alert(sessionStorage.getItem('authenticatedUser'))
+   
      if(sessionStorage.getItem('authenticatedUser'))
      {
       AppComponent.islogged = true
