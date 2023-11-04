@@ -24,12 +24,15 @@ export class ConfirmOtpComponent  implements OnInit{
   confirmotp()
   {
     alert("button clicked \nOTP in session "+sessionStorage.getItem('otp'))
-    if(this.new_otp==parseInt(`sessionStorage.getItem('otp')`))
+    if(this.new_otp==parseInt(`${sessionStorage.getItem('otp')}`))
     {
       this.router.navigate(['viewappointments'])
     }
     else {
+      alert("Wrong OTp")
       sessionStorage.removeItem('response')
+      alert(sessionStorage.getItem('response'))
+      this.reserr= 'OTP Didn/\'t matched'
       sessionStorage.setItem('reserr','OTP Didn/\'t matched ')
       this.router.navigate(['confirmotp'])
     }

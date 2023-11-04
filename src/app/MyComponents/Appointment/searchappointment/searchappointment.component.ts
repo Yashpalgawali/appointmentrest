@@ -17,7 +17,7 @@ export class SearchappointmentComponent {
   appoint : Appointment = new Appointment();
   otp     !: String
   cnf_otp !: number
-
+  reserr !: string
   public searchappoint()
   {
     this.appointserv.getAppointmentByEmailId(this.appoint.vis_email).subscribe(data=> { 
@@ -29,6 +29,8 @@ export class SearchappointmentComponent {
                                                                     this.router.navigate(['confirmotp'])
                                                                   }
                                                                     ,error=>{
+                                                                      this.reserr='No Appointment Found For given mail ID '+this.appoint.vis_email
+                                                                      sessionStorage.removeItem('response')
                                                                       sessionStorage.setItem('reserr','No Appointment Found For given mail ID '+this.appoint.vis_email)
                                                                       this.router.navigate(['searchappointment'])
                                                                       
