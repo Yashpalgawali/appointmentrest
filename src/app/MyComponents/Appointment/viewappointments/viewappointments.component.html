@@ -24,14 +24,16 @@
                 <th>Visitor Name</th>
                 <th>Appointment Status</th>
                 <th>Purpose</th>
-                <th>Email</th>
+                <th>Visitor Email</th>
                 <th>Appoint Date </th>
                 <th>Appoint Time</th>
                 <th>Employee</th>
                 <th>Designation</th>
                 <th>Department</th>
                 <th>Company</th>
-                <th>Action</th>
+                <ng-container *ngIf="isloggedinuser">
+                    <th>Action</th> 
+                </ng-container>
             </tr>
         </thead>
         <tbody>
@@ -47,9 +49,11 @@
                 <td>{{appoint.employee.designation.desig_name}}</td>
                 <td>{{appoint.employee.department.dept_name}}</td>
                 <td>{{appoint.employee.department.company.comp_name}}</td>
+                <ng-container *ngIf="isloggedinuser">
                 <td>
                     <button (click)="getAppointmentById(appoint.appoint_id)" class="btn btn-primary" > <i class="fa fa-edit"></i> Edit</button> 
                 </td>
+                </ng-container>
             </tr> 
         </tbody>
       </table>

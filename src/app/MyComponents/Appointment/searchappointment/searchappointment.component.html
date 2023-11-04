@@ -1,18 +1,13 @@
 <div class="container">
-	
     <!-- start: PAGE HEADER -->
            <div class="row">
                <div class="col-sm-12">
                    <!-- start: PAGE TITLE & BREADCRUMB -->
                    <ol class="breadcrumb">
                        <li class="breadcrumb-item">
-                           <a th:href="@{/}">
-                               <i class="fa fa-home"></i>&nbsp;Home
-                           </a>
+                           <a routerLink="/"><i class="fa fa-home"></i>&nbsp;Home </a>
                        </li>
-                       <li class="breadcrumb-item active" aria-current="page">
-                           Search Appointment
-                       </li>
+                       <li class="breadcrumb-item active" aria-current="page">Search Appointment </li>
                    </ol>
                </div>
            </div>
@@ -20,17 +15,16 @@
        <div class="card">
            <form (ngSubmit)="searchappoint()" method="POST">
            
-               <div class="card-header">
-                   <h4>Search Appointment</h4>
-               </div>
-             
+           <div class="card-header"><h4>Search Appointment</h4> </div>
                <div class="card-body">
-                <div class="form-group">
+                <div class="form-group mb-2">
                  <label for="vis_email">Email:</label>
                    <input type="email" class="form-control" id="vis_email" placeholder="Enter Your Email" [(ngModel)]="appoint.vis_email" name="vis_email" required>
                 </div>
-                   <button type="submit" class="btn btn-primary">Submit</button> &nbsp;&nbsp;<button type="reset" class="btn btn-primary">Cancel</button>
-                 </div>
+                 <div class="form-group ">
+                      <button type="submit" class="btn btn-primary">Submit</button> &nbsp;&nbsp;<button type="reset" class="btn btn-primary">Cancel</button>
+                </div>
+                </div>
            </form>
        </div>
    </div>

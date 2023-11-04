@@ -10,9 +10,25 @@ import { AppointmentService } from 'src/app/Services/appointment.service';
 export class ViewappointmentsComponent implements OnInit {
 
   constructor(private appointserv: AppointmentService,private router : Router) {}
-  aplist :any
+  aplist : any
+  isloggedinuser !: boolean
   ngOnInit(): void {
-        this.appointserv.getAllAppointments().subscribe(data=>this.aplist=data);
+        this.isloggedinuser = false
+        if(sessionStorage.getItem('vis_email')!=null)
+        {
+          this.appointserv.getAppointmentByEmail(sessionStorage.getItem('vis_email'))
+                                                                      .subscribe(data=>
+                                                                                { 
+                                                                                    this.aplist=data 
+                                                                                    if(sessionStorage.getItem('authenticatedUser')!=null)
+                                                                                    {
+                                                                                      this.isloggedinuser=true
+                                                                                    }
+                                                                                });
+        }                                                                                
+        else {
+          this.router.navigate(['searchappointment'])
+        }
   }
 
   getAppointmentById(apid : any)

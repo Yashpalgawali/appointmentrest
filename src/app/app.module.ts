@@ -27,6 +27,9 @@ import { RouterModule } from '@angular/router';
 import { SearchappointmentComponent } from './MyComponents/Appointment/searchappointment/searchappointment.component';
 import { HttpInterceptorBasicAuthService } from './Services/http/http-interceptor-basic-auth.service';
 import { LogoutComponent } from './MyComponents/Login/logout/logout.component';
+import { HomeComponent } from './MyComponents/home/home.component';
+import { OtpComponent } from './MyComponents/otp/otp.component';
+import { ConfirmOtpComponent } from './MyComponents/confirm-otp/confirm-otp.component';
 
 
 
@@ -51,7 +54,10 @@ import { LogoutComponent } from './MyComponents/Login/logout/logout.component';
     LoginComponent,
     AdminhomeComponent,
     SearchappointmentComponent,
-    LogoutComponent
+    LogoutComponent,
+    HomeComponent,
+    OtpComponent,
+    ConfirmOtpComponent
   ],
   imports: [
     BrowserModule,

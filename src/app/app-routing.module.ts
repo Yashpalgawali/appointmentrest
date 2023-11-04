@@ -21,6 +21,8 @@ import { AdminhomeComponent } from './MyComponents/Admin/adminhome/adminhome.com
 import { SearchappointmentComponent } from './MyComponents/Appointment/searchappointment/searchappointment.component';
 import { LogoutComponent } from './MyComponents/Login/logout/logout.component';
 import { RouteGuardService } from './Services/route-guard.service';
+import { HomeComponent } from './MyComponents/home/home.component';
+import { ConfirmOtpComponent } from './MyComponents/confirm-otp/confirm-otp.component';
 
 const routes: Routes = [
   { path :"addcompany" , component : AddcompanyComponent , canActivate : [RouteGuardService]},
@@ -36,13 +38,15 @@ const routes: Routes = [
   { path :"viewemployee" , component : ViewemployeeComponent, canActivate : [RouteGuardService]},
   { path :"editempbyid/:id" , component : EditemployeeComponent, canActivate : [RouteGuardService]} ,
   { path :"bookappointment" , component : BookappointmentComponent} ,
-  { path :"viewappointments" , component : ViewappointmentsComponent, canActivate : [RouteGuardService]},
+  { path :"viewappointments" , component : ViewappointmentsComponent},
   { path :"editappointbyid/:id" , component : EditappointmentComponent, canActivate : [RouteGuardService]} ,
   { path :"login" , component : LoginComponent },
-  { path :"" , component : LoginComponent},
+  { path :"" , component : HomeComponent},
   { path :"logout" , component : LogoutComponent, canActivate : [RouteGuardService]},
   { path :"adminhome" , component : AdminhomeComponent, canActivate : [RouteGuardService]} ,
-  { path :"searchappointment" , component : SearchappointmentComponent}
+  { path :"searchappointment" , component : SearchappointmentComponent},
+  { path :"confirmotp" , component : ConfirmOtpComponent},
+  
 
   
   

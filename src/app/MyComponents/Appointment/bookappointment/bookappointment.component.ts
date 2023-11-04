@@ -27,9 +27,11 @@ export class BookappointmentComponent implements OnInit {
   }
 
   onSubmit() {
-   // alert(this.appoint.employee.emp_id+" => "+ this.appoint.employee.emp_name )
-    this.appointserv.saveAppointment(this.appoint).subscribe(data=>this.goToViewAppointments());
-  }
+    this.appointserv.saveAppointment(this.appoint).subscribe(data=>{ 
+                                                            sessionStorage.setItem('vis_email',this.appoint.vis_email)
+                                                            this.goToViewAppointments() });
+    }
+  
   goToViewAppointments()
   {
     this.router.navigate(['viewappointments']);
