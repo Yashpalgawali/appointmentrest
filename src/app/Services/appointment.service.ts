@@ -10,6 +10,7 @@ export class AppointmentService {
 
   app_url = GlobalComponent.base_url;
   base_url= this.app_url+"appointment/";
+
   constructor(private http: HttpClient) { }
 
   public getAllAppointments()
@@ -39,10 +40,7 @@ export class AppointmentService {
     return this.http.post<Appointment>(`${this.base_url}`,appoint);
   }
 
-  public getAppointmentCounts()
-  {
-    return this.http.get<Appointment[]>(`${this.base_url}getcounts`);
-  }
+ 
   public updateAppointment(appoint : Appointment)
   {
     return this.http.put<Appointment[]>(`${this.base_url}`,appoint);

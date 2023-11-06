@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminappointmentsService } from 'src/app/Services/adminappointments.service';
 import { AppointmentService } from 'src/app/Services/appointment.service';
 
 @Component({
@@ -14,9 +15,10 @@ export class AdminhomeComponent implements OnInit{
   pending_count !: number ;
   confirmed_count !: number ;
   
-  constructor(private appointserv : AppointmentService) { }
+  constructor(private appointserv : AdminappointmentsService) { }
   
   ngOnInit(): void {
+    
       this.apcount = this.appointserv.getAppointmentCounts().subscribe(data=>this.apcount=data);
   }
 }

@@ -30,6 +30,8 @@ import { LogoutComponent } from './MyComponents/Login/logout/logout.component';
 import { HomeComponent } from './MyComponents/home/home.component';
 import { OtpComponent } from './MyComponents/otp/otp.component';
 import { ConfirmOtpComponent } from './MyComponents/confirm-otp/confirm-otp.component';
+import { ForgotPasswordComponent } from './MyComponents/forgot-password/forgot-password.component';
+import { ChangePasswordComponent } from './MyComponents/change-password/change-password.component';
 
 
 
@@ -57,7 +59,9 @@ import { ConfirmOtpComponent } from './MyComponents/confirm-otp/confirm-otp.comp
     LogoutComponent,
     HomeComponent,
     OtpComponent,
-    ConfirmOtpComponent
+    ConfirmOtpComponent,
+    ForgotPasswordComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,

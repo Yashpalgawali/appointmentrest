@@ -1,20 +1,21 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { GlobalComponent } from '../GlobalComponent';
-import { Appointment } from '../Models/Appointment';
+import { Users } from '../Models/Users';
+import { Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AdminappointmentsService {
-  
+export class UserService {
+
   app_url = GlobalComponent.base_url;
-  base_url= this.app_url+"adminappointment/";
-  
+  base_url= this.app_url+"users/";
+
   constructor(private http : HttpClient) { }
 
-  public getAppointmentCounts()
+  getUserByUserName(uname : string):Observable<Users>
   {
-    return this.http.get<Appointment[]>(`${this.base_url}getcounts`);
+    return this.http.get<Users>(`${this.base_url}${uname}`)
   }
 }

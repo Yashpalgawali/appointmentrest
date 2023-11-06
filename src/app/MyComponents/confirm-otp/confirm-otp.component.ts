@@ -29,9 +29,7 @@ export class ConfirmOtpComponent  implements OnInit{
       this.router.navigate(['viewappointments'])
     }
     else {
-      alert("Wrong OTp")
       sessionStorage.removeItem('response')
-      alert(sessionStorage.getItem('response'))
       this.reserr= 'OTP Didn/\'t matched'
       sessionStorage.setItem('reserr','OTP Didn/\'t matched ')
       this.router.navigate(['confirmotp'])

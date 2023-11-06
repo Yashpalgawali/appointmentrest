@@ -1,10 +1,10 @@
 <head>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap4.min.css" />
 	<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap4.min.css" />
-    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-	<script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap4.min.js"></script>
-	<script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
-	<script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap4.min.js"></script>
+    <script defer src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+	<script defer src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap4.min.js"></script>
+	<script defer src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+	<script defer src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap4.min.js"></script>
 </head>    
 <div class="container" >
     <!-- start: PAGE HEADER -->
@@ -36,6 +36,7 @@
                 <th>Designation</th>
                 <th>Department</th>
                 <th>Company</th>
+                <th>Status</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -47,6 +48,9 @@
                 <td>{{emp.designation.desig_name}}</td>
                 <td>{{emp.department.dept_name}}</td>
                 <td>{{emp.department.company.comp_name}}</td>
+                <td *ngIf="emp.emp_status===0">Disabled</td>
+                <td *ngIf="emp.emp_status===1">Enabled</td>
+                                
                 <td>
                     <button (click)="getEmpById(emp.emp_id)" class="btn btn-primary" > <i class="fa fa-edit"></i> Edit</button> 
                 </td>

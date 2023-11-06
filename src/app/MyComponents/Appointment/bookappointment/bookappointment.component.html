@@ -72,9 +72,13 @@
         <div class="form-group">
             <label for="employee">Employee:</label>
               <select class="form-control mb-3" style="width:100%;" id="employee"  name="employee" [(ngModel)]="appoint.employee" required (change)="getdeptbyempid($event)">
-                
                 <option  disabled>Select Employee</option>
-                        <option *ngFor="let emp of emplist" [ngValue]="emp">{{emp.emp_name}}</option>
+                    <ng-container *ngFor="let emp of emplist">
+                        <option *ngIf="emp.emp_status===1"  [ngValue]="emp">{{emp.emp_name}}</option>
+                    </ng-container>
+                    
+                    <!-- <option *ngFor="let emp of emplist" [ngValue]="emp">{{emp.emp_name}}</option> -->
+
               </select>
          </div>   
          <div class="form-group">

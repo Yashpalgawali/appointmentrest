@@ -23,6 +23,8 @@ import { LogoutComponent } from './MyComponents/Login/logout/logout.component';
 import { RouteGuardService } from './Services/route-guard.service';
 import { HomeComponent } from './MyComponents/home/home.component';
 import { ConfirmOtpComponent } from './MyComponents/confirm-otp/confirm-otp.component';
+import { ForgotPasswordComponent } from './MyComponents/forgot-password/forgot-password.component';
+import { ChangePasswordComponent } from './MyComponents/change-password/change-password.component';
 
 const routes: Routes = [
   { path :"addcompany" , component : AddcompanyComponent , canActivate : [RouteGuardService]},
@@ -43,6 +45,7 @@ const routes: Routes = [
   { path :"login" , component : LoginComponent },
   { path :"" , component : HomeComponent},
   { path :"logout" , component : LogoutComponent, canActivate : [RouteGuardService]},
+  { path :"changepass" , component : ChangePasswordComponent},
   { path :"adminhome" , component : AdminhomeComponent, canActivate : [RouteGuardService]} ,
   { path :"searchappointment" , component : SearchappointmentComponent},
   { path :"confirmotp" , component : ConfirmOtpComponent},

@@ -11,6 +11,7 @@ export class AppComponent  implements OnInit{
  
   title = 'appointmentrest';
   public static islogged: boolean 
+  loggedUser !: string
 
   constructor() { 
     AppComponent.islogged =false
@@ -19,6 +20,7 @@ export class AppComponent  implements OnInit{
   isUserLoggedIn() {
     if(sessionStorage.getItem('authenticatedUser'))
     {
+      this.loggedUser = `${sessionStorage.getItem('authenticatedUser')}`
      return AppComponent.islogged = true
     }
     else {
