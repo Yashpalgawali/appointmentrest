@@ -44,9 +44,9 @@ export class LoginComponent implements OnInit {
                                                                 this.router.navigate(['adminhome'])
                                                                 this.invalidLogin=false
                                                             },error=> {
-                                                              this.errorMessage = "Invalid Credentials";
-                                                              this.router.navigate(['login'])
-                                                              this.invalidLogin=true
+                                                                this.errorMessage = "Invalid Credentials";
+                                                                this.router.navigate(['login'])
+                                                                this.invalidLogin=true
                                                             });
   }
 
@@ -54,4 +54,8 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['adminhome']);
   }
 
+  forgotpassword()
+  {
+    this.router.navigate(['forgotpassword'])
+  }
 }

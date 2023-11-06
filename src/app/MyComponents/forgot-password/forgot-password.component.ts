@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { data } from 'jquery';
 import { Appointment } from 'src/app/Models/Appointment';
+import { Users } from 'src/app/Models/Users';
+import { UserService } from 'src/app/Services/user.service';
 
 @Component({
   selector: 'app-forgot-password',
@@ -8,16 +12,21 @@ import { Appointment } from 'src/app/Models/Appointment';
 })
 export class ForgotPasswordComponent implements OnInit {
 
-  otp     !: String
+  otp     : any
   cnf_otp !: number
   reserr  !: string
-  appoint  : Appointment = new Appointment();
+  user  : Users = new Users();
+  
+  constructor(private userserv : UserService,private router : Router) { }
 
   ngOnInit(): void {
-    
   }
 
   changepassword() {
-    
+    this.userserv.generateOtp(this.user.user_email).subscribe(data=>
+                                                              {
+                                                                sessionStorage.setItem('otp',`${data}`)
+                                                                this.router.navigate(['confirmotp'])
+                                                              })
   }
 }

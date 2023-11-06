@@ -18,4 +18,9 @@ export class UserService {
   {
     return this.http.get<Users>(`${this.base_url}${uname}`)
   }
+
+  generateOtp(vemail : string)
+  {
+    return this.http.get(`${this.base_url}otp/${vemail}`);
+  }
 }

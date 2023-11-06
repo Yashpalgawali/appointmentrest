@@ -49,8 +49,8 @@ const routes: Routes = [
   { path :"adminhome" , component : AdminhomeComponent, canActivate : [RouteGuardService]} ,
   { path :"searchappointment" , component : SearchappointmentComponent},
   { path :"confirmotp" , component : ConfirmOtpComponent},
-  
-
+  { path :"forgotpassword" , component : ForgotPasswordComponent},
+  { path :"confirmotp" , component : ConfirmOtpComponent},
   
   
 ];

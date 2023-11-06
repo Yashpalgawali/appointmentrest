@@ -15,27 +15,11 @@ export class CompanyService {
 
   public saveCompany(company : Company):Observable<Company>
   {
-   // const headers = new HttpHeaders({Authorization : 'Basic '+btoa("admin"+":"+"admin")});
     return this.http.post<Company>(`${this.base_url}`,company  );
   }
 
-  // createBasicAuthenticationHeader() {
-
-  //   let username = 'admin'
-  //   let password = 'admin'
-  //   let basicHeaderString = 'Basic '+window.btoa(username+':'+password)
-
-  //   return basicHeaderString ;
-  // }
-
   public getAllCompanies():Observable<Company[]>
   {
-    // let basicAuthHeaderString = this.createBasicAuthenticationHeader()
-
-    // let header = new HttpHeaders({
-    //     Authorization : basicAuthHeaderString
-    // })
-    // return this.http.get<Company[]>(`${this.base_url}`,{headers : header});
     return this.http.get<Company[]>(`${this.base_url}`);
   }
 

@@ -28,10 +28,11 @@ import { SearchappointmentComponent } from './MyComponents/Appointment/searchapp
 import { HttpInterceptorBasicAuthService } from './Services/http/http-interceptor-basic-auth.service';
 import { LogoutComponent } from './MyComponents/Login/logout/logout.component';
 import { HomeComponent } from './MyComponents/home/home.component';
-import { OtpComponent } from './MyComponents/otp/otp.component';
+
 import { ConfirmOtpComponent } from './MyComponents/confirm-otp/confirm-otp.component';
 import { ForgotPasswordComponent } from './MyComponents/forgot-password/forgot-password.component';
 import { ChangePasswordComponent } from './MyComponents/change-password/change-password.component';
+import { ConfirmOtpForgotPassComponent } from './MyComponents/confirm-otp-forgot-pass/confirm-otp-forgot-pass.component';
 
 
 
@@ -58,10 +59,11 @@ import { ChangePasswordComponent } from './MyComponents/change-password/change-p
     SearchappointmentComponent,
     LogoutComponent,
     HomeComponent,
-    OtpComponent,
+    
     ConfirmOtpComponent,
     ForgotPasswordComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    ConfirmOtpForgotPassComponent
   ],
   imports: [
     BrowserModule,
