@@ -17,4 +17,14 @@ export class AdminappointmentsService {
   {
     return this.http.get<Appointment[]>(`${this.base_url}getcounts`);
   }
+  public getAppointmentById(apid : any)
+  {
+    return this.http.get<Appointment>(`${this.base_url}${apid}`);
+  }
+
+  public updateAppointment(appoint : Appointment)
+  {
+    return this.http.put<Appointment[]>(`${this.base_url}`,appoint);
+  }
+
 }

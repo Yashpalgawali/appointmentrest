@@ -18,10 +18,10 @@ export class AppointmentService {
     return this.http.get<Appointment[]>(`${this.base_url}`);
   }
 
-  public getAppointmentById(apid : any)
-  {
-    return this.http.get<Appointment>(`${this.base_url}${apid}`);
-  }
+  // public getAppointmentById(apid : any)
+  // {
+  //   return this.http.get<Appointment>(`${this.base_url}${apid}`);
+  // }
 
   //This method is used in Search Appointment
   public getAppointmentByEmailId(emailid : any)
@@ -41,8 +41,4 @@ export class AppointmentService {
   }
 
  
-  public updateAppointment(appoint : Appointment)
-  {
-    return this.http.put<Appointment[]>(`${this.base_url}`,appoint);
-  }
 }

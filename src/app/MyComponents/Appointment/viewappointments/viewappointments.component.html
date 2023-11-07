@@ -11,13 +11,15 @@
         </div>
         <div class="card-header">
             <h4>View Appointments 
-                <a routerLink="/bookappointment" style="float:right;" class="btn btn-primary mb-3">Add Appointment</a>
+                <a routerLink="/bookappointment" style="float:right;" class="btn btn-primary mb-3">Book Appointment</a>
             </h4>
     </div>
-    
+    <div *ngIf="reswait" class="alert alert-warning">{{reswait}}
+
+    </div>
     <div class="card-body">
         <div class="table-responsive-sm">    
-      <table class="table table-striped  table-hover table-full-width dt-responsive nowrap"  style="width: 100%;" id="comptable">
+      <table class="table table-striped  table-hover table-full-width ">
         <thead>
             <tr>
                 <th>Sr No.</th> 

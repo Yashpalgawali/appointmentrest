@@ -1,4 +1,10 @@
 
+<!-- 	 Include Moment.js CDN -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js">  </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+<!--     Include Bootstrap DateTimePicker CDN -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css"  rel="stylesheet" />
+
 <div class="container" >
     <!-- start: PAGE HEADER -->
            <div class="row">
@@ -77,15 +83,12 @@
                         <option *ngIf="emp.emp_status===1"  [ngValue]="emp">{{emp.emp_name}}</option>
                     </ng-container>
                     
-                    <!-- <option *ngFor="let emp of emplist" [ngValue]="emp">{{emp.emp_name}}</option> -->
-
               </select>
          </div>   
          <div class="form-group">
          <label for="designation">Designation:</label>
            <select class="form-control mb-3" style="width:100%;" id="designation"  name="designation" required >
                <option  disabled>Select Designation</option>
-                <!--<option selected [ngValue]="appoint.employee.designation">{{appoint.employee.designation.desig_name}}</option>-->
                 <option >{{appoint.employee.designation.desig_name}}</option>
            </select>
        </div> 
@@ -94,7 +97,6 @@
         <label for="department">Department:</label>
             <select class="form-control  mb-3" style ="width:100%;" id="department" name="department"  required >
                 <option  disabled> Select Department </option>
-                <!--<option selected [ngValue]="appoint.employee.department">{{appoint.employee.department.dept_name}}</option>-->
                 <option >{{appoint.employee.department.dept_name}}</option>
             </select>
        </div>      

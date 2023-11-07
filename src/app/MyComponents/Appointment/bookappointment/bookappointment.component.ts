@@ -24,11 +24,13 @@ export class BookappointmentComponent implements OnInit {
   emp : any  
   ngOnInit(): void {
       this.empserv.getAllEmployees().subscribe(data=>this.emplist=data)
+      
   }
 
   onSubmit() {
     this.appointserv.saveAppointment(this.appoint).subscribe(data=>{ 
                                                             sessionStorage.setItem('vis_email',this.appoint.vis_email)
+                                                            sessionStorage.setItem('reswait','Appointment is booked. Waiting for the Confirmation');
                                                             this.goToViewAppointments() });
     }
   
@@ -38,7 +40,6 @@ export class BookappointmentComponent implements OnInit {
   }
 
   getdeptbyempid(eid : any) {
-    
     //this.empserv.getEmployeeById(eid.target.value).subscribe(data=>this.employee=data);
     //this.empserv.getEmployeeByName(eid.target.value).subscribe(data=>this.employee=data);
   }
