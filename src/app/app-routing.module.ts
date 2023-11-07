@@ -25,6 +25,7 @@ import { HomeComponent } from './MyComponents/home/home.component';
 import { ConfirmOtpComponent } from './MyComponents/confirm-otp/confirm-otp.component';
 import { ForgotPasswordComponent } from './MyComponents/forgot-password/forgot-password.component';
 import { ChangePasswordComponent } from './MyComponents/change-password/change-password.component';
+import { ConfirmOtpForgotPassComponent } from './MyComponents/confirm-otp-forgot-pass/confirm-otp-forgot-pass.component';
 
 const routes: Routes = [
   { path :"addcompany" , component : AddcompanyComponent , canActivate : [RouteGuardService]},
@@ -51,6 +52,7 @@ const routes: Routes = [
   { path :"confirmotp" , component : ConfirmOtpComponent},
   { path :"forgotpassword" , component : ForgotPasswordComponent},
   { path :"confirmotp" , component : ConfirmOtpComponent},
+  { path :"confirmotpforgotpass" , component : ConfirmOtpForgotPassComponent},
   
   
 ];

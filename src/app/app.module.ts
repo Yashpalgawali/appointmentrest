@@ -36,6 +36,7 @@ import { ConfirmOtpForgotPassComponent } from './MyComponents/confirm-otp-forgot
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,7 +60,6 @@ import { ConfirmOtpForgotPassComponent } from './MyComponents/confirm-otp-forgot
     SearchappointmentComponent,
     LogoutComponent,
     HomeComponent,
-    
     ConfirmOtpComponent,
     ForgotPasswordComponent,
     ChangePasswordComponent,
@@ -70,7 +70,6 @@ import { ConfirmOtpForgotPassComponent } from './MyComponents/confirm-otp-forgot
     AppRoutingModule,
     FormsModule,
     HttpClientModule
-  
   ],
   
   providers: [LoginService,Location, {provide: LocationStrategy, useClass: HashLocationStrategy}, 

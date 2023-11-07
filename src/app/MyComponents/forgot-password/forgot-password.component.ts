@@ -12,21 +12,33 @@ import { UserService } from 'src/app/Services/user.service';
 })
 export class ForgotPasswordComponent implements OnInit {
 
-  otp     : any
+  otp      : any
   cnf_otp !: number
   reserr  !: string
-  user  : Users = new Users();
+  user     : Users = new Users();
   
   constructor(private userserv : UserService,private router : Router) { }
 
   ngOnInit(): void {
+
   }
 
   changepassword() {
-    this.userserv.generateOtp(this.user.user_email).subscribe(data=>
-                                                              {
-                                                                sessionStorage.setItem('otp',`${data}`)
-                                                                this.router.navigate(['confirmotp'])
-                                                              })
-  }
+
+    this.userserv.getUserByUserEmail(this.user.user_email)
+                                                        .subscribe(data=>
+                                                        {
+                                                          this.user=data
+                                                          alert(this.user.username)
+                                                        })
+   
+                      // this.userserv.generateOtp(this.user.user_email).subscribe(data=>
+                      //                                         {
+                      //                                           sessionStorage.setItem('otp',`${data}`)
+                      //                                           sessionStorage.setItem('user_email',this.user.user_email)
+                      //                                           sessionStorage.setItem('response','OTP sent to your Email ID')
+                      //                                           alert('OTP in session = '+sessionStorage.getItem('otp'))
+                      //                                           this.router.navigate(['confirmotpforgotpass'])
+                      //                                         })
+                    }
 }

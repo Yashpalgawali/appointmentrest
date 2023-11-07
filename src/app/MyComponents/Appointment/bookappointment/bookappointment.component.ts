@@ -24,7 +24,6 @@ export class BookappointmentComponent implements OnInit {
   emp : any  
   ngOnInit(): void {
       this.empserv.getAllEmployees().subscribe(data=>this.emplist=data)
-      
   }
 
   onSubmit() {

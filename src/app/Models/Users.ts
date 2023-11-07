@@ -7,4 +7,5 @@ export class Users {
     username   !: string
     new_pass  !: string
     cnf_pass  !: string
+    cnf_otp !: number
 }

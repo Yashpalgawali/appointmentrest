@@ -19,6 +19,11 @@ export class UserService {
     return this.http.get<Users>(`${this.base_url}${uname}`)
   }
 
+  getUserByUserEmail(email : string):Observable<Users>
+  {
+    return this.http.get<Users>(`${this.base_url}email/${email}`)
+  }
+
   generateOtp(vemail : string)
   {
     return this.http.get(`${this.base_url}otp/${vemail}`);
