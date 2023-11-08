@@ -28,4 +28,11 @@ export class UserService {
   {
     return this.http.get(`${this.base_url}otp/${vemail}`);
   }
+
+  updatePasswordWithEmail(user : Users):Observable<Users>
+  {
+    return this.http.put<Users>(`${this.base_url}updatepass`,user);
+  }
+
+  
 }

@@ -13,7 +13,7 @@
        <div class="alert alert-success" *ngIf="response!='null'">
                 {{response}}
        </div>                     
-<form  method="POST"  >	
+<form (ngSubmit)="updatePassword()"  method="POST"  >	
     <div class="card">
           <div class="card-header"><h4>Confirm OTP</h4></div>
             <div class="card-body">

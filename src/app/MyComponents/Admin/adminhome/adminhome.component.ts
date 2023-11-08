@@ -18,7 +18,7 @@ export class AdminhomeComponent implements OnInit{
   constructor(private appointserv : AdminappointmentsService) { }
   
   ngOnInit(): void {
-    
+   
       this.apcount = this.appointserv.getAppointmentCounts().subscribe(data=>this.apcount=data);
   }
 }

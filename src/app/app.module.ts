@@ -33,6 +33,7 @@ import { ConfirmOtpComponent } from './MyComponents/confirm-otp/confirm-otp.comp
 import { ForgotPasswordComponent } from './MyComponents/forgot-password/forgot-password.component';
 import { ChangePasswordComponent } from './MyComponents/change-password/change-password.component';
 import { ConfirmOtpForgotPassComponent } from './MyComponents/confirm-otp-forgot-pass/confirm-otp-forgot-pass.component';
+import { UpdatePasswordComponent } from './MyComponents/update-password/update-password.component';
 
 
 
@@ -63,7 +64,8 @@ import { ConfirmOtpForgotPassComponent } from './MyComponents/confirm-otp-forgot
     ConfirmOtpComponent,
     ForgotPasswordComponent,
     ChangePasswordComponent,
-    ConfirmOtpForgotPassComponent
+    ConfirmOtpForgotPassComponent,
+    UpdatePasswordComponent
   ],
   imports: [
     BrowserModule,

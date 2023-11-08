@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { data } from 'jquery';
+import { data, error } from 'jquery';
 import { Appointment } from 'src/app/Models/Appointment';
 import { Users } from 'src/app/Models/Users';
 import { UserService } from 'src/app/Services/user.service';
@@ -29,16 +29,18 @@ export class ForgotPasswordComponent implements OnInit {
                                                         .subscribe(data=>
                                                         {
                                                           this.user=data
-                                                          alert(this.user.username)
+                                                          this.reserr=""
+                                                          this.userserv.generateOtp(this.user.user_email).subscribe(data=>
+                                                            {
+                                                              sessionStorage.setItem('otp',`${data}`)
+                                                              sessionStorage.setItem('user_email',this.user.user_email)
+                                                              sessionStorage.setItem('response','OTP sent to your Email ID')
+                                                              this.router.navigate(['confirmotpforgotpass'])
+                                                            })
+                                                        },error=>{
+                                                            this.reserr="No User found for given Email"
                                                         })
    
-                      // this.userserv.generateOtp(this.user.user_email).subscribe(data=>
-                      //                                         {
-                      //                                           sessionStorage.setItem('otp',`${data}`)
-                      //                                           sessionStorage.setItem('user_email',this.user.user_email)
-                      //                                           sessionStorage.setItem('response','OTP sent to your Email ID')
-                      //                                           alert('OTP in session = '+sessionStorage.getItem('otp'))
-                      //                                           this.router.navigate(['confirmotpforgotpass'])
-                      //                                         })
+                      
                     }
 }

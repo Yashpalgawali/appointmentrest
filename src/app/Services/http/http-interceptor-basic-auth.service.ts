@@ -23,15 +23,6 @@ export class HttpInterceptorBasicAuthService implements HttpInterceptor {
         })
     
     return next.handle(request);
-   /* let username = 'admin'
-    let password = 'admin'
-    let basicHeaderString = 'Basic '+window.btoa(username+':'+password)
   
-    request = request.clone({
-      setHeaders : {
-        Authorization :  basicHeaderString
-      }
-    })
-    return next.handle(request)*/
   }
 } 
