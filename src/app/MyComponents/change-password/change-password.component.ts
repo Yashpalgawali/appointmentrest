@@ -24,9 +24,9 @@ export class ChangePasswordComponent implements OnInit {
   ngOnInit(): void {
     this.userserv.getUserByUserName(`${sessionStorage.getItem('authenticatedUser')}`)
                                                                       .subscribe(data=>
-                                                                                {
-                                                                                    this.user=data
-                                                                                })
+                                                                      {
+                                                                          this.user=data
+                                                                      })
   }
 
   changepassword() {
