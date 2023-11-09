@@ -20,7 +20,7 @@ export class UpdatePasswordComponent implements OnInit{
   updatePassword() {
     let cpass = this.user.cnf_pass
     if(this.user.new_pass==this.user.cnf_pass)
-    {alert("New Pass ="+this.user.new_pass)
+    {
       this.userserv.getUserByUserEmail(`${sessionStorage.getItem('user_email')}`)
                           .subscribe(
                                   data=>{
