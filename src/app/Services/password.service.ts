@@ -15,7 +15,7 @@ export class PasswordService {
   constructor(private http : HttpClient) { }
 
   updatePassword(user : Users):Observable<Users>
-  {alert('inside pass service '+user.cnf_pass+'\n ID = '+user.user_id)
+  {
    return  this.http.put<Users>(`${this.base_url}changepassword`,user)
   }
 }

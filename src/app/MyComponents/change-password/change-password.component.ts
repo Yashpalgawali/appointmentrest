@@ -36,7 +36,7 @@ export class ChangePasswordComponent implements OnInit {
     if(this.user.new_pass===this.user.cnf_pass)
     {
       this.passserv.updatePassword(this.user).subscribe(data=>{ this.baseauthserv.executeAuthenticationService(`${sessionStorage.getItem('authenticatedUser')}`,this.user.cnf_pass)
-                                                                this.router.navigate(['/'])
+                                                                this.router.navigate(['/adminhome'])
                                                               })
     }
   }
