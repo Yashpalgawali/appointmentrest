@@ -16,9 +16,7 @@ export class HttpInterceptorBasicAuthService implements HttpInterceptor {
     let basicAuthHeaderString =  sessionStorage.getItem('token')
     let username = this.basicAuthenticationService.getAuthenticatedUser()
 
-   
-//if(basicAuthHeaderString && username)
-      request = request.clone({
+    request = request.clone({
         setHeaders : {
             Authorization : `${basicAuthHeaderString}`
           }

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { AuthenticationBean } from '../Models/AuthenticationBean';
 import { GlobalComponent } from '../GlobalComponent';
 import { map } from 'rxjs';
+import { error } from 'jquery';
 
 export const TOKEN = 'token'
 export const AUTHENTICATED_USER = 'authenticaterUser'
@@ -17,19 +18,22 @@ export class BasicAuthenticationServiceService {
   base_url= this.app_url+"users/";
   
   executeAuthenticationService(username:any, password:any) {
-    let basicAuthHeaderString = 'Basic ' + window.btoa(username + ':' + password);
+    let basicAuthHeaderString = 'Basic ' + btoa(username + ':' + password);
 
     let headers = new HttpHeaders({
-        Authorization: basicAuthHeaderString
+        Authorization: `${basicAuthHeaderString}`
       })
      
-    //  sessionStorage.setItem('token',basicAuthHeaderString)
+     sessionStorage.setItem('token',basicAuthHeaderString)
       
-      return this.http.get<AuthenticationBean>(`${this.base_url}basicauth`,{ headers : headers }).pipe(map(data=>{
-                    sessionStorage.setItem('token',basicAuthHeaderString);
-                    sessionStorage.setItem('authenticatedUser',username);
-                    return data;
-      }));
+      return this.http.get<AuthenticationBean>(`${this.base_url}basicauth`,{ headers : headers }).pipe(
+                    map(
+                      data=>{
+                              sessionStorage.setItem('token',basicAuthHeaderString);
+                              sessionStorage.setItem('authenticatedUser',username);
+                              return data;
+                        }
+                    ));
   }
 
   getAuthenticatedUser() {
