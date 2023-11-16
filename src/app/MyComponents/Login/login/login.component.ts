@@ -45,6 +45,7 @@ export class LoginComponent implements OnInit {
                                                                 this.invalidLogin=false
                                                             },error=> {
                                                                 this.errorMessage = "Invalid Credentials";
+                                                                this.logoutsuccess = "";
                                                                 this.router.navigate(['login'])
                                                                 this.invalidLogin=true
                                                             });
