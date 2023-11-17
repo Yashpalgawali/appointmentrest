@@ -12,11 +12,8 @@ import { LoginService } from 'src/app/Services/login.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private loginserv : LoginService,
-              private router    : Router,
-              private basicauthserv : BasicAuthenticationServiceService) { 
-                if(sessionStorage.getItem('authenticatedUser'))
-                {
+  constructor(private loginserv : LoginService, private router : Router, private basicauthserv : BasicAuthenticationServiceService) { 
+                if(sessionStorage.getItem('authenticatedUser')) {
                   router.navigate(['adminhome'])
                 }
                 else {

@@ -17,9 +17,7 @@
     <div *ngIf="reswait" class="alert alert-warning">{{reswait}} </div>
     <div class="card-body">
       <div class="table-responsive-sm">    
-       <!-- <table class="table table-striped  table-hover table-full-width " datatable> -->
-        <table class="table table-bordered table-striped table-hover"  >
-
+        <table class="table table-bordered table-striped table-hover" style="width: 100%;" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
         <thead>
             <tr>
                 <th>Sr No.</th> 

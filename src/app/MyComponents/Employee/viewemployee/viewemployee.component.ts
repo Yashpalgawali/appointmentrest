@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subject } from 'rxjs';
 import { EmployeeService } from 'src/app/Services/employee.service';
 
 @Component({
@@ -10,17 +11,26 @@ import { EmployeeService } from 'src/app/Services/employee.service';
 export class ViewemployeeComponent implements OnInit {
 
   emplist : any;
-  constructor( private empserv :EmployeeService,private router : Router) {}
-  ngOnInit(): void {
-    this.empserv.getAllEmployees().subscribe(data=>this.emplist=data);
+  dtOptions : DataTables.Settings={}
+  dtTrigger : Subject<any> = new Subject<any>
+  constructor( private empserv :EmployeeService,private router : Router) { }
 
-    $(document).ready(function(){
-      $('#emptable').DataTable();
-    })
+  ngOnInit(): void {
+    this.dtOptions={
+      pagingType : 'full_numbers'
+    }
+    this.empserv.getAllEmployees().subscribe(data=>{ 
+                                                    this.emplist=data 
+                                                    this.dtTrigger.next(null)
+                                                   }
+                                            );
   }
 
   getEmpById(eid : any)
   {
     this.router.navigate(['editempbyid',eid]);
+  }
+  ngOnDestroy(): void {
+    this.dtTrigger.unsubscribe()
   }
 }

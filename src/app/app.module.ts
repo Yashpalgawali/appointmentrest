@@ -35,7 +35,7 @@ import { ChangePasswordComponent } from './MyComponents/change-password/change-p
 import { ConfirmOtpForgotPassComponent } from './MyComponents/confirm-otp-forgot-pass/confirm-otp-forgot-pass.component';
 import { UpdatePasswordComponent } from './MyComponents/update-password/update-password.component';
 
-
+import {DataTablesModule} from 'angular-datatables';
 
 
 @NgModule({
@@ -71,7 +71,8 @@ import { UpdatePasswordComponent } from './MyComponents/update-password/update-p
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    DataTablesModule
   ],
   
   providers: [LoginService,Location, {provide: LocationStrategy, useClass: HashLocationStrategy}, 

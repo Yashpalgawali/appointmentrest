@@ -11,8 +11,8 @@ import { AppointmentService } from 'src/app/Services/appointment.service';
 export class ViewappointmentsComponent implements OnInit {
 
 
-  // dtOptions: DataTables.Settings = {};
-  // dtTrigger: Subject<any> = new Subject<any>();
+  dtOptions: DataTables.Settings = {};
+  dtTrigger: Subject<any> = new Subject<any>();
 
   constructor(private appointserv: AppointmentService,private router : Router) { }
   aplist          : any
@@ -20,14 +20,16 @@ export class ViewappointmentsComponent implements OnInit {
   reswait  !: string
   ngOnInit()      : void {
         this.isloggedinuser = false
-        
+        this.dtOptions={
+          pagingType : 'full_numbers'
+        }
         if(sessionStorage.getItem('authenticatedUser')!=null)
         {
           this.isloggedinuser=true
           this.appointserv.getAllAppointments().subscribe(data=>{
                                                 this.aplist=data 
                                                 // initiate our data table
-                                                // this.dtTrigger.next();
+                                                 this.dtTrigger.next(null);
                                               })
         }
         else 
@@ -57,9 +59,9 @@ export class ViewappointmentsComponent implements OnInit {
       }
   }
 
-  // ngOnDestroy(): void {
-  //   this.dtTrigger.unsubscribe();
-  // }
+  ngOnDestroy(): void {
+    this.dtTrigger.unsubscribe();
+  }
 
   getAppointmentById(apid : any)
   {
