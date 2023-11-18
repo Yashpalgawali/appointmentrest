@@ -11,7 +11,7 @@ declare const $: any;
   templateUrl: './viewcompany.component.html',
   styleUrls: ['./viewcompany.component.css']
 })
-export class ViewcompanyComponent                 {
+export class ViewcompanyComponent {
 
   complist : any;
   comp_id  : any; 
@@ -26,12 +26,12 @@ export class ViewcompanyComponent                 {
 
   ngOnInit(): void {
     this.dtOptions={
-        pagingType : 'simple_numbers'
+        pagingType : 'full_numbers'
     }
     this.compserv.getAllCompanies().subscribe(data=>{
                                                       this.complist=data 
                                                        // initiate our data table
-                                                        this.dtTrigger.next(null);
+                                                       this.dtTrigger.next(null)
                                                     });
     
   }

@@ -12,11 +12,12 @@
                    
                    <!-- start: PAGE TITLE & BREADCRUMB -->
                    <ol class="breadcrumb">
-                       <li class="breadcrumb-item">
-                           <a  routerLink="/">
-                               <i class="fa fa-home"></i>&nbsp;Home
-                           </a>
-                       </li>
+                    <li class="breadcrumb-item" *ngIf="logged_user!=null">
+                        <a routerLink="/adminhome"> <i class="fa fa-home"></i>&nbsp;Home </a>
+                   </li>
+                    <li class="breadcrumb-item" *ngIf="logged_user==null">
+                        <a routerLink="/"> <i class="fa fa-home"></i>&nbsp;Home </a>
+                    </li>
                        <li class="breadcrumb-item active" aria-current="page">
                            Book Appointment
                        </li>

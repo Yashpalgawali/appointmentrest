@@ -43,7 +43,6 @@
                 <td>{{emp.department.company.comp_name}}</td>
                 <td *ngIf="emp.emp_status===0">Disabled</td>
                 <td *ngIf="emp.emp_status===1">Enabled</td>
-                                
                 <td>
                     <button (click)="getEmpById(emp.emp_id)" class="btn btn-primary" > <i class="fa fa-edit"></i> Edit</button> 
                 </td>

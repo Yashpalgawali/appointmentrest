@@ -4,6 +4,7 @@ import { data } from 'jquery';
 import { Appointment } from 'src/app/Models/Appointment';
 import { Employee } from 'src/app/Models/Employee';
 import { AppointmentService } from 'src/app/Services/appointment.service';
+import { BasicAuthenticationServiceService } from 'src/app/Services/basic-authentication-service.service';
 import { EmployeeService } from 'src/app/Services/employee.service';
 
 @Component({
@@ -15,14 +16,16 @@ export class BookappointmentComponent implements OnInit {
 
   constructor(private appointserv : AppointmentService,
               private empserv : EmployeeService,
-              private router : Router) {
-               
+              private router : Router,
+              private basicauthserv : BasicAuthenticationServiceService) {
               }
+  logged_user  : any          
   appoint  : Appointment = new Appointment();
   employee : Employee = new Employee();
   emplist : any
   emp : any  
   ngOnInit(): void {
+    this.logged_user = sessionStorage.getItem('authenticatedUser')
       this.empserv.getAllEmployees().subscribe(data=>this.emplist=data)
   }
 
