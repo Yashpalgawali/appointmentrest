@@ -40,9 +40,12 @@ export class ViewappointmentsComponent implements OnInit {
                                                                         .subscribe(data=>
                                                                         {
                                                                             this.aplist=data 
+                                                                            // initiate our data table
+                                                                            this.dtTrigger.next(null);
                                                                             if(sessionStorage.getItem('reswait'))
                                                                             {
                                                                               this.reswait = `${sessionStorage.getItem('reswait')}`
+                                                                             
                                                                               setTimeout(() => {
                                                                                 sessionStorage.removeItem('reswait')
                                                                               }, 4000);
