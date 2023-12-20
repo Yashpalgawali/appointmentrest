@@ -32,21 +32,19 @@ export class ChangePasswordComponent implements OnInit {
   }
 
   changepassword() {
-<<<<<<< HEAD
     if(this.user.new_pass===this.user.cnf_pass)
     {
       this.passserv.updatePassword(this.user).subscribe(data=>
                                                         { this.baseauthserv.executeAuthenticationService(`${sessionStorage.getItem('authenticatedUser')}`,this.user.cnf_pass)
                                                           this.router.navigate(['/adminhome'])
                                                         })
-=======
     
     if(this.user.new_pass===this.user.cnf_pass)
     {
       this.passserv.updatePassword(this.user).subscribe(data=>{ this.baseauthserv.executeAuthenticationService(`${sessionStorage.getItem('authenticatedUser')}`,this.user.cnf_pass)
                                                                 this.router.navigate(['/adminhome'])
                                                               })
->>>>>>> 465f0fad9b96649a91254fee987acf19b6ff5b7c
     }
+  }
   }
 }

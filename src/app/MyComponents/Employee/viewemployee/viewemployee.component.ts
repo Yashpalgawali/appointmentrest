@@ -17,12 +17,9 @@ export class ViewemployeeComponent implements OnInit {
 
   ngOnInit(): void {
     this.dtOptions={
-<<<<<<< HEAD
       pagingType : 'full_numbers',
       responsive : true
-=======
-      pagingType : 'full_numbers'
->>>>>>> 465f0fad9b96649a91254fee987acf19b6ff5b7c
+      
     }
     this.empserv.getAllEmployees().subscribe(data=>{ 
                                                     this.emplist=data 

@@ -23,10 +23,7 @@ export class HttpInterceptorBasicAuthService implements HttpInterceptor {
         })
     
     return next.handle(request);
-<<<<<<< HEAD
      
-=======
   
->>>>>>> 465f0fad9b96649a91254fee987acf19b6ff5b7c
   }
 } 

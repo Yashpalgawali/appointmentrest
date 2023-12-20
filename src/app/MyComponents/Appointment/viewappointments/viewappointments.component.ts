@@ -21,13 +21,9 @@ export class ViewappointmentsComponent implements OnInit {
   ngOnInit()      : void {
         this.isloggedinuser = false
         this.dtOptions={
-<<<<<<< HEAD
           pagingType : 'full_numbers',
           // Use this attribute to enable the responsive extension
           responsive: true
-=======
-          pagingType : 'full_numbers'
->>>>>>> 465f0fad9b96649a91254fee987acf19b6ff5b7c
         }
         if(sessionStorage.getItem('authenticatedUser')!=null)
         {
@@ -77,11 +73,4 @@ export class ViewappointmentsComponent implements OnInit {
     this.router.navigate(['editappointbyid',apid]); 
   }
 }
-<<<<<<< HEAD
-
-=======
-function $timeout(arg0: () => void, arg1: number) {
-  throw new Error('Function not implemented.');
-}
->>>>>>> 465f0fad9b96649a91254fee987acf19b6ff5b7c
-
+ 

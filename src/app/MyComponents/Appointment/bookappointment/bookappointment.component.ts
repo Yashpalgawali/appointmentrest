@@ -26,11 +26,8 @@ export class BookappointmentComponent implements OnInit {
   emplist : any
   emp : any  
   ngOnInit(): void {
-<<<<<<< HEAD
 
     
-=======
->>>>>>> 465f0fad9b96649a91254fee987acf19b6ff5b7c
     this.logged_user = sessionStorage.getItem('authenticatedUser')
       this.empserv.getAllEmployees().subscribe(data=>this.emplist=data)
   }
