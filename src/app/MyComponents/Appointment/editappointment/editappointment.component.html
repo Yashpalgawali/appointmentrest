@@ -1,0 +1,112 @@
+
+<div class="container" >
+    <!-- start: PAGE HEADER -->
+           <div class="row">
+               <div class="col-sm-12">
+                   
+                   <!-- start: PAGE TITLE & BREADCRUMB -->
+                   <ol class="breadcrumb">
+                       <li class="breadcrumb-item">
+                           <a routerLink="/">
+                               <i class="fa fa-home"></i>&nbsp;Home
+                           </a>
+                       </li>
+                       <li class="breadcrumb-item active" aria-current="page">
+                           Edit Appointment
+                       </li>
+                   </ol>
+               </div>
+           </div>
+   
+   <form (ngSubmit)="onSubmit()" method="POST" >	
+     
+       <div class="card">
+           <div class="card-header"><h4>Edit Appointment</h4></div>
+       <div class="card-body">
+          <div class="form-group">
+           <label for="vis_name">Visitor Name:</label>
+               <input type="text" class="form-control mb-3" id="vis_name" placeholder="Enter Visitor Name" [(ngModel)]="appoint.vis_name" name="vis_name" required>
+          </div>    
+          
+          <div class="form-group">
+            <label for="vis_email"> Email:</label>
+              <input type="email" class="form-control mb-3" id="vis_email" placeholder="Enter Visitor Address" [(ngModel)]="appoint.vis_email" name="vis_email" required>
+         </div> 
+
+         <div class="form-group">
+            <label for="vis_purpose"> Purpose:</label>
+                <textarea class="form-control mb-3" name="vis_purpose" id="vis_purpose" cols="30"  rows="5" [(ngModel)]="appoint.vis_purpose" required ></textarea>  
+         </div> 
+
+         <div class="form-group">
+            <label for="apdate">Appointment Date</label>
+                <div class="input-group mb-3">
+                    <input class="form-control border-right-0" id="apdate" name="apdate" [(ngModel)]="appoint.apdate" required>
+
+                        <span class="input-group-append bg-white border-left-0">
+                            <span class="input-group-text bg-transparent">
+                                    <i class="fa fa-calendar fa-lg"></i>
+                            </span>
+                        </span>
+                </div>
+        </div>
+        <div class="form-group">
+             <label for="aptime">Appointment Time:</label>
+                <div class="input-group mb-3">
+                <input class="form-control" type="text" id="aptime"  name="aptime" [(ngModel)]="appoint.aptime" autocomplete="off"/>
+                    <span class="input-group-append bg-white border-left-0">
+                            <span class="input-group-text bg-transparent">
+                                    <i class="fa fa-clock-o fa-lg"></i>
+                            </span>
+                    </span>
+            </div>
+        </div>
+          <div class="form-group">
+            <label for="designation">Employee:</label>
+              <select class="form-control mb-3" style="width:100%;" id="employee"  name="employee" required (change)="getdeptbyempid($event)">
+                  <option selected disabled>Select Employee</option>
+                        <option *ngFor="let emp of emplist" value="{{emp.emp_id}}">{{emp.emp_name}}</option>
+              </select>
+         <div class="form-group">
+         <label for="designation">Designation:</label>
+           <select class="form-control mb-3" style="width:100%;" id="designation"  name="designation" required >
+               <option selected disabled>Select Designation</option>
+                <option selected value="{{employee.designation.desig_id}}">{{employee.designation.desig_name}}</option>
+                
+           </select>
+       </div> 
+            
+       <div class="form-group">
+         <label for="company">Company:</label>
+           <select class="form-control mb-3" style="width:100%;" id="company"  name="company" required >
+               <option selected disabled="disabled">Select Company Name</option>
+               <option selected value="{{employee.department.company.company_id}}">{{employee.department.company.comp_name}}</option>
+                
+           </select>
+       </div>
+       
+       <div class="form-group">
+        <label for="department">Department:</label>
+            <select class="form-control  mb-3" style ="width:100%;" id="department" name="department" required >
+                <option selected disabled> Select Department </option>
+                <option selected value="{{employee.department.dept_id}}">{{employee.department.dept_name}}</option>
+            </select>
+    </div>
+
+    <div class="form-group">
+        <label for="status">Appointment Status:</label>
+            <select class="form-control  mb-3" style ="width:100%;" id="status" [(ngModel)]="appoint.status" name="status" required >
+                <option selected disabled> Select Appointment Status </option>
+                <option value="declined"> Declined</option>
+                <option value="confirmed"> Confirmed</option>
+                <option value="pending"> Pending</option>
+               
+            </select>
+    </div>
+       
+     
+       <button type="submit" class="btn btn-primary">Submit</button> &nbsp;&nbsp;<button type="reset" class="btn btn-primary">Cancel</button>
+     </div>
+   </div>
+ </div>
+</form></div>

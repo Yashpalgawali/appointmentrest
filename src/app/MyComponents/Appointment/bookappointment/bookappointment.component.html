@@ -1,0 +1,163 @@
+
+<!-- 	 Include Moment.js CDN -->
+<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js">  </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script> -->
+<!--     Include Bootstrap DateTimePicker CDN -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css"  rel="stylesheet" />
+<!-- 	 Include Moment.js CDN -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js">  </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+<script>
+    $(document).ready(function(){
+      
+       
+      $('#apdate').datetimepicker({
+            minDate	: 	today,
+            format	:	'YYYY-MM-DD'
+      });
+      $('#apdate').focusout( function(){
+      
+		if($('#apdate').val()==today){
+		   $('#aptime').datetimepicker({ 
+	    		format: 'hh:mm:ss A',
+	    		minDate: moment(),
+	    		icons: {
+	    				time	: 'fa fa-clock-o',
+	    				date	: 'fa fa-calendar',
+	    				up		: 'fa fa-chevron-up',
+	    				down	: 'fa fa-chevron-down',
+	    				previous: 'fa fa-chevron-left',
+	    				next	: 'fa fa-chevron-right',
+	    				today	: 'fa fa-check',
+	    				clear	: 'fa fa-trash',
+	    				close	: 'fa fa-times'
+	    			},
+	    	});
+		}
+		else
+		{
+		     $('#aptime').datetimepicker({
+	    		format: 'hh:mm:ss A',
+	    		icons: {
+	    				time	: 'fa fa-clock-o',
+	    				date	: 'fa fa-calendar',
+	    				up		: 'fa fa-chevron-up',
+	    				down	: 'fa fa-chevron-down',
+	    				previous: 'fa fa-chevron-left',
+	    				next	: 'fa fa-chevron-right',
+	    				today	: 'fa fa-check',
+	    				clear	: 'fa fa-trash',
+	    				close	: 'fa fa-times'
+	    			},	
+	    	});
+		}
+	 });
+    })
+
+</script>
+<div class="container" >
+    <!-- start: PAGE HEADER -->
+           <div class="row">
+               <div class="col-sm-12">
+                   <!-- start: PAGE TITLE & BREADCRUMB -->
+                   <ol class="breadcrumb">
+                    <li class="breadcrumb-item" *ngIf="logged_user!=null">
+                        <a routerLink="/adminhome"> <i class="fa fa-home"></i>&nbsp;Home </a>
+                   </li>
+                    <li class="breadcrumb-item" *ngIf="logged_user==null">
+                        <a routerLink="/"> <i class="fa fa-home"></i>&nbsp;Home </a>
+                    </li>
+                       <li class="breadcrumb-item active" aria-current="page">Book Appointment</li>
+                   </ol>
+               </div>
+           </div>
+   <form (ngSubmit)="onSubmit()" method="POST" >	
+     
+    <div class="card">
+           <div class="card-header"><h4>Book Appointment</h4></div>
+       <div class="card-body">
+       <div class="form-group">
+           <label for="vis_name">Visitor Name:</label>
+               <input type="text" class="form-control mb-3" id="vis_name" placeholder="Enter Visitor Name" [(ngModel)]="appoint.vis_name" name="vis_name" required>
+          </div>
+          <div class="form-group">
+            <label for="vis_email"> Email:</label>
+              <input type="email" class="form-control mb-3" id="vis_email" placeholder="Enter Visitor Email" [(ngModel)]="appoint.vis_email" name="vis_email" required>
+         </div> 
+        <div class="form-group">
+            <label for="vis_contact"> Contact:</label>
+              <input type="number" class="form-control mb-3" id="vis_contact" placeholder="Enter Visitor Contact" [(ngModel)]="appoint.vis_contact" name="vis_contact" required>
+         </div> 
+         <div class="form-group">
+            <label for="vcomp_name"> Visitor's Company:</label>
+              <input type="text" class="form-control mb-3" id="vcomp_name" placeholder="Enter Visitor's Company" [(ngModel)]="appoint.vcomp_name" name="vcomp_name" required>
+         </div> 
+
+        <div class="form-group mb-3">
+            <label for="apdate">Appointment Date</label>
+                <div class="input-group ">
+                    <input class="form-control border-right-0" id="apdate" name="apdate" [(ngModel)]="appoint.apdate" required>
+                        <span class="input-group-append bg-white border-left-0">
+                            <span class="input-group-text bg-transparent">
+                                    <i class="fa fa-calendar fa-lg"></i>
+                            </span>
+                        </span>
+                </div>
+        </div> 
+        <div class="form-group mb-3">
+             <label for="aptime">Appointment Time:</label>
+                <div class="input-group">
+                <input class="form-control" type="text" id="aptime"  name="aptime"  [(ngModel)]="appoint.aptime" autocomplete="off"/>
+                    <span class="input-group-append bg-white border-left-0">
+                            <span class="input-group-text bg-transparent">
+                                    <i class="far fa-clock fa-lg"></i>
+                            </span>
+                    </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="vis_purpose"> Purpose:</label>
+                <textarea cols="5" class="form-control mb-3" rows="3" id="vis_purpose" name="vis_purpose" [(ngModel)]="appoint.vis_purpose" required></textarea>
+         </div> 
+
+        <div class="form-group">
+            <label for="employee">Employee:</label>
+              <select class="form-control mb-3" style="width:100%;" id="employee"  name="employee" [(ngModel)]="appoint.employee" required (change)="getdeptbyempid($event)">
+                <option  disabled>Select Employee</option>
+                    <ng-container *ngFor="let emp of emplist">
+                        <option *ngIf="emp.emp_status===1"  [ngValue]="emp">{{emp.emp_name}}</option>
+                    </ng-container>
+                    
+              </select>
+         </div>   
+         <div class="form-group">
+         <label for="designation">Designation:</label>
+           <select class="form-control mb-3" style="width:100%;" id="designation"  name="designation" required >
+               <option  disabled>Select Designation</option>
+                <option >{{appoint.employee.designation.desig_name}}</option>
+           </select>
+       </div> 
+       
+       <div class="form-group">
+        <label for="department">Department:</label>
+            <select class="form-control  mb-3" style ="width:100%;" id="department" name="department"  required >
+                <option  disabled> Select Department </option>
+                <option >{{appoint.employee.department.dept_name}}</option>
+            </select>
+       </div>      
+       
+       <div class="form-group">
+         <label for="company">Company:</label>
+           <select class="form-control mb-3" style="width:100%;" id="company"  name="company" required >
+               <option  disabled="disabled">Select Company Name</option>
+                <!--<option selected [ngValue]="appoint.employee.department.company">{{appoint.employee.department.company.comp_name}}</option>-->
+                   <option >{{appoint.employee.department.company.comp_name}}</option>
+           </select>
+       </div>
+       
+       <button type="submit" class="btn btn-primary">Submit</button> &nbsp;&nbsp;
+       <button type="reset" class="btn btn-primary">Cancel</button>
+     </div>
+   </div>
+
+</form></div>
