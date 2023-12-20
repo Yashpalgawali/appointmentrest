@@ -9,8 +9,8 @@ import { ConfirmOtpService } from 'src/app/Services/confirm-otp.service';
 })
 export class ConfirmOtpComponent  implements OnInit{
 
-  response !: string
-  reserr !: string
+  response !: string   
+  reserr !: string          
   new_otp : any
   constructor (private otpserv : ConfirmOtpService ,private router : Router) { } 
   
