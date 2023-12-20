@@ -18,7 +18,10 @@ export class ViewdepartmentComponent {
   ngOnInit(): void {
     this.dtOptions={
       pagingType : 'simple_numbers',
+<<<<<<< HEAD
       responsive : true
+=======
+>>>>>>> 465f0fad9b96649a91254fee987acf19b6ff5b7c
      
   }
     this.deptserv.getAllDepartments().subscribe(data=>{

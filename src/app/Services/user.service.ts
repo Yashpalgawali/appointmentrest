@@ -35,4 +35,8 @@ export class UserService {
   }
 
   
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 465f0fad9b96649a91254fee987acf19b6ff5b7c
