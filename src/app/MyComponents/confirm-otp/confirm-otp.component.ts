@@ -24,6 +24,7 @@ export class ConfirmOtpComponent  implements OnInit{
   confirmotp()
   {
     if(this.new_otp==parseInt(`${sessionStorage.getItem('otp')}`)) {
+      sessionStorage.removeItem('otp')
       this.router.navigate(['viewappointments'])
     }
     else {

@@ -34,7 +34,7 @@ export class ForgotPasswordComponent implements OnInit {
                                                             {
                                                               sessionStorage.setItem('otp',`${data}`)
                                                               sessionStorage.setItem('user_email',this.user.user_email)
-                                                              sessionStorage.setItem('response','OTP sent to your Email ID')
+                                                              sessionStorage.setItem('response','OTP sent to your Email '+this.user.user_email)
                                                               this.router.navigate(['confirmotpforgotpass'])
                                                             })
                                                         },error=>{

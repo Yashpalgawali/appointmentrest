@@ -26,9 +26,7 @@ export class BookappointmentComponent implements OnInit {
   emplist : any
   emp : any  
   ngOnInit(): void {
-
-    
-    this.logged_user = sessionStorage.getItem('authenticatedUser')
+      this.logged_user = sessionStorage.getItem('authenticatedUser')
       this.empserv.getAllEmployees().subscribe(data=>this.emplist=data)
   }
 

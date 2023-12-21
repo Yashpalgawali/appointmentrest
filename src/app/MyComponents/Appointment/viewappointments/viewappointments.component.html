@@ -1,62 +1,122 @@
 <div class="container" >
-        <div class="row">
-            <div class="col-sm-12">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item">
-                        <a routerLink="/"> <i class="fa fa-home"></i>&nbsp;Home</a>
-                    </li>
-                    <li class="breadcrumb-item active" aria-current="page">View Appointment</li>
-                </ol>
-            </div>
-        </div>
-        <div class="card-header">
-            <h4>View Appointments 
-                <a routerLink="/bookappointment" style="float:right;" class="btn btn-primary mb-3">Book Appointment</a>
-            </h4>
-    </div>
-    <div *ngIf="reswait" class="alert alert-warning">{{reswait}} </div>
-    <div class="card-body">
-      <div class="table-responsive-sm">    
-        <table class="table table-bordered table-striped table-hover" style="width: 100%;" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
-        <thead>
-            <tr>
-                <th>Sr No.</th> 
-                <th>Visitor Name</th>
-                <th>Appointment Status</th>
-                <th>Purpose</th>
-                <th>Visitor Email</th>
-                <th>Appoint Date </th>
-                <th>Appoint Time</th>
-                <th>Employee</th>
-                <th>Designation</th>
-                <th>Department</th>
-                <th>Company</th>
-                <ng-container *ngIf="isloggedinuser">
-                    <th>Action</th> 
-                </ng-container>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let appoint of aplist;let i = index ">
-                <td>{{i+1}}</td>
-                <td>{{appoint.vis_name}}</td>
-                <td style="text-transform: capitalize;">{{appoint.status}}</td>
-                <td>{{appoint.vis_purpose}}</td>
-                <td>{{appoint.vis_email}}</td>
-                <td>{{appoint.apdate}}</td>
-                <td>{{appoint.aptime}}</td>
-                <td>{{appoint.employee.emp_name}}</td>
-                <td>{{appoint.employee.designation.desig_name}}</td>
-                <td>{{appoint.employee.department.dept_name}}</td>
-                <td>{{appoint.employee.department.company.comp_name}}</td>
-                <ng-container *ngIf="isloggedinuser">
-                <td>
-                    <button (click)="getAppointmentById(appoint.appoint_id)" class="btn btn-primary" > <i class="fa fa-edit"></i> Edit</button> 
-                </td>
-                </ng-container>
-            </tr> 
-        </tbody>
-      </table>
+    <!-- start: PAGE HEADER -->
+           <div class="row">
+               <div class="col-sm-12">
+                <!-- start: PAGE TITLE & BREADCRUMB -->
+                   <ol class="breadcrumb">
+                       <li class="breadcrumb-item">
+                           <a routerLink="/adminhome">
+                               <i class="fa fa-home "></i>&nbsp;Home
+                           </a>
+                       </li>
+                       <li class="breadcrumb-item active" aria-current="page">
+                           View Appointments
+                       </li>
+                   </ol>
+               </div>
+           </div>
+           <div *ngIf="response"><h6 class="alert alert-success">{{response}}</h6></div>
+           <div *ngIf="reswait"> <h6 class="alert alert-danger">{{reswait}}</h6></div>				
+           <div class="card">
+             <div class="card-header">
+                   <h4>View Appointments<a routerLink="/adminbookappoint" class="btn btn-primary" style="float:right;">Book Appointment</a></h4>
+             </div>
+               <!-- <input type="hidden" id="app_name" name="app_name"  th:value="${appname}" />
+               <input type="hidden" id="admemail" name="admemail"  th:value="${admemail}" /> -->
+             <ul class="nav nav-tabs">
+                   <li class="nav-item "><a class="nav-link active" href="#todayappoints" data-toggle="tab">Today's Appointments</a></li>
+                   <li class="nav-item"><a class="nav-link " href="#allappoints" data-toggle="tab">All Appointments</a></li>
+            </ul>
+       <div class="tab-content">
+         <div id="todayappoints" class="tab-pane active">
+            <div class="card-body">
+               <div class="table-responsive-sm" id="todayappoints">
+                   <table class="table table-bordered table-striped table-hover table-full-width dt-responsive nowrap" style="width:100%;text-decoration:none;"  id="aptodaytable" >
+                       <thead style="background-color:#3fbdeb;color:white;">
+                           <tr>
+                               <th>Appointment Status</th>
+                               <th>Visitor's Name</th>
+                               <th>Visit Purpose</th>
+                               <th>Appointment Date</th>
+                               <th>Time</th>
+                               <th>Visitor's Company</th>
+                               <th>Visitor's Email</th>
+                               <th>Visitor's Contact</th>
+                               <th>Personnel Name</th>
+                               <th>Designation</th>
+                               <th>Department</th>
+                               <th>Personnel Company</th>
+                               <th>Actions</th>	
+                           </tr>	
+                       </thead>
+                       <tbody id="aptodaybody">
+                        <tr *ngFor="let appoint of aplist;let i = index ">
+                            <td style="text-transform: capitalize;">{{appoint.status}}</td>
+                            <td>{{appoint.vis_name}}</td>
+                            <td>{{appoint.vis_purpose}}</td>
+                            <td>{{appoint.apdate}}</td>
+                            <td>{{appoint.aptime}}</td>
+                            <td>{{appoint.vcomp_name}}</td>
+                            <td>{{appoint.vis_email}}</td>
+                            <td>{{appoint.vis_contact}}</td>
+                            <td>{{appoint.employee.emp_name}}</td>
+                            <td>{{appoint.employee.designation.desig_name}}</td>
+                            <td>{{appoint.employee.department.dept_name}}</td>
+                            <td>{{appoint.employee.department.company.comp_name}}</td>
+                            <ng-container *ngIf="isloggedinuser">
+                                <td>
+                                    <button (click)="getAppointmentById(appoint.appoint_id)" class="btn btn-primary" > <i class="fa fa-edit"></i> Edit</button>  
+                                </td>
+                            </ng-container> 
+                        </tr> 
+                    </tbody>
+                   </table>
+               </div>
+           </div>
+         </div>
+         <div id="allappoints" class="tab-pane fade">
+            <div class="card-body">
+                   <div class="table-responsive" id="data">
+                      <table class="table table-bordered table-striped table-hover table-full-width dt-responsive nowrap" style="width:100%;text-decoration:none;" id="aptable" >
+                       <thead style="background-color:#3fbdeb;color:white;">
+                           <tr>
+                               <th>Appointment Status</th>
+                               <th>Visitor's Name</th>
+                               <th>Visit Purpose</th>
+                               <th>Appointment Date</th>
+                               <th>Time</th>
+                               <th>Visitor's Company</th>
+                               <th>Visitor's Email</th>
+                               <th>Visitor's Contact</th>
+                               <th>Personnel Name</th>
+                               <th>Personnel Company Name</th>
+                               <th>Actions</th>
+                           </tr>	
+                       </thead>
+                       <tbody id="apbody">
+                        <tr *ngFor="let appoint of aplist;let i = index ">
+                            <td>{{i+1}}</td>
+                            <td>{{appoint.vis_name}}</td>
+                            <td style="text-transform: capitalize;">{{appoint.status}}</td>
+                            <td>{{appoint.vis_purpose}}</td>
+                            <td>{{appoint.vis_email}}</td>
+                            <td>{{appoint.apdate}}</td>
+                            <td>{{appoint.aptime}}</td>
+                            <td>{{appoint.employee.emp_name}}</td>
+                            <td>{{appoint.employee.designation.desig_name}}</td>
+                            <td>{{appoint.employee.department.dept_name}}</td>
+                            <td>{{appoint.employee.department.company.comp_name}}</td>
+                            <ng-container *ngIf="isloggedinuser">
+                                <td>
+                                    <button (click)="getAppointmentById(appoint.appoint_id)" class="btn btn-primary" > <i class="fa fa-edit"></i> Edit</button>  
+                                </td>
+                            </ng-container> 
+                        </tr> 
+                    </tbody>
+                   </table>
+               </div>
+           </div>
+         </div>
+       </div>
      </div>
     </div>
-  </div>

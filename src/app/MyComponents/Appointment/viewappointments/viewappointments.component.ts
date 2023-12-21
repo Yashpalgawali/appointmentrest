@@ -1,6 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { data } from 'jquery';
 import { Subject } from 'rxjs';
+import { Appointment } from 'src/app/Models/Appointment';
 import { AppointmentService } from 'src/app/Services/appointment.service';
 
 @Component({
@@ -15,9 +17,11 @@ export class ViewappointmentsComponent implements OnInit {
   dtTrigger: Subject<any> = new Subject<any>();
 
   constructor(private appointserv: AppointmentService,private router : Router) { }
-  aplist          : any
+  aplist  :  Appointment[] = []
+  todaysappoints   :  Appointment[] = []
   isloggedinuser !: boolean
   reswait  !: string
+  response  !: string
   ngOnInit()      : void {
         this.isloggedinuser = false
         this.dtOptions={
@@ -33,30 +37,47 @@ export class ViewappointmentsComponent implements OnInit {
                                                 // initiate our data table
                                                  this.dtTrigger.next(null);
                                               })
+          this.appointserv.getTodaysAppointments().subscribe(data=>{
+                                            this.todaysappoints=data
+                                            // initiate our data table
+                                            this.dtTrigger.next(null);
+          })  
         }
         else 
         {
           if(sessionStorage.getItem('vis_email')!=null)
           {
-            this.appointserv.getAppointmentByEmail(sessionStorage.getItem('vis_email'))
-                                                                        .subscribe(data=>
-                                                                        {
-                                                                            this.aplist=data 
-                                                                            // initiate our data table
-                                                                            this.dtTrigger.next(null);
-                                                                            if(sessionStorage.getItem('reswait'))
-                                                                            {
-                                                                              this.reswait = `${sessionStorage.getItem('reswait')}`
+            this.appointserv.getAllAppointmentsByEmail(sessionStorage.getItem('vis_email')).subscribe(data=>{
+              this.aplist=data
+              // initiate our data table
+              this.dtTrigger.next(null);
+            })
+
+            this.appointserv.getTodaysAppointmentsByEmail(sessionStorage.getItem('vis_email')).subscribe(data=>{
+              this.todaysappoints=data
+              // initiate our data table
+              this.dtTrigger.next(null);
+            })
+
+            // this.appointserv.getAppointmentByEmail(sessionStorage.getItem('vis_email'))
+            //                                                             .subscribe(data=>
+            //                                                             {
+            //                                                                 this.aplist=data 
+            //                                                                 // initiate our data table
+            //                                                                 this.dtTrigger.next(null);
+            //                                                                 if(sessionStorage.getItem('reswait'))
+            //                                                                 {
+            //                                                                   this.reswait = `${sessionStorage.getItem('reswait')}`
                                                                              
-                                                                              setTimeout(() => {
-                                                                                sessionStorage.removeItem('reswait')
-                                                                              }, 4000);
-                                                                            }
-                                                                            if(sessionStorage.getItem('authenticatedUser')!=null)
-                                                                            {
-                                                                              this.isloggedinuser=true
-                                                                            }
-                                                                        });
+            //                                                                   setTimeout(() => {
+            //                                                                     sessionStorage.removeItem('reswait')
+            //                                                                   }, 300);
+            //                                                                 }
+            //                                                                 if(sessionStorage.getItem('authenticatedUser')!=null)
+            //                                                                 {
+            //                                                                   this.isloggedinuser=true
+            //                                                                 }
+            //                                                             });
           }
           else {
             this.router.navigate(['searchappointment'])
@@ -70,7 +91,9 @@ export class ViewappointmentsComponent implements OnInit {
 
   getAppointmentById(apid : any)
   {
-    this.router.navigate(['editappointbyid',apid]); 
+    alert('Appointment Id = '+apid)
+    this.router.navigate(['editappointbyid',apid]);
   }
+
 }
  

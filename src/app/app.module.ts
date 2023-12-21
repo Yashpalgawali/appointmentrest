@@ -65,7 +65,8 @@ import {DataTablesModule} from 'angular-datatables';
     ForgotPasswordComponent,
     ChangePasswordComponent,
     ConfirmOtpForgotPassComponent,
-    UpdatePasswordComponent
+    UpdatePasswordComponent                                                                                                                               
+    
   ],
   imports: [
     BrowserModule,

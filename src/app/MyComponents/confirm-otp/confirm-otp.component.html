@@ -1,6 +1,16 @@
 <div class="container">
-  <div *ngIf="response!='null'" class="alert alert-success"> {{response}}  </div>
-  <div *ngIf="reserr" class="alert alert-warning"> {{reserr}}  </div>
+  <div class="row">
+    <div class="col-sm-12">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a routerLink="/"> <i class="fa fa-home"></i>&nbsp;Home</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">View Appointment</li>
+        </ol>
+    </div>
+</div>
+  <div *ngIf="response!='null'" ><h6 class="alert alert-success"> {{response}} </h6> </div>
+  <div *ngIf="reserr" ><h6 class="alert alert-warning">{{reserr}} </h6> </div>
   <form (ngSubmit)="confirmotp()" method="POST"  >
     <div class="card">
         <div class="card-header"> <h4>Confirm OTP</h4> </div>

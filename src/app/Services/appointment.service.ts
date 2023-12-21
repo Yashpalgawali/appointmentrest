@@ -18,6 +18,11 @@ export class AppointmentService {
     return this.http.get<Appointment[]>(`${this.base_url}`);
   }
 
+  //Used For Admin
+  public getTodaysAppointments()
+  {
+    return this.http.get<Appointment[]>(`${this.base_url}gettodaysappointments`);
+  }
   // public getAppointmentById(apid : any)
   // {
   //   return this.http.get<Appointment>(`${this.base_url}${apid}`);
@@ -32,7 +37,7 @@ export class AppointmentService {
   //This is used after the visitor books the appointment
   public getAppointmentByEmail(emailid : any)
   {
-    return this.http.get<Appointment>(`${this.base_url}appointmentbymail/${emailid}`);
+    return this.http.get<Appointment[]>(`${this.base_url}appointmentbymail/${emailid}`);
   }
 
   public saveAppointment(appoint : Appointment)
@@ -40,5 +45,14 @@ export class AppointmentService {
     return this.http.post<Appointment>(`${this.base_url}`,appoint);
   }
 
+  public getAllAppointmentsByEmail(vemail : any)
+  {
+    return this.http.get<Appointment[]>(`${this.base_url}getallappointmentsbyemail/${vemail}`)
+  }
+
+  public getTodaysAppointmentsByEmail(vemail : any)
+  {
+   return this.http.get<Appointment[]>(`${this.base_url}gettodaysappointmentsbyemail/${vemail}`)
+  }
  
 }
