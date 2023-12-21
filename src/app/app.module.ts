@@ -65,8 +65,7 @@ import {DataTablesModule} from 'angular-datatables';
     ForgotPasswordComponent,
     ChangePasswordComponent,
     ConfirmOtpForgotPassComponent,
-    UpdatePasswordComponent                                                                                                                               
-    
+    UpdatePasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -74,6 +73,7 @@ import {DataTablesModule} from 'angular-datatables';
     FormsModule,
     HttpClientModule,
     DataTablesModule
+    
   ],
   
   providers: [LoginService,Location, {provide: LocationStrategy, useClass: HashLocationStrategy}, 
