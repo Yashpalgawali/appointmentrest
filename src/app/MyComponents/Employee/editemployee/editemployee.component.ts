@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { data } from 'jquery';
+import { data, error } from 'jquery';
 import { Employee } from 'src/app/Models/Employee';
 import { CompanyService } from 'src/app/Services/company.service';
 import { DepartmentService } from 'src/app/Services/department.service';
@@ -34,7 +34,13 @@ ngOnInit(): void {
 }
 
 onSubmit() {
-  this.empserv.updateEmployee(this.employee).subscribe(data=>this.goToViewEmployees());
+  this.empserv.updateEmployee(this.employee).subscribe(data=>{
+    sessionStorage.setItem('response','Employee updated successfully')
+    this.router.navigate(['viewemployee'])
+  },error=>{
+    sessionStorage.setItem('reserr','Employee is not updated')
+    this.router.navigate(['viewemployee'])
+  });
 }
 
 goToViewEmployees()

@@ -37,8 +37,4 @@ export class SearchappointmentComponent {
                                                                     })
   }
 
-  // goToCofirmOtpPage()
-  // {
-  //   this.router.navigate(['confirmotp'])
-  // }
 }

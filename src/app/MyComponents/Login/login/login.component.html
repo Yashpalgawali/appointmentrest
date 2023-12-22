@@ -5,7 +5,7 @@
           <div class="card">
                 <div class="card-header"><h2 class="text-center">Login </h2></div>
                 <div *ngIf="errorMessage" class="alert alert-danger">{{errorMessage}}</div>
-                <div *ngIf="logoutsuccess" class="alert alert-danger">{{logoutsuccess}}</div>
+                <div *ngIf="logoutsuccess" class="alert alert-success">{{logoutsuccess}}</div>
                 <div class="card-body">
                     <form
                            (ngSubmit)="onSubmit()"

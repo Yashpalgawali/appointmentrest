@@ -30,10 +30,10 @@
               "./node_modules/@syncfusion/ej2-material-theme/styles/material.css",
               "node_modules/datatables.net-dt/css/jquery.dataTables.css",
               "node_modules/datatables.net-bs5/css/dataTables.bootstrap5.min.css",
-
               "node_modules/datatables.net-dt/css/jquery.dataTables.min.css",
-              "node_modules/datatables.net-responsive-dt/css/responsive.dataTables.css"
-              
+              "node_modules/datatables.net-responsive-dt/css/responsive.dataTables.css",
+              "node_modules/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css"
+
             ],                                                                                                            
             "scripts": [
               "node_modules/jquery/dist/jquery.js",
@@ -41,8 +41,9 @@
               "node_modules/datatables.net/js/jquery.dataTables.js",
               "node_modules/datatables.net/js/jquery.dataTables.min.js",
               "node_modules/datatables.net-bs5/js/dataTables.bootstrap5.min.js",
-              "node_modules/datatables.net-responsive/js/dataTables.responsive.js"
-         
+              "node_modules/datatables.net-responsive/js/dataTables.responsive.js",
+              "node_modules/moment/min/moment.min.js",
+              "node_modules/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"
             ]
           }, 
           "configurations": {

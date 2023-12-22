@@ -37,6 +37,11 @@ import { UpdatePasswordComponent } from './MyComponents/update-password/update-p
 
 import {DataTablesModule} from 'angular-datatables';
 
+// Import ngx-bootstrap modules
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TimepickerModule } from 'ngx-bootstrap/timepicker';
+
 
 @NgModule({
   declarations: [
@@ -65,19 +70,24 @@ import {DataTablesModule} from 'angular-datatables';
     ForgotPasswordComponent,
     ChangePasswordComponent,
     ConfirmOtpForgotPassComponent,
-    UpdatePasswordComponent
+    UpdatePasswordComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    DataTablesModule
-    
+    DataTablesModule  ,
+    BsDatepickerModule.forRoot(), // Add this line
+    BrowserAnimationsModule,
+    TimepickerModule.forRoot(),
+
   ],
   
   providers: [LoginService,Location, {provide: LocationStrategy, useClass: HashLocationStrategy}, 
-              {provide : HTTP_INTERCEPTORS, useClass : HttpInterceptorBasicAuthService , multi : true}
+              {provide : HTTP_INTERCEPTORS, useClass : HttpInterceptorBasicAuthService , multi : true},
+              
             ],
   bootstrap: [AppComponent]
 })

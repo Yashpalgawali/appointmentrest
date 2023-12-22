@@ -20,8 +20,9 @@ export class ViewappointmentsComponent implements OnInit {
   aplist  :  Appointment[] = []
   todaysappoints   :  Appointment[] = []
   isloggedinuser !: boolean
-  reswait  !: string
-  response  !: string
+  reswait  : any
+  response : any
+  reserr   : any
   ngOnInit()      : void {
         this.isloggedinuser = false
         this.dtOptions={
@@ -32,6 +33,7 @@ export class ViewappointmentsComponent implements OnInit {
         if(sessionStorage.getItem('authenticatedUser')!=null)
         {
           this.isloggedinuser=true
+          
           this.appointserv.getAllAppointments().subscribe(data=>{
                                                 this.aplist=data 
                                                 // initiate our data table
@@ -47,6 +49,18 @@ export class ViewappointmentsComponent implements OnInit {
         {
           if(sessionStorage.getItem('vis_email')!=null)
           {
+            if( sessionStorage.getItem('response')!=null)
+            {
+              setTimeout(() => {
+              this.response = sessionStorage.getItem('response')
+            }, 300);
+            }
+            if( sessionStorage.getItem('reserr')!=null)
+            {
+              setTimeout(() => {
+              this.reserr = sessionStorage.getItem('reserr')
+            }, 300);
+          }
             this.appointserv.getAllAppointmentsByEmail(sessionStorage.getItem('vis_email')).subscribe(data=>{
               this.aplist=data
               // initiate our data table
@@ -59,25 +73,6 @@ export class ViewappointmentsComponent implements OnInit {
               this.dtTrigger.next(null);
             })
 
-            // this.appointserv.getAppointmentByEmail(sessionStorage.getItem('vis_email'))
-            //                                                             .subscribe(data=>
-            //                                                             {
-            //                                                                 this.aplist=data 
-            //                                                                 // initiate our data table
-            //                                                                 this.dtTrigger.next(null);
-            //                                                                 if(sessionStorage.getItem('reswait'))
-            //                                                                 {
-            //                                                                   this.reswait = `${sessionStorage.getItem('reswait')}`
-                                                                             
-            //                                                                   setTimeout(() => {
-            //                                                                     sessionStorage.removeItem('reswait')
-            //                                                                   }, 300);
-            //                                                                 }
-            //                                                                 if(sessionStorage.getItem('authenticatedUser')!=null)
-            //                                                                 {
-            //                                                                   this.isloggedinuser=true
-            //                                                                 }
-            //                                                             });
           }
           else {
             this.router.navigate(['searchappointment'])
@@ -91,9 +86,8 @@ export class ViewappointmentsComponent implements OnInit {
 
   getAppointmentById(apid : any)
   {
-    alert('Appointment Id = '+apid)
     this.router.navigate(['editappointbyid',apid]);
   }
-
+  
 }
  

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { error } from 'jquery';
 import { Department } from 'src/app/Models/Department';
 import { CompanyService } from 'src/app/Services/company.service';
 import { DepartmentService } from 'src/app/Services/department.service';
@@ -24,7 +25,16 @@ export class EditdepartmentComponent {
   }
 
   public onSubmit() {
-    this.deptserv.updateDepartment(this.department).subscribe(data=>this.goToViewDepartments());
+    this.deptserv.updateDepartment(this.department).subscribe(data=>
+                                                            {
+                                                              sessionStorage.setItem('response',this.department.dept_name+' updated successfully')
+                                                              this.router.navigate(['viewdepartment'])
+                                                            },
+                                                            error=>{
+                                                              sessionStorage.setItem('reserr',this.department.dept_name+' is not updated')
+                                                              this.router.navigate(['viewdepartment'])
+                                                            }
+                                                            );
   }
   public goToViewDepartments()
   {

@@ -20,9 +20,9 @@ export class EditcompanyComponent {
     this.compserv.getCompanyById(this.comp_id).subscribe(data=>this.company=data);
   }
   onSubmit() {
-    this.compserv.updateCompany(this.company).subscribe(data=>this.goToViewCompany());
-  }
-  public goToViewCompany() {
-    this.router.navigate(['viewcompany']);
+    this.compserv.updateCompany(this.company).subscribe(data=>{
+      sessionStorage.setItem('response', this.company.comp_name+' is updated successfully')
+      this.router.navigate(['viewcompany'])
+    });
   }
 }

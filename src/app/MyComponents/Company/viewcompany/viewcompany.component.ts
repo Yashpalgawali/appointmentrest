@@ -31,6 +31,20 @@ export class ViewcompanyComponent {
     }
     this.compserv.getAllCompanies().subscribe(data=>{
                                                       this.complist=data 
+                                                      if( sessionStorage.getItem('response')!=null)
+                                                      {
+                                                          setTimeout(() => {
+                                                          this.response = sessionStorage.getItem('response')
+                                                          sessionStorage.removeItem('response')
+                                                        }, 300);
+                                                      }
+                                                      if( sessionStorage.getItem('reserr')!=null)
+                                                      {
+                                                          setTimeout(() => {
+                                                          this.reserr = sessionStorage.getItem('reserr')
+                                                          sessionStorage.removeItem('reserr')
+                                                        }, 300);
+                                                      }
                                                        // initiate our data table
                                                        this.dtTrigger.next(null)
                                                     });

@@ -15,12 +15,28 @@ export class ViewdesignationComponent {
   dtOptions: DataTables.Settings = {};
   dtTrigger: Subject<any> = new Subject<any>();
 
+  response : any
+  reserr : any
+
   ngOnInit(): void {
     this.dtOptions={
         pagingType : 'full_numbers',
         responsive : true
     }
-
+    if( sessionStorage.getItem('response')!=null)
+    {
+        setTimeout(() => {
+        this.response = sessionStorage.getItem('response')
+        sessionStorage.removeItem('response')
+      }, 300);
+    }
+    if( sessionStorage.getItem('reserr')!=null)
+    {
+        setTimeout(() => {
+        this.reserr = sessionStorage.getItem('reserr')
+        sessionStorage.removeItem('reserr')
+      }, 300);
+    }
     this.desigserv.getAllDesignations().subscribe(data=>{
                                                           this.desiglist=data
                                                           this.dtTrigger.next(null)
