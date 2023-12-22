@@ -1,4 +1,4 @@
-
+<link href="https://unpkg.com/ngx-bootstrap/datepicker/bs-datepicker.css" rel="stylesheet" >
 <div class="container" >
     <!-- start: PAGE HEADER -->
            <div class="row">
@@ -38,18 +38,20 @@
                 <textarea class="form-control mb-3" name="vis_purpose" id="vis_purpose" cols="30"  rows="5" [(ngModel)]="appoint.vis_purpose" required ></textarea>  
          </div> 
 
+         
          <div class="form-group">
             <label for="apdate">Appointment Date</label>
-                <div class="input-group mb-3">
-                    <input class="form-control border-right-0" id="apdate" name="apdate" [(ngModel)]="appoint.apdate" required>
-
-                        <span class="input-group-append bg-white border-left-0">
-                            <span class="input-group-text bg-transparent">
-                                    <i class="fa fa-calendar fa-lg"></i>
-                            </span>
-                        </span>
-                </div>
-        </div>
+                <input
+                    placeholder="Select Date"
+                    class="form-control"
+                    bsDatepicker
+                    [(bsValue)]="apdate"
+                    [(ngModel)]="appoint.apdate"
+                    [bsConfig]="datepickerConfig"
+                    id="apdate" name="apdate"
+                    autocomplete="off"
+                />  
+         </div>
         <div class="form-group">
              <label for="aptime">Appointment Time:</label>
                 <div class="input-group mb-3">

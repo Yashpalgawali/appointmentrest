@@ -42,7 +42,6 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TimepickerModule } from 'ngx-bootstrap/timepicker';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -81,13 +80,12 @@ import { TimepickerModule } from 'ngx-bootstrap/timepicker';
     DataTablesModule  ,
     BsDatepickerModule.forRoot(), // Add this line
     BrowserAnimationsModule,
-    TimepickerModule.forRoot(),
-
+    TimepickerModule.forRoot()
   ],
   
   providers: [LoginService,Location, {provide: LocationStrategy, useClass: HashLocationStrategy}, 
               {provide : HTTP_INTERCEPTORS, useClass : HttpInterceptorBasicAuthService , multi : true},
-              
+             
             ],
   bootstrap: [AppComponent]
 })
