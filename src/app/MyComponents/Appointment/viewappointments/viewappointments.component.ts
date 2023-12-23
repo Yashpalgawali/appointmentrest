@@ -12,13 +12,12 @@ import { AppointmentService } from 'src/app/Services/appointment.service';
 })
 export class ViewappointmentsComponent implements OnInit {
 
-
   dtOptions: DataTables.Settings = {};
   dtTrigger: Subject<any> = new Subject<any>();
 
   constructor(private appointserv: AppointmentService,private router : Router) { }
   aplist  :  Appointment[] = []
-  todaysappoints   :  Appointment[] = []
+  todaysappoints  : Appointment[] = []
   isloggedinuser !: boolean
   reswait  : any
   response : any
@@ -72,7 +71,6 @@ export class ViewappointmentsComponent implements OnInit {
               // initiate our data table
               this.dtTrigger.next(null);
             })
-
           }
           else {
             this.router.navigate(['searchappointment'])
@@ -90,4 +88,3 @@ export class ViewappointmentsComponent implements OnInit {
   }
   
 }
- 

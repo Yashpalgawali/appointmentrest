@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { data } from 'jquery';
@@ -7,6 +8,8 @@ import { Employee } from 'src/app/Models/Employee';
 import { AppointmentService } from 'src/app/Services/appointment.service';
 import { BasicAuthenticationServiceService } from 'src/app/Services/basic-authentication-service.service';
 import { EmployeeService } from 'src/app/Services/employee.service';
+import {formatDate} from '@angular/common';
+
 declare var $: any;
 
 
@@ -18,22 +21,28 @@ declare var $: any;
 })
 
 export class BookappointmentComponent implements OnInit {
-  selectedDate !: Date;
+  selectedDate : Date = new Date();
+  ate : Date = new Date();
+
+  constructor(private appointserv : AppointmentService,
+    private empserv : EmployeeService,
+    private router : Router,
+    private basicauthserv : BasicAuthenticationServiceService,
+   ) {
+
+    }
+      
   selectedTime: any;
 
   time: Date = new Date();
-
+    
   public datepickerConfig: Partial<BsDatepickerConfig> = {
     containerClass: 'theme-dark-blue',
     dateInputFormat: 'DD/MM/YYYY',
     minDate: new Date(), // Set the minimum date to today
   };
 
-  constructor(private appointserv : AppointmentService,
-              private empserv : EmployeeService,
-              private router : Router,
-              private basicauthserv : BasicAuthenticationServiceService) {
-              }
+  
   logged_user  : any          
   appoint  : Appointment = new Appointment();
   employee : Employee = new Employee();

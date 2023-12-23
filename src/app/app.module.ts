@@ -22,7 +22,7 @@ import { EditappointmentComponent } from './MyComponents/Appointment/editappoint
 import { LoginComponent } from './MyComponents/Login/login/login.component';
 import { LoginService } from './Services/login.service';
 import { AdminhomeComponent } from './MyComponents/Admin/adminhome/adminhome.component';
-import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { DatePipe, HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { SearchappointmentComponent } from './MyComponents/Appointment/searchappointment/searchappointment.component';
 import { HttpInterceptorBasicAuthService } from './Services/http/http-interceptor-basic-auth.service';
@@ -41,6 +41,8 @@ import {DataTablesModule} from 'angular-datatables';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TimepickerModule } from 'ngx-bootstrap/timepicker';
+import { TabsModule} from 'ngx-bootstrap/tabs'; 
+
 
 @NgModule({
   declarations: [
@@ -80,12 +82,13 @@ import { TimepickerModule } from 'ngx-bootstrap/timepicker';
     DataTablesModule  ,
     BsDatepickerModule.forRoot(), // Add this line
     BrowserAnimationsModule,
-    TimepickerModule.forRoot()
+    TimepickerModule.forRoot(),
+    TabsModule.forRoot()
   ],
   
   providers: [LoginService,Location, {provide: LocationStrategy, useClass: HashLocationStrategy}, 
               {provide : HTTP_INTERCEPTORS, useClass : HttpInterceptorBasicAuthService , multi : true},
-             
+             DatePipe
             ],
   bootstrap: [AppComponent]
 })
