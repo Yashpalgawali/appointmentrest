@@ -18,7 +18,7 @@
          			
         <div class="card">
             <div class="card-header">
-                <h4>View Appointments<a routerLink="/adminbookappoint" class="btn btn-primary" style="float:right;">Book Appointment</a></h4>
+                <h4>View Appointments<a routerLink="/bookappointment" class="btn btn-primary" style="float:right;">Book Appointment</a></h4>
             </div>
             <div *ngIf="response"><h6 class="alert alert-success">{{response}}</h6></div>
             <div *ngIf="reswait"> <h6 class="alert alert-danger">{{reswait}}</h6></div>	
@@ -58,7 +58,7 @@
                          <td>{{appoint.vis_name}}</td>
                          <td>{{appoint.vis_purpose}}</td>
                          <td>{{appoint.apdate}}</td>
-                         <td>{{appoint.aptime}}</td>
+                         <td>{{appoint.aptime | date :'dd-MM-YYYY'}}</td>
                          <td>{{appoint.vcomp_name}}</td>
                          <td>{{appoint.vis_email}}</td>
                          <td>{{appoint.vis_contact}}</td>
@@ -109,13 +109,13 @@
                             </ng-container>
                             <td>{{appoint.vis_name}}</td>
                             <td>{{appoint.vis_purpose}}</td>
-                            <td>{{appoint.apdate}}</td>
-                            <td>{{appoint.aptime}}</td>
+                            <td>{{appoint.apdate | date :'dd-MM-YYYY'}}</td>
+                            <td>{{appoint.aptime | date :'hh:mm a'}}</td>
                             <td>{{appoint.vcomp_name}}</td>
                             <td>{{appoint.vis_email}}</td>
                             <td>{{appoint.vis_contact}}</td>
                             <td>{{appoint.employee.emp_name}}</td>
-                            <td>{{appoint.employee.designation.desig_name}}</td>
+                            <td>{{appoint.employee.designation.desig_name}}</td>  
                             <td>{{appoint.employee.department.dept_name}}</td>
                             <td>{{appoint.employee.department.company.comp_name}}</td>
                             <ng-container *ngIf="isloggedinuser">

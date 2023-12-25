@@ -9,6 +9,7 @@ import { AppointmentService } from 'src/app/Services/appointment.service';
 import { BasicAuthenticationServiceService } from 'src/app/Services/basic-authentication-service.service';
 import { EmployeeService } from 'src/app/Services/employee.service';
 import {formatDate} from '@angular/common';
+import { moment } from 'ngx-bootstrap/chronos/testing/chain';
 
 declare var $: any;
 
@@ -29,7 +30,7 @@ export class BookappointmentComponent implements OnInit {
     private router : Router,
     private basicauthserv : BasicAuthenticationServiceService,
    ) {
-
+      
     }
       
   selectedTime: any;
@@ -38,7 +39,7 @@ export class BookappointmentComponent implements OnInit {
     
   public datepickerConfig: Partial<BsDatepickerConfig> = {
     containerClass: 'theme-dark-blue',
-    dateInputFormat: 'DD/MM/YYYY',
+    dateInputFormat: 'DD-MM-YYYY',
     minDate: new Date(), // Set the minimum date to today
   };
 

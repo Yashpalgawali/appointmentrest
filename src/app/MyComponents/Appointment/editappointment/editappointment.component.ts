@@ -44,6 +44,7 @@ ngOnInit(): void {
   this.adminappoint.getAppointmentById(this.eid).subscribe(data=>
                                                         {
                                                           this.appoint=data
+                                                          alert(this.appoint.apdate)
                                                           this.apdate = new Date(this.appoint.apdate)
                                                         });
   
