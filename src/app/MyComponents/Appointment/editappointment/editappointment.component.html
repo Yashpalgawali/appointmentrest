@@ -47,21 +47,14 @@
                     bsDatepicker
                     [(bsValue)]="apdate"
                     [(ngModel)]="appoint.apdate"
-                    [bsConfig]="datepickerConfig"
+                    [bsConfig]="datepickerConfig" 
                     id="apdate" name="apdate"
                     autocomplete="off"
                 />  
          </div>
-        <div class="form-group">
-             <label for="aptime">Appointment Time:</label>
-                <div class="input-group mb-3">
-                <input class="form-control" type="text" id="aptime"  name="aptime" [(ngModel)]="appoint.aptime" autocomplete="off"/>
-                    <span class="input-group-append bg-white border-left-0">
-                            <span class="input-group-text bg-transparent">
-                                    <i class="fa fa-clock-o fa-lg"></i>
-                            </span>
-                    </span>
-            </div>
+         <div class="form-group mb-3">
+            <label for="aptime">Select Time:</label>
+                <timepicker id="aptime"  name="aptime"  [(ngModel)]="appoint.aptime"  ></timepicker>
         </div>
           <div class="form-group">
             <label for="designation">Employee:</label>
