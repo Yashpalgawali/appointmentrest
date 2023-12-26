@@ -22,14 +22,13 @@ export class UpdatePasswordComponent implements OnInit{
     if(this.user.new_pass==this.user.cnf_pass)
     {
       this.userserv.getUserByUserEmail(`${sessionStorage.getItem('user_email')}`)
-                          .subscribe(
-                                  data=>{
-                                          this.user = data
-                                          this.user.cnf_pass = cpass
+                          .subscribe({
+                                  complete:()=>{
                                           
+                                          this.user.cnf_pass = cpass
                                           this.userserv.updatePasswordWithEmail(this.user)
                                                                                 .subscribe(data=>this.router.navigate(['login']))
-                                        })
+                                        }})
     }
     else
       alert('Passwords Are NOT Equal')

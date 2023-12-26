@@ -20,9 +20,15 @@ export class EditcompanyComponent {
     this.compserv.getCompanyById(this.comp_id).subscribe(data=>this.company=data);
   }
   onSubmit() {
-    this.compserv.updateCompany(this.company).subscribe(data=>{
-      sessionStorage.setItem('response', this.company.comp_name+' is updated successfully')
+    this.compserv.updateCompany(this.company).subscribe({
+      complete : ()=>{
+        sessionStorage.setItem('response', this.company.comp_name+' is updated successfully')
+        this.router.navigate(['viewcompany'])
+      },
+      error:(e)=>{
+        sessionStorage.setItem('reserr', this.company.comp_name+' is not updated')
       this.router.navigate(['viewcompany'])
+      }
     });
   }
 }

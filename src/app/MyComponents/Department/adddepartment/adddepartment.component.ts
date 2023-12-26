@@ -19,12 +19,25 @@ export class AdddepartmentComponent {
   clist : any;
   did   : any;
   comp !: Company;
+  
   ngOnInit(): void {
         this.compserv.getAllCompanies().subscribe(data=>this.clist=data);
         
   }
   onSubmit() {
-      this.deptserv.saveDepartment(this.department).subscribe(data=>this.goToViewDepartments());
+    
+      this.deptserv.saveDepartment(this.department).subscribe({
+       
+        error: (e) => {
+          sessionStorage.setItem('reserr',this.department.dept_name+' is not saved successfully')
+          this.router.navigate(['viewdepartment'])
+         },
+        complete: () =>{
+                   sessionStorage.setItem('response',this.department.dept_name+' is saved successfully')
+                   this.router.navigate(['viewdepartment'])
+                  }
+      });
+      
   }
   public goToViewDepartments() {
     this.router.navigate(['viewdepartment']);

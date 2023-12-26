@@ -25,16 +25,16 @@ export class EditdepartmentComponent {
   }
 
   public onSubmit() {
-    this.deptserv.updateDepartment(this.department).subscribe(data=>
-                                                            {
-                                                              sessionStorage.setItem('response',this.department.dept_name+' updated successfully')
-                                                              this.router.navigate(['viewdepartment'])
-                                                            },
-                                                            error=>{
-                                                              sessionStorage.setItem('reserr',this.department.dept_name+' is not updated')
-                                                              this.router.navigate(['viewdepartment'])
-                                                            }
-                                                            );
+    this.deptserv.saveDepartment(this.department).subscribe({
+          error:(e)=>{
+            sessionStorage.setItem('reserr',this.department.dept_name+' is not updated ')
+            this.router.navigate(['viewdepartment'])
+          },
+          complete:()=>{
+            sessionStorage.setItem('response',this.department.dept_name+' is updated successfully')
+            this.router.navigate(['viewdepartment'])
+          }
+    })
   }
   public goToViewDepartments()
   {

@@ -22,13 +22,15 @@ export class EditdesignationComponent implements OnInit {
 
   onSubmit()
   {
-    this.desigserv.updateDesignation(this.designation).subscribe(data=>{
-      sessionStorage.setItem('response', this.designation.desig_name+' is updated Successfully')
+    this.desigserv.updateDesignation(this.designation).subscribe({
+      complete:()=>{
+        sessionStorage.setItem('response', this.designation.desig_name+' is updated Successfully')
       this.router.navigate(['viewdesignation'])
-    },
-    error=>{
-      sessionStorage.setItem('reserr', this.designation.desig_name+' is not updated')
-      this.router.navigate(['viewdesignation'])
+      },
+      error:(e)=>{
+        sessionStorage.setItem('reserr', this.designation.desig_name+' is not updated')
+        this.router.navigate(['viewdesignation'])
+      }
     });
   }
   goToViewDesignations()

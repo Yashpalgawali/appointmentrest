@@ -19,11 +19,17 @@ export class AdddesignationComponent implements OnInit{
   }
   onSubmit()
   {
-    this.desigserv.saveDesignation(this.designation).subscribe(data=>this.goToViewDesignations());
+    this.desigserv.saveDesignation(this.designation).subscribe({
+      complete:()=>{
+        sessionStorage.setItem('response',this.designation.desig_name+' is saved successfully')
+        this.route.navigate(['viewdesignation'])
+      },
+      error:(e)=>{
+        sessionStorage.setItem('reserr',this.designation.desig_name+' is not saved ')
+        this.route.navigate(['viewdesignation'])
+      }
+    });
   }
 
-  goToViewDesignations()
-  {
-    this.route.navigate(['viewdesignation']);
-  }
+
 }

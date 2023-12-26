@@ -26,20 +26,21 @@ export class ForgotPasswordComponent implements OnInit {
   changepassword() {
 
     this.userserv.getUserByUserEmail(this.user.user_email)
-                                                        .subscribe(data=>
+                                                        .subscribe({
+                                                        complete:()=>
                                                         {
-                                                          this.user=data
                                                           this.reserr=""
                                                           this.userserv.generateOtp(this.user.user_email).subscribe(data=>
                                                             {
                                                               sessionStorage.setItem('otp',`${data}`)
                                                               sessionStorage.setItem('user_email',this.user.user_email)
-                                                              sessionStorage.setItem('response','OTP sent to your Email '+this.user.user_email)
+                                                              sessionStorage.setItem('response',`${data}`+'OTP sent to your Email '+this.user.user_email)
                                                               this.router.navigate(['confirmotpforgotpass'])
                                                             })
-                                                        },error=>{
+                                                        },error:()=>{
                                                             this.reserr="No User found for given Email"
-                                                        })
+                                                        }
+                                                      })
    
                       
                     }

@@ -34,13 +34,16 @@ ngOnInit(): void {
 }
 
 onSubmit() {
-  this.empserv.updateEmployee(this.employee).subscribe(data=>{
-    sessionStorage.setItem('response','Employee updated successfully')
-    this.router.navigate(['viewemployee'])
-  },error=>{
-    sessionStorage.setItem('reserr','Employee is not updated')
-    this.router.navigate(['viewemployee'])
-  });
+  this.empserv.updateEmployee(this.employee).subscribe({
+            complete:()=>{
+            sessionStorage.setItem('response','Employee updated successfully')
+            this.router.navigate(['viewemployee'])
+            
+          },error:(e)=>{
+            sessionStorage.setItem('reserr','Employee is not updated')
+            this.router.navigate(['viewemployee'])
+          }
+        });
 }
 
 goToViewEmployees()

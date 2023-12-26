@@ -42,10 +42,10 @@ export class EditappointmentComponent {
 ngOnInit(): void {
   this.eid = this.route.snapshot.params['id'];
   this.adminappoint.getAppointmentById(this.eid).subscribe(data=>
-                                                        {
-                                                          this.appoint=data
-                                                          this.apdate = new Date(this.appoint.apdate)
-                                                        });
+                                                {
+                                                  this.appoint=data
+                                                  this.apdate = new Date(this.appoint.apdate)
+                                                });
   
   // this.appointserv.getAppointmentById(this.eid).subscribe(data=>this.appoint=data);
   this.empserv.getAllEmployees().subscribe(data=>this.emplist=data);

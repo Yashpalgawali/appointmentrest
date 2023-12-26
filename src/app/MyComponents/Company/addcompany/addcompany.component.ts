@@ -12,21 +12,26 @@ export class AddcompanyComponent {
 
   company : Company = new Company();
 
-  constructor(private compserv:CompanyService,private route : Router) { }
+  constructor(private compserv:CompanyService,private router : Router) { }
   response : any;
   onSubmit() {
-   // this.compserv.saveCompany(this.company).subscribe(data=>this.goToViewCompany());
-    this.compserv.saveCompany(this.company).subscribe(data=>{
-                                                              this.response=true;
-                                                              this.goToViewCompany();
-                                                            }
-                                                            ),(error : any )=>console.error(error);
+   
+    this.compserv.saveCompany(this.company).subscribe({
+      complete : ()=>{
+        sessionStorage.setItem('response',this.company.comp_name+' is saved successfully ')
+        this.router.navigate(['viewcompany']);
+      },
+      error:(e)=>{
+        sessionStorage.setItem('reserr',this.company.comp_name+' is not saved ')
+        this.router.navigate(['viewcompany']);
+      }
+    })
    
   }
   
   public goToViewCompany()
   {
-    this.route.navigate(['viewcompany']);
+    this.router.navigate(['viewcompany']);
   }
 
 }
