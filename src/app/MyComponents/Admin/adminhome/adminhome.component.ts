@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { error } from 'jquery';
 import { AdminappointmentsService } from 'src/app/Services/adminappointments.service';
 import { AppointmentService } from 'src/app/Services/appointment.service';
 
@@ -14,11 +15,33 @@ export class AdminhomeComponent implements OnInit{
   decline_count !: number ;
   pending_count !: number ;
   confirmed_count !: number ;
-  
-  constructor(private appointserv : AdminappointmentsService) { }
-  
-  ngOnInit(): void {
+  response : any
+  reserr   : any
+  constructor(private appointserv : AdminappointmentsService) { 
+    this.appointserv.getAppointmentCounts().subscribe(data=> {
+      this.apcount=data
+      if(sessionStorage.getItem('response')!=null)
+      {
+        this.response=sessionStorage.getItem('response')
+        setTimeout(() => {
+          sessionStorage.removeItem('response')
+          this.response=""
+        }, 5000);
+      }
+      })
+  }
    
-      this.apcount = this.appointserv.getAppointmentCounts().subscribe(data=>this.apcount=data);
+  ngOnInit(): void {
+    //  this.appointserv.getAppointmentCounts().subscribe(data=> {
+    //   this.apcount=data
+    //   if(sessionStorage.getItem('response')!=null)
+    //   {
+    //     this.response=sessionStorage.getItem('response')
+    //     setTimeout(() => {
+    //       sessionStorage.removeItem('response')
+    //       this.response=""
+    //     }, 5000);
+    //   }
+    //   })
   }
 }

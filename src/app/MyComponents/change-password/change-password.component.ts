@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { data } from 'jquery';
+import { data, error } from 'jquery';
 import { Appointment } from 'src/app/Models/Appointment';
 import { Users } from 'src/app/Models/Users';
 import { BasicAuthenticationServiceService } from 'src/app/Services/basic-authentication-service.service';
@@ -34,17 +34,19 @@ export class ChangePasswordComponent implements OnInit {
   changepassword() {
     if(this.user.new_pass===this.user.cnf_pass)
     {
-      this.passserv.updatePassword(this.user).subscribe(data=>
-                                                        { this.baseauthserv.executeAuthenticationService(`${sessionStorage.getItem('authenticatedUser')}`,this.user.cnf_pass)
-                                                          this.router.navigate(['/adminhome'])
-                                                        })
-    
-    if(this.user.new_pass===this.user.cnf_pass)
-    {
-      this.passserv.updatePassword(this.user).subscribe(data=>{ this.baseauthserv.executeAuthenticationService(`${sessionStorage.getItem('authenticatedUser')}`,this.user.cnf_pass)
-                                                                this.router.navigate(['/adminhome'])
-                                                              })
-    }
+      this.passserv.updatePassword(this.user).subscribe({
+       
+        error: (e) => {
+          sessionStorage.setItem('reserr',' Password is not updated Successfully') 
+          this.router.navigate(['changepass'])
+         },
+        complete: () =>{
+          this.baseauthserv.executeAuthenticationService(`${sessionStorage.getItem('authenticatedUser')}`,this.user.cnf_pass)
+          sessionStorage.setItem('response',' Password updated Successfully')
+           
+          this.router.navigate(['adminhome'])
+          }
+      });
   }
   }
 }
