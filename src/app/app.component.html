@@ -2,13 +2,18 @@
 <div *ngIf="isUserLoggedIn()">
   <nav class="navbar navbar-expand-md navbar-light bg-light  fixed-top ">
     <!--   <a class="navbar-brand  " routerLink=" "><img  src=  " img/savera_logo.jpg}  "id="c_logo  "></a> -->
-        <button class="navbar-toggler  "type="button  "data-toggle="collapse  "data-target="#collapsibleNavbar  ">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
           <span class="navbar-toggler-icon"></span>
         </button>
-      <div class="collapse navbar-collapse  "id="collapsibleNavbar">
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav">
-        <li class="nav-item"><a class="nav-link active" routerLink="/"><i class="fa fa-home"></i>&nbsp;Home</a></li>
-  
+          <ng-container *ngIf="isUserLoggedIn()">
+            <li class="nav-item"><a class="nav-link active" routerLink="/adminhome"><i class="fa fa-home"></i>&nbsp;Home</a></li>
+         </ng-container>
+         <ng-container *ngIf="!isUserLoggedIn()">
+          <li class="nav-item"><a class="nav-link active" routerLink="/"><i class="fa fa-home"></i>&nbsp;Home</a></li>
+       </ng-container>
+         
         <li ngbDropdown class="nav-item dropdown">
           <a ngbDropdownToggle class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Company</a>
            <ul ngbDropdownMenu class="dropdown-menu">
