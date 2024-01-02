@@ -41,7 +41,8 @@ import {DataTablesModule} from 'angular-datatables';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TimepickerModule } from 'ngx-bootstrap/timepicker';
-import { TabsModule} from 'ngx-bootstrap/tabs'; 
+import { TabsModule} from 'ngx-bootstrap/tabs';
+import { ActivityLogsComponent } from './MyComponents/activity-logs/activity-logs.component'; 
 
 
 
@@ -74,6 +75,7 @@ import { TabsModule} from 'ngx-bootstrap/tabs';
     ChangePasswordComponent,
     ConfirmOtpForgotPassComponent,
     UpdatePasswordComponent,
+    ActivityLogsComponent,
     
   ],
   imports: [

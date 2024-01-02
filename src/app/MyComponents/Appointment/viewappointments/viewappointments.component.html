@@ -59,8 +59,9 @@
                          </ng-container>
                          <td>{{appoint.vis_name}}</td>
                          <td>{{appoint.vis_purpose}}</td>
-                         <td>{{appoint.apdate}}</td>
-                         <td>{{appoint.aptime | date :'dd-MM-YYYY'}}</td>
+                         <!-- <td>{{appoint.apdate | date :'DD-MM-YYYY'}}</td> -->
+                         <td>{{appoint.apdate | date :'DD-MM-YYYY'}}</td>
+                         <td>{{appoint.aptime }}</td>
                          <td>{{appoint.vcomp_name}}</td>
                          <td>{{appoint.vis_email}}</td>
                          <td>{{appoint.vis_contact}}</td>
@@ -95,7 +96,9 @@
                             <th>Designation</th>
                             <th>Department</th>
                             <th>Personnel Company</th>
-                            <th>Actions</th>	
+                            <ng-container *ngIf="isloggedinuser">
+                                <th>Actions</th>	
+                            </ng-container>
                             </tr>	
                         </thead>
                         <tbody id="apbody">
@@ -111,8 +114,9 @@
                             </ng-container>
                             <td>{{appoint.vis_name}}</td>
                             <td>{{appoint.vis_purpose}}</td>
-                            <td>{{appoint.apdate | date :'dd-MM-YYYY'}}</td>
-                            <td>{{appoint.aptime | date :'hh:mm a'}}</td>
+                            <!-- <td>{{appoint.apdate | date :'DD-MM-YYYY'}}</td> -->
+                            <td>{{appoint.apdate  }}</td>
+                            <td>{{appoint.aptime }}</td>
                             <td>{{appoint.vcomp_name}}</td>
                             <td>{{appoint.vis_email}}</td>
                             <td>{{appoint.vis_contact}}</td>

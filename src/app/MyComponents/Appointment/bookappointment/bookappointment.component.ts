@@ -29,16 +29,14 @@ export class BookappointmentComponent implements OnInit {
     private empserv : EmployeeService,
     private router : Router,
     private basicauthserv : BasicAuthenticationServiceService,
-   ) {
-      
-    }
+   ) { }
       
   selectedTime: any;
 
   time: Date = new Date();
     
   public datepickerConfig: Partial<BsDatepickerConfig> = {
-    containerClass: 'theme-dark-blue',
+    containerClass : 'theme-dark-blue',
     dateInputFormat: 'DD-MM-YYYY',
     minDate: new Date(), // Set the minimum date to today
   };
@@ -55,12 +53,13 @@ export class BookappointmentComponent implements OnInit {
   }
 
   onSubmit() {
-                this.appointserv.saveAppointment(this.appoint)
-                                .subscribe(data=>{ 
-                                              sessionStorage.setItem('vis_email',this.appoint.vis_email)
-                                              sessionStorage.setItem('reswait','Appointment is booked. Waiting for the Confirmation');
-                                              this.goToViewAppointments() 
-                                          });
+    alert(this.appoint.apdate)
+                // this.appointserv.saveAppointment(this.appoint)
+                //                 .subscribe(data=>{ 
+                //                               sessionStorage.setItem('vis_email',this.appoint.vis_email)
+                //                               sessionStorage.setItem('reswait','Appointment is booked. Waiting for the Confirmation');
+                //                               this.goToViewAppointments() 
+                //                           });
     }
   
   goToViewAppointments()

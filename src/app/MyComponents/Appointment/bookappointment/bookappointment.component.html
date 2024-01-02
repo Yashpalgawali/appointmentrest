@@ -34,7 +34,6 @@
               <input type="email" class="form-control mb-3" id="vis_email" placeholder="Enter Visitor Email" [(ngModel)]="appoint.vis_email" name="vis_email" required>
          </div> 
         
-
          <div class="form-group">
             <label for="vis_contact"> Contact:</label>
               <input type="number" class="form-control mb-3" id="vis_contact" placeholder="Enter Visitor Contact" [(ngModel)]="appoint.vis_contact" name="vis_contact" required>
@@ -61,33 +60,12 @@
                 <span class="glyphicon glyphicon-calendar"></span>
               </span>
          </div>
-        
-         <!-- <div class="form-group mb-3"> 
-            <label for="apdate">Appointment Date</label>
-                <div class="input-group ">
-                    <input class="form-control border-right-0" id="apdate" name="apdate" [(ngModel)]="appoint.apdate" required>
-                        <span class="input-group-append bg-white border-left-0">
-                            <span class="input-group-text bg-transparent">
-                                    <i class="fa fa-calendar fa-lg"></i>
-                            </span>
-                        </span>
-                </div>
-        </div>  -->
+     
         <div class="form-group mb-3">
             <label for="aptime">Select Time:</label>
                 <timepicker id="aptime"  name="aptime"  [(ngModel)]="appoint.aptime"  ></timepicker>
         </div>
-        <!-- <div class="form-group mb-3">
-             <label for="aptime">Appointment Time:</label>
-                <div class="input-group">
-                <input class="form-control" type="text" id="aptime"  name="aptime"  [(ngModel)]="appoint.aptime" autocomplete="off"/>
-                    <span class="input-group-append bg-white border-left-0">
-                            <span class="input-group-text bg-transparent">
-                                    <i class="fa fa-clock-o fa-lg"></i>
-                            </span>
-                    </span>
-            </div>
-        </div> -->
+       
         <div class="form-group">
             <label for="vis_purpose"> Purpose:</label>
                 <textarea cols="5" class="form-control mb-3" rows="3" id="vis_purpose" name="vis_purpose" [(ngModel)]="appoint.vis_purpose" required></textarea>
