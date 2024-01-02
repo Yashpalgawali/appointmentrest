@@ -41,7 +41,9 @@
                             <th>Designation</th>
                             <th>Department</th>
                             <th>Personnel Company</th>
-                            <th>Actions</th>	
+                            <ng-container *ngIf="isloggedinuser">
+                                <th>Actions</th>
+                            </ng-container>
                         </tr>	
                     </thead>
                     <tbody id="aptodaybody">
