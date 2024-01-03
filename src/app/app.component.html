@@ -19,7 +19,7 @@
           <a ngbDropdownToggle class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Company</a>
            <ul ngbDropdownMenu class="dropdown-menu">
              <li><a ngbDropdownItem class="dropdown-item" routerLink ="addcompany">Add Company</a></li>
-              <li><a  ngbDropdownItem class="dropdown-item" routerLink="viewcompany">View Company</a></li>
+              <li><a  ngbDropdownItem class="dropdown-item" routerLink="company">View Company</a></li>
            </ul>
         </li>
   
@@ -27,7 +27,7 @@
           <a ngbDropdownToggle class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Department</a>
            <ul ngbDropdownMenu class="dropdown-menu">
              <li><a ngbDropdownItem class="dropdown-item" routerLink="adddepartment">Add Department</a></li>
-              <li><a ngbDropdownItem class="dropdown-item" routerLink="viewdepartment">View Department</a></li>
+              <li><a ngbDropdownItem class="dropdown-item" routerLink="department">View Department</a></li>
            </ul>
         </li>
   
@@ -35,7 +35,7 @@
           <a ngbDropdownToggle class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Designation</a>
            <ul ngbDropdownMenu class="dropdown-menu">
              <li><a ngbDropdownItem class="dropdown-item" routerLink="adddesignation">Add Designation</a></li>
-              <li><a ngbDropdownItem class="dropdown-item" routerLink="viewdesignation">View Designation</a></li>
+              <li><a ngbDropdownItem class="dropdown-item" routerLink="designation">View Designation</a></li>
            </ul>
         </li>
   
@@ -43,7 +43,7 @@
           <a ngbDropdownToggle class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Employee</a>
            <ul ngbDropdownMenu class="dropdown-menu">
              <li><a ngbDropdownItem class="dropdown-item" routerLink="addemployee">Add Employee </a></li>
-              <li><a ngbDropdownItem class="dropdown-item" routerLink="viewemployee">View Employee</a></li>
+              <li><a ngbDropdownItem class="dropdown-item" routerLink="employee">View Employee</a></li>
            </ul>
         </li>
   
@@ -51,12 +51,12 @@
           <a ngbDropdownToggle class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Appointment</a>
            <ul ngbDropdownMenu class="dropdown-menu">
              <li><a ngbDropdownItem class="dropdown-item" routerLink="bookappointment">Book Appointment </a></li>
-              <li><a ngbDropdownItem class="dropdown-item" routerLink="viewappointments">View Appointments</a></li>
+              <li><a ngbDropdownItem class="dropdown-item" routerLink="appointments">View Appointments</a></li>
            </ul>
         </li>
        
         <li class="nav-item"><a class="nav-link active" routerLink="/activity"> Activities</a></li>
-
+        <hr>
         <li ngbDropdown class="nav-item dropdown" >
           <a ngbDropdownToggle class="nav-link dropdown-toggle" style="float : right !important;" data-bs-toggle="dropdown">Welcome&nbsp;{{loggedUser}}</a>
            <ul ngbDropdownMenu class="dropdown-menu">
@@ -69,37 +69,30 @@
         </ul>
       </div>    
      </nav>
-     <hr>
+    
     </div>
       <!--/row-->
       
       <div *ngIf="isUserLoggedIn()===false">
         <nav class="navbar navbar-expand-md navbar-light bg-light  fixed-top ">
+    
           <!--   <a class="navbar-brand  " routerLink=" "><img  src=  " img/savera_logo.jpg}  "id="c_logo  "></a> -->
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-          
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
                 <span class="navbar-toggler-icon"></span>
               </button>
-            <div class="collapse navbar-collapse  "id="collapsibleNavbar">
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
               <ul class="navbar-nav">
-              <li class="nav-item"><a class="nav-link active" routerLink="/"><i class="fa fa-home"></i>&nbsp;Home</a></li>
-        
-              <li ngbDropdown class="nav-item dropdown">
-                <a ngbDropdownItem class="dropdown-item" routerLink="/bookappointment"><i class="fas fa-calendar"></i>&nbsp;Book Appointment</a>
-              </li>
-
-              <li ngbDropdown class="nav-item dropdown">
-                <a ngbDropdownItem class="dropdown-item" routerLink="/searchappointment"><i class="fas fa-cog"></i>&nbsp;Search Appointment</a>
-              </li>
-              <li ngbDropdown class="nav-item dropdown">
-                <a ngbDropdownItem class="dropdown-item" routerLink="/login"><i class="fas fa-cog"></i>&nbsp;Login</a>
-              </li>
-        
+                <li class="nav-item"><a class="nav-link active" routerLink="/"><i class="fa fa-home"></i>&nbsp;Home</a></li>
+              
+                <li class="nav-item"><a class="nav-link active" routerLink="/bookappointment"><i class="fas fa-calendar"></i>&nbsp;Book Appointment</a>
+                <li class="nav-item"><a class="nav-link active" routerLink="/searchappointment"><i class="fa-solid fa-magnifying-glass"></i>&nbsp;Search Appointment</a>
+              
+                <li class="nav-item"><a class="nav-link active"  routerLink="/login"><i class="fas fa-sign-in-alt"></i>&nbsp;Login</a>
+             
               </ul>
-            </div>    
-           </nav>
-           <hr>
-          </div>
+            </div>
+            </nav>
+</div>
             <!--/row-->
 <router-outlet></router-outlet>
 <footer class="footer text-center">

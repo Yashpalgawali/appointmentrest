@@ -84,7 +84,7 @@ export class ViewappointmentsComponent implements OnInit {
 
   getAppointmentById(apid : any)
   {
-    this.router.navigate(['editappointbyid',apid]);
+    this.router.navigate(['edit/appointment/',apid]);
   }
   
 }

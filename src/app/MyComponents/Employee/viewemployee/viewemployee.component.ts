@@ -46,7 +46,7 @@ export class ViewemployeeComponent implements OnInit {
 
   getEmpById(eid : any)
   {
-    this.router.navigate(['editempbyid',eid]);
+    this.router.navigate(['edit/employee/',eid]);
   }
   ngOnDestroy(): void {
     this.dtTrigger.unsubscribe()

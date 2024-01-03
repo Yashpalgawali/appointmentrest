@@ -53,6 +53,6 @@ export class ViewdepartmentComponent {
 
   getDeptById(did : number)
   {
-    this.router.navigate(['editdeptbyid',did]);
+    this.router.navigate(['edit/department/',did]);
   }
 }

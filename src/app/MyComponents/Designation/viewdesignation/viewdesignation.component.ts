@@ -44,7 +44,7 @@ export class ViewdesignationComponent {
   }
   getDesigById(did : any)
   {
-    this.router.navigate(['editdesigbyid',did]);
+    this.router.navigate(['edit/designation/',did]);
   }
   ngOnDestroy(): void {
     this.dtTrigger.unsubscribe();
