@@ -29,11 +29,12 @@ export class BookappointmentComponent implements OnInit {
     private empserv : EmployeeService,
     private router : Router,
     private basicauthserv : BasicAuthenticationServiceService,
+    private datePipe : DatePipe
    ) { }
-      
-  selectedTime: any;
-
+  
   time: Date = new Date();
+  selectedTime !: Date;
+  minTime !: Date
     
   public datepickerConfig: Partial<BsDatepickerConfig> = {
     containerClass : 'theme-dark-blue',
@@ -41,19 +42,28 @@ export class BookappointmentComponent implements OnInit {
     minDate: new Date(), // Set the minimum date to today
   };
 
-  
   logged_user  : any          
   appoint  : Appointment = new Appointment();
   employee : Employee = new Employee();
   emplist : any
   emp     : any  
+
   ngOnInit(): void {
+    this.time = new Date(); // Initialize with the current time
+    this.minTime = new Date(); // Initialize with the current time
+
+    // Disable the previous time by setting the minutes and seconds to 0
+    this.minTime.setMinutes(0);
+    this.minTime.setSeconds(0);
       this.logged_user = sessionStorage.getItem('authenticatedUser')
-      this.empserv.getAllEmployees().subscribe(data=>this.emplist=data)
+      this.empserv.getAllEmployees().subscribe(data=>this.emplist=data) 
   }
 
   onSubmit() {
-    alert(this.appoint.apdate)
+    
+    this.appoint.apdate = this.datePipe.transform(this.appoint.apdate, 'dd-MM-yyyy'); 
+    this.appoint.aptime = this.datePipe.transform(this.appoint.aptime, 'h:mm:s a'); 
+    alert(this.appoint.aptime)
                 // this.appointserv.saveAppointment(this.appoint)
                 //                 .subscribe(data=>{ 
                 //                               sessionStorage.setItem('vis_email',this.appoint.vis_email)
@@ -64,7 +74,7 @@ export class BookappointmentComponent implements OnInit {
   
   goToViewAppointments()
   {
-    this.router.navigate(['viewappointments']);
+    this.router.navigate(['appointments']);
   }
 
   getdeptbyempid(eid : any) {

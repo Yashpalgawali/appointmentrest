@@ -49,7 +49,7 @@
                     <tbody id="aptodaybody">
                      <tr *ngFor="let appoint of todaysappoints;let i = index ">
                          <ng-container *ngIf="appoint.status=='pending'">
-                             <td style="text-transform: capitalize; color: yellow">{{appoint.status}}</td>
+                             <td style="text-transform: capitalize; color: rgb(245, 197, 66);">{{appoint.status}}</td>
                          </ng-container>
                          <ng-container *ngIf="appoint.status=='confirmed'">
                              <td style="text-transform: capitalize; color: green;">{{appoint.status}}</td>

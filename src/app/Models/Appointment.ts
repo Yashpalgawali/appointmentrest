@@ -7,8 +7,8 @@ export class Appointment {
     vis_contact !: string
     vis_purpose !: string
     vcomp_name  !: string
-    apdate  !: string
-    aptime  !: string
+    apdate  : any
+    aptime  : any
     status  !: string
     otp_num !: number
     new_otp !: number
