@@ -59,9 +59,8 @@
                          </ng-container>
                          <td>{{appoint.vis_name}}</td>
                          <td>{{appoint.vis_purpose}}</td>
-                         <!-- <td>{{appoint.apdate | date :'DD-MM-YYYY'}}</td> -->
-                         <td>{{appoint.apdate | date :'DD-MM-YYYY'}}</td>
-                         <td>{{appoint.aptime }}</td>
+                         <td>{{appoint.apdate | date :'dd-MM-yyyy'}}</td>
+                         <td>{{appoint.aptime | date :'h:mm:s a'}}</td>
                          <td>{{appoint.vcomp_name}}</td>
                          <td>{{appoint.vis_email}}</td>
                          <td>{{appoint.vis_contact}}</td>
@@ -114,11 +113,10 @@
                             </ng-container>
                             <td>{{appoint.vis_name}}</td>
                             <td>{{appoint.vis_purpose}}</td>
-                            <!-- <td>{{appoint.apdate | date :'DD-MM-YYYY'}}</td> -->
-                            <td>{{appoint.apdate  }}</td>
-                            <td>{{appoint.aptime }}</td>
+                            <td>{{appoint.apdate  | date :'dd-MM-yyyy' }}</td>
+                            <td>{{appoint.aptime | date  :'h:mm:s a'}}</td>
                             <td>{{appoint.vcomp_name}}</td>
-                            <td>{{appoint.vis_email}}</td>
+                            <td>{{appoint.vis_email}}</td> 
                             <td>{{appoint.vis_contact}}</td>
                             <td>{{appoint.employee.emp_name}}</td>
                             <td>{{appoint.employee.designation.desig_name}}</td>  
