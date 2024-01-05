@@ -23,11 +23,11 @@ export class EditcompanyComponent {
     this.compserv.updateCompany(this.company).subscribe({
       complete : ()=>{
         sessionStorage.setItem('response', this.company.comp_name+' is updated successfully')
-        this.router.navigate(['viewcompany'])
+        this.router.navigate(['company'])
       },
       error:(e)=>{
         sessionStorage.setItem('reserr', this.company.comp_name+' is not updated')
-      this.router.navigate(['viewcompany'])
+      this.router.navigate(['company'])
       }
     });
   }

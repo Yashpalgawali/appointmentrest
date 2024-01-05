@@ -25,16 +25,16 @@ export class EditdesignationComponent implements OnInit {
     this.desigserv.updateDesignation(this.designation).subscribe({
       complete:()=>{
         sessionStorage.setItem('response', this.designation.desig_name+' is updated Successfully')
-      this.router.navigate(['viewdesignation'])
+      this.router.navigate(['designation'])
       },
       error:(e)=>{
         sessionStorage.setItem('reserr', this.designation.desig_name+' is not updated')
-        this.router.navigate(['viewdesignation'])
+        this.router.navigate(['designation'])
       }
     });
   }
   goToViewDesignations()
   {
-    this.router.navigate(['viewdesignation']);
+    this.router.navigate(['designation']);
   }
 }

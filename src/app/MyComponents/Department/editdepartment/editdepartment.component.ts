@@ -28,17 +28,14 @@ export class EditdepartmentComponent {
     this.deptserv.saveDepartment(this.department).subscribe({
           error:(e)=>{
             sessionStorage.setItem('reserr',this.department.dept_name+' is not updated ')
-            this.router.navigate(['viewdepartment'])
+            this.router.navigate(['department'])
           },
           complete:()=>{
             sessionStorage.setItem('response',this.department.dept_name+' is updated successfully')
-            this.router.navigate(['viewdepartment'])
+            this.router.navigate(['department'])
           }
     })
   }
-  public goToViewDepartments()
-  {
-    this.router.navigate(['viewdepartment']);
-  } 
+ 
   
 }

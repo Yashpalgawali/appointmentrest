@@ -37,19 +37,15 @@ onSubmit() {
   this.empserv.updateEmployee(this.employee).subscribe({
             complete:()=>{
             sessionStorage.setItem('response','Employee updated successfully')
-            this.router.navigate(['viewemployee'])
+            this.router.navigate(['employee'])
             
           },error:(e)=>{
             sessionStorage.setItem('reserr','Employee is not updated')
-            this.router.navigate(['viewemployee'])
+            this.router.navigate(['employee'])
           }
         });
 }
 
-goToViewEmployees()
-{
-  this.router.navigate(['viewemployee']);
-}
 getdeptbycompid(cid:any) {
   this.deptserv.getDepartmentByCompName(cid.target.value).subscribe(data=>this.deptlist=data);
 }
