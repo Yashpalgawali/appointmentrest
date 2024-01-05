@@ -25,7 +25,7 @@ export class ChangePasswordComponent implements OnInit {
 
   ngOnInit(): void {
     if(sessionStorage.getItem('reserr')!=null)
-    { alert(sessionStorage.getItem('reserr'))
+    { 
       this.reserr =sessionStorage.getItem('reserr')
       setTimeout(()=>{
         this.reserr = ""
@@ -38,9 +38,9 @@ export class ChangePasswordComponent implements OnInit {
                                                                       })
   }
 
-  changepassword() {alert('inside change password')
+  changepassword() {
     if(this.user.new_pass===this.user.cnf_pass)
-    {alert('Equal')
+    {
       this.passserv.updatePassword(this.user).subscribe({
        
         error: (e) => {
@@ -54,7 +54,7 @@ export class ChangePasswordComponent implements OnInit {
           }
       });
     }
-    else{alert('Not Equal')
+    else{
       sessionStorage.setItem('reserr','Password does not match')  
       this.router.navigate(['changepass'])
     }
