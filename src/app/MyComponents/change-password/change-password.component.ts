@@ -16,14 +16,21 @@ export class ChangePasswordComponent implements OnInit {
 
   new_pass !: string
   cnf_pass !: string
-  reserr   !: string
   user      : Users = new Users();
-
+  response  : any
+  reserr    : any
   constructor(private passserv : PasswordService,private router : Router,private userserv : UserService,
               private baseauthserv : BasicAuthenticationServiceService) { }
   
 
   ngOnInit(): void {
+    if(sessionStorage.getItem('reserr')!=null)
+    { alert(sessionStorage.getItem('reserr'))
+      this.reserr =sessionStorage.getItem('reserr')
+      setTimeout(()=>{
+        this.reserr = ""
+      },3000)
+    }
     this.userserv.getUserByUserName(`${sessionStorage.getItem('authenticatedUser')}`)
                                                                       .subscribe(data=>
                                                                       {
@@ -31,22 +38,25 @@ export class ChangePasswordComponent implements OnInit {
                                                                       })
   }
 
-  changepassword() {
+  changepassword() {alert('inside change password')
     if(this.user.new_pass===this.user.cnf_pass)
-    {
+    {alert('Equal')
       this.passserv.updatePassword(this.user).subscribe({
        
         error: (e) => {
-          sessionStorage.setItem('reserr',' Password is not updated Successfully') 
+          sessionStorage.setItem('reserr',' Password is not Updated ') 
           this.router.navigate(['changepass'])
          },
         complete: () =>{
           this.baseauthserv.executeAuthenticationService(`${sessionStorage.getItem('authenticatedUser')}`,this.user.cnf_pass)
           sessionStorage.setItem('response',' Password updated Successfully')
-           
           this.router.navigate(['adminhome'])
           }
       });
-  }
+    }
+    else{alert('Not Equal')
+      sessionStorage.setItem('reserr','Password does not match')  
+      this.router.navigate(['changepass'])
+    }
   }
 }

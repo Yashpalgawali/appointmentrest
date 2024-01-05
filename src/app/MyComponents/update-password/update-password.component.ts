@@ -24,7 +24,6 @@ export class UpdatePasswordComponent implements OnInit{
       this.userserv.getUserByUserEmail(`${sessionStorage.getItem('user_email')}`)
                           .subscribe({
                                   complete:()=>{
-                                          
                                           this.user.cnf_pass = cpass
                                           this.userserv.updatePasswordWithEmail(this.user)
                                                                                 .subscribe(data=>this.router.navigate(['login']))

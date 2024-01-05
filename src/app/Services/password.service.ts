@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 export class PasswordService {
 
   app_url = GlobalComponent.base_url;
-  base_url= this.app_url+"user/";
+  base_url= this.app_url+"users/";
 
   constructor(private http : HttpClient) { }
 
