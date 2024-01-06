@@ -20,16 +20,18 @@
             <div class="card-header">
                 <h4>View Appointments<a routerLink="/bookappointment" class="btn btn-primary" style="float:right;">Book Appointment</a></h4>
             </div>
-            <div *ngIf="response"><h6 class="alert alert-success">{{response}}</h6></div>
-            <div *ngIf="reswait"> <h6 class="alert alert-danger">{{reswait}}</h6></div>	
-            <div class="card-body">
-                <div class="table-responsive-sm" id="todayappoints">
+        <div *ngIf="response"><h6 class="alert alert-success">{{response}}</h6></div>
+        <div *ngIf="reswait"> <h6 class="alert alert-danger">{{reswait}}</h6></div>	
+        <div class="card-body">
+            <div class="table-responsive-sm" id="todayappoints">
         <tabset>
-            <tab heading="Todays Appointments"> 
-                <table class="table table-bordered table-striped table-hover table-full-width dt-responsive nowrap" style="width:100%;text-decoration:none;"  id="aptodaytable" >
-                    <thead style="background-color:#3fbdeb;color:white;">
-                        <tr>
-                            <th>Appointment Status</th>
+            <tab heading="Todays Appointments">
+                <div class="card-body">
+                    <div class="table-responsive" id="data">
+                       <table class="table table-bordered table-striped table-hover table-full-width dt-responsive nowrap" style="width:100%;text-decoration:none;" id="aptable" >
+                        <thead style="background-color:#3fbdeb;color:white;">
+                            <tr>
+                                <th>Appointment Status</th>
                             <th>Visitor's Name</th>
                             <th>Visit Purpose</th>
                             <th>Appointment Date</th>
@@ -42,40 +44,42 @@
                             <th>Department</th>
                             <th>Personnel Company</th>
                             <ng-container *ngIf="isloggedinuser">
-                                <th>Actions</th>
+                                <th>Actions</th>	
                             </ng-container>
-                        </tr>	
-                    </thead>
-                    <tbody id="aptodaybody">
-                     <tr *ngFor="let appoint of todaysappoints;let i = index ">
-                         <ng-container *ngIf="appoint.status=='pending'">
-                             <td style="text-transform: capitalize; color: rgb(245, 197, 66);">{{appoint.status}}</td>
-                         </ng-container>
-                         <ng-container *ngIf="appoint.status=='confirmed'">
-                             <td style="text-transform: capitalize; color: green;">{{appoint.status}}</td>
-                         </ng-container>
-                         <ng-container *ngIf="appoint.status=='declined'">
-                             <td style="text-transform: capitalize; color: red;">{{appoint.status}}</td>
-                         </ng-container>
-                         <td>{{appoint.vis_name}}</td>
-                         <td>{{appoint.vis_purpose}}</td>
-                         <td>{{appoint.apdate | date :'dd-MM-yyyy'}}</td>
-                         <td>{{appoint.aptime | date :'h:mm:s a'}}</td>
-                         <td>{{appoint.vcomp_name}}</td>
-                         <td>{{appoint.vis_email}}</td>
-                         <td>{{appoint.vis_contact}}</td>
-                         <td>{{appoint.employee.emp_name}}</td>
-                         <td>{{appoint.employee.designation.desig_name}}</td>
-                         <td>{{appoint.employee.department.dept_name}}</td>
-                         <td>{{appoint.employee.department.company.comp_name}}</td>
-                         <ng-container *ngIf="isloggedinuser">
-                             <td>
-                                 <button (click)="getAppointmentById(appoint.appoint_id)" class="btn btn-primary" > <i class="fa fa-edit"></i> Edit</button>  
-                             </td>
-                         </ng-container> 
-                     </tr> 
-                 </tbody>
-                </table>
+                            </tr>	
+                        </thead>
+                        <tbody id="apbody">
+                         <tr *ngFor="let appoint of todaysappoints;let i = index ">
+                            <ng-container *ngIf="appoint.status=='pending'">
+                                <td style="text-transform: capitalize; color: rgb(245, 197, 66);">{{appoint.status}}</td>
+                            </ng-container>
+                            <ng-container *ngIf="appoint.status=='confirmed'">
+                                <td style="text-transform: capitalize; color: green;">{{appoint.status}}</td>
+                            </ng-container>
+                            <ng-container *ngIf="appoint.status=='declined'">
+                                <td style="text-transform: capitalize; color: red;">{{appoint.status}}</td>
+                            </ng-container>
+                            <td>{{appoint.vis_name}}</td>
+                            <td>{{appoint.vis_purpose}}</td>
+                            <td>{{appoint.apdate  }}</td>
+                            <td>{{appoint.aptime }}</td>
+                            <td>{{appoint.vcomp_name}}</td>
+                            <td>{{appoint.vis_email}}</td> 
+                            <td>{{appoint.vis_contact}}</td>
+                            <td>{{appoint.employee.emp_name}}</td>
+                            <td>{{appoint.employee.designation.desig_name}}</td>  
+                            <td>{{appoint.employee.department.dept_name}}</td>
+                            <td>{{appoint.employee.department.company.comp_name}}</td>
+                            <ng-container *ngIf="isloggedinuser">
+                                <td>
+                                    <button (click)="getAppointmentById(appoint.appoint_id)" class="btn btn-primary" > <i class="fa fa-edit"></i> Edit</button>  
+                                </td>
+                            </ng-container> 
+                         </tr> 
+                     </tbody>
+                    </table>
+                </div> 
+               </div>
             </tab> 
             <tab heading="All Appointments">
                 <div class="card-body">
@@ -113,8 +117,8 @@
                             </ng-container>
                             <td>{{appoint.vis_name}}</td>
                             <td>{{appoint.vis_purpose}}</td>
-                            <td>{{appoint.apdate  | date :'dd-MM-yyyy' }}</td>
-                            <td>{{appoint.aptime | date  :'h:mm:s a'}}</td>
+                            <td>{{appoint.apdate  }}</td>
+                            <td>{{appoint.aptime }}</td>
                             <td>{{appoint.vcomp_name}}</td>
                             <td>{{appoint.vis_email}}</td> 
                             <td>{{appoint.vis_contact}}</td>
@@ -130,9 +134,10 @@
                          </tr> 
                      </tbody>
                     </table>
-                </div> </div>
+                </div> 
+               </div>
             </tab> 
-            </tabset> 
+          </tabset> 
         </div>
     </div>
    

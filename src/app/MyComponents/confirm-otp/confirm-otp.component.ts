@@ -9,15 +9,15 @@ import { ConfirmOtpService } from 'src/app/Services/confirm-otp.service';
 })
 export class ConfirmOtpComponent  implements OnInit{
 
-  response !: string   
-  reserr !: string          
+  response: any    
+  reserr  : any          
   new_otp : any
   constructor (private otpserv : ConfirmOtpService ,private router : Router) { } 
   
   ngOnInit() {
-    if(sessionStorage.getItem('otp'))
+    if(sessionStorage.getItem('otp')&& sessionStorage.getItem('response') )
     {
-      this.response= `${sessionStorage.getItem('response')}`
+      this.response= sessionStorage.getItem('response')
     }
   }
 
@@ -25,12 +25,15 @@ export class ConfirmOtpComponent  implements OnInit{
   {
     if(this.new_otp==parseInt(`${sessionStorage.getItem('otp')}`)) {
       sessionStorage.removeItem('otp')
-      this.router.navigate(['viewappointments'])
+      sessionStorage.removeItem('response')
+      this.router.navigate(['appointments'])
     }
     else {
-      sessionStorage.removeItem('response')
-      this.reserr= 'OTP Didn/\'t matched'
-      sessionStorage.setItem('reserr','OTP Didn/\'t matched ')
+      sessionStorage.removeItem('response') 
+      this.reserr= "OTP Did not matched"
+      setTimeout(()=>{
+        this.reserr = ""
+      }, 3000)
       this.router.navigate(['confirmotp'])
     }
   }

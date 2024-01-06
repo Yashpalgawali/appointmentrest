@@ -34,17 +34,17 @@ export class AddemployeeComponent implements OnInit {
         this.empserv.saveEmployee(this.employee).subscribe({
           complete:()=>{
             sessionStorage.setItem('response',this.employee.emp_name+' is saved successfully')
-            this.router.navigate(['viewemployee']);    
+            this.router.navigate(['employee']);    
           },
           error:()=>{
             sessionStorage.setItem('reserr',this.employee.emp_name+' is not saved ')
-            this.router.navigate(['viewemployee']);    
+            this.router.navigate(['employee']);    
           }
         });
       }  
       
       goToViewEmployees() {
-        this.router.navigate(['viewemployee']);
+        this.router.navigate(['employee']);
       }
 
       getdeptbycompid(cid:any) {

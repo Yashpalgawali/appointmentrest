@@ -9,7 +9,7 @@
         </ol>
     </div>
 </div>
-  <div *ngIf="response!='null'" ><h6 class="alert alert-success"> {{response}} </h6> </div>
+  <div *ngIf="response" ><h6 class="alert alert-success"> {{response}} </h6> </div>
   <div *ngIf="reserr" ><h6 class="alert alert-warning">{{reserr}} </h6> </div>
   <form (ngSubmit)="confirmotp()" method="POST"  >
     <div class="card">

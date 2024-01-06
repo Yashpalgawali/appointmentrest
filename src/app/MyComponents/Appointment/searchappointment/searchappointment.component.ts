@@ -30,8 +30,12 @@ export class SearchappointmentComponent {
                                                                   }
                                                                     ,error=>{
                                                                       this.reserr='No Appointment Found For given mail ID '+this.appoint.vis_email
+                                                                      sessionStorage.setItem('reserr',this.reserr)
                                                                       sessionStorage.removeItem('response')
-                                                                      sessionStorage.setItem('reserr','No Appointment Found For given mail ID '+this.appoint.vis_email)
+                                                                      setTimeout(()=>{
+                                                                        sessionStorage.removeItem('reserr')
+                                                                      }, 3000)
+                                                                      
                                                                       this.router.navigate(['searchappointment'])
                                                                       
                                                                     })

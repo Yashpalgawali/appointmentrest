@@ -62,14 +62,14 @@ export class BookappointmentComponent implements OnInit {
   onSubmit() {
     
     this.appoint.apdate = this.datePipe.transform(this.appoint.apdate, 'dd-MM-yyyy'); 
-    this.appoint.aptime = this.datePipe.transform(this.appoint.aptime, 'h:mm:s a'); 
-    alert(this.appoint.aptime)
-                // this.appointserv.saveAppointment(this.appoint)
-                //                 .subscribe(data=>{ 
-                //                               sessionStorage.setItem('vis_email',this.appoint.vis_email)
-                //                               sessionStorage.setItem('reswait','Appointment is booked. Waiting for the Confirmation');
-                //                               this.goToViewAppointments() 
-                //                           });
+    this.appoint.aptime = this.datePipe.transform(this.appoint.aptime, 'hh:mm:ss a'); 
+   
+    this.appointserv.saveAppointment(this.appoint)
+                    .subscribe(data=>{ 
+                                  sessionStorage.setItem('vis_email',this.appoint.vis_email)
+                                  sessionStorage.setItem('reswait','Appointment is booked. Waiting for the Confirmation');
+                                  this.goToViewAppointments() 
+                              });
     }
   
   goToViewAppointments()

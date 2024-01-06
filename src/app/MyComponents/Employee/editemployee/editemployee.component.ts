@@ -36,11 +36,18 @@ ngOnInit(): void {
 onSubmit() {
   this.empserv.updateEmployee(this.employee).subscribe({
             complete:()=>{
-            sessionStorage.setItem('response','Employee updated successfully')
+              sessionStorage.setItem('response', this.employee.emp_name+' updated successfully')
+              setTimeout(() => {
+                sessionStorage.removeItem('response')
+              }, 3000);
+            
             this.router.navigate(['employee'])
             
           },error:(e)=>{
             sessionStorage.setItem('reserr','Employee is not updated')
+            setTimeout(() => {
+              sessionStorage.removeItem('reserr')
+            }, 3000);
             this.router.navigate(['employee'])
           }
         });
