@@ -42,19 +42,20 @@
          <div class="form-group">
             <label for="apdate">Appointment Date</label>
                 <input
-                    placeholder="Select Date"
-                    class="form-control"
-                    bsDatepicker
-                    [(bsValue)]="apdate"
-                    [(ngModel)]="appoint.apdate"
-                    [bsConfig]="datepickerConfig" 
-                    id="apdate" name="apdate"
-                    autocomplete="off"
+                placeholder="Select Date"
+                class="form-control"
+                bsDatepicker
+                [(bsValue)]="selectedDate"
+                value="selectedDate | date:'DD-MM-yyyy'"
+                [(ngModel)]="appoint.apdate"
+                [bsConfig]="datepickerConfig"
+                id="apdate" name="apdate"
+                autocomplete="off"
                 />  
          </div>
-         <div class="form-group mb-3">
+        <div class="form-group mb-3">
             <label for="aptime">Select Time:</label>
-                <timepicker id="aptime"  name="aptime"  [(ngModel)]="appoint.aptime"  ></timepicker>
+                <timepicker id="aptime"  name="aptime"  [(ngModel)]="appoint.aptime" ></timepicker>
         </div>
           <div class="form-group">
             <label for="designation">Employee:</label>

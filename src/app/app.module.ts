@@ -75,7 +75,7 @@ import { ActivityLogsComponent } from './MyComponents/activity-logs/activity-log
     ChangePasswordComponent,
     ConfirmOtpForgotPassComponent,
     UpdatePasswordComponent,
-    ActivityLogsComponent,
+    ActivityLogsComponent
     
   ],
   imports: [
@@ -90,7 +90,8 @@ import { ActivityLogsComponent } from './MyComponents/activity-logs/activity-log
     TabsModule.forRoot()
   ],
   
-  providers: [LoginService,Location, {provide: LocationStrategy, useClass: HashLocationStrategy}, 
+  providers: [LoginService,Location, 
+              //{provide: LocationStrategy, useClass: HashLocationStrategy}, 
               {provide : HTTP_INTERCEPTORS, useClass : HttpInterceptorBasicAuthService , multi : true},
              DatePipe
             ],

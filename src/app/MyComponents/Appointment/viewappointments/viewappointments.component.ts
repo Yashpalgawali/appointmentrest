@@ -15,6 +15,10 @@ export class ViewappointmentsComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
   dtTrigger: Subject<any> = new Subject<any>();
 
+  
+  dtOptionsAll: DataTables.Settings = {};
+  dtTriggerAll: Subject<any> = new Subject<any>();
+
   constructor(private appointserv: AppointmentService,private router : Router) { }
   aplist  :  Appointment[] = []
   todaysappoints  : Appointment[] = []
@@ -29,17 +33,31 @@ export class ViewappointmentsComponent implements OnInit {
           // Use this attribute to enable the responsive extension
           responsive: true
         }
+        this.dtOptionsAll={
+          pagingType : 'full_numbers',
+          // Use this attribute to enable the responsive extension
+          responsive: true
+        }
         if(sessionStorage.getItem('authenticatedUser')!=null)
         {
           this.isloggedinuser=true
-          
           this.appointserv.getAllAppointments().subscribe(data=>{
                                                 this.aplist=data 
+                                                this.response = sessionStorage.getItem('response')
+                                                setTimeout(()=>{
+                                                  sessionStorage.removeItem('response')
+                                                    this.response=""
+                                                },3000)
                                                 // initiate our data table
-                                                 this.dtTrigger.next(null);
+                                                 this.dtTriggerAll.next(null);
                                               })
           this.appointserv.getTodaysAppointments().subscribe(data=>{
                                             this.todaysappoints=data
+                                            this.reserr = sessionStorage.getItem('reserr')
+                                            setTimeout(()=>{
+                                              sessionStorage.removeItem('reserr')
+                                                this.reserr=""
+                                            },3000)
                                             // initiate our data table
                                             this.dtTrigger.next(null);
           })  
@@ -50,20 +68,24 @@ export class ViewappointmentsComponent implements OnInit {
           {
             if( sessionStorage.getItem('response')!=null)
             {
-              setTimeout(() => {
               this.response = sessionStorage.getItem('response')
+              setTimeout(() => {
+                sessionStorage.removeItem('response')
+                this.response=""
             }, 300);
             }
             if( sessionStorage.getItem('reserr')!=null)
             {
-              setTimeout(() => {
               this.reserr = sessionStorage.getItem('reserr')
+              setTimeout(() => {
+                sessionStorage.removeItem('reserr')
+                this.reserr =""
             }, 300);
           }
             this.appointserv.getAllAppointmentsByEmail(sessionStorage.getItem('vis_email')).subscribe(data=>{
               this.aplist=data
               // initiate our data table
-              this.dtTrigger.next(null);
+              this.dtTriggerAll.next(null);
             })
 
             this.appointserv.getTodaysAppointmentsByEmail(sessionStorage.getItem('vis_email')).subscribe(data=>{

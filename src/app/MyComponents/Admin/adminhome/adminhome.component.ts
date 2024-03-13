@@ -18,8 +18,13 @@ export class AdminhomeComponent implements OnInit{
   response : any
   reserr   : any
   constructor(private appointserv : AdminappointmentsService) { 
+   
+  }
+   
+  ngOnInit(): void {
     this.appointserv.getAppointmentCounts().subscribe(data=> {
       this.apcount=data
+      
       if(sessionStorage.getItem('response')!=null)
       {
         this.response=sessionStorage.getItem('response')
@@ -29,19 +34,5 @@ export class AdminhomeComponent implements OnInit{
         }, 5000);
       }
       })
-  }
-   
-  ngOnInit(): void {
-    //  this.appointserv.getAppointmentCounts().subscribe(data=> {
-    //   this.apcount=data
-    //   if(sessionStorage.getItem('response')!=null)
-    //   {
-    //     this.response=sessionStorage.getItem('response')
-    //     setTimeout(() => {
-    //       sessionStorage.removeItem('response')
-    //       this.response=""
-    //     }, 5000);
-    //   }
-    //   })
   }
 }

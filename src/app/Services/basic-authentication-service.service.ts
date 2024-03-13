@@ -25,8 +25,7 @@ export class BasicAuthenticationServiceService {
       })
      
      sessionStorage.setItem('token',basicAuthHeaderString)
-      
-      return this.http.get<AuthenticationBean>(`${this.base_url}basicauth`,{ headers : headers }).pipe(
+     return this.http.get<AuthenticationBean>(`${this.base_url}basicauth`,{ headers : headers }).pipe(
                     map(
                       data=>{
                               sessionStorage.setItem('token',basicAuthHeaderString);

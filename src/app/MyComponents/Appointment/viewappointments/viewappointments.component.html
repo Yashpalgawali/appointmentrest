@@ -28,7 +28,7 @@
             <tab heading="Todays Appointments">
                 <div class="card-body">
                     <div class="table-responsive" id="data">
-                       <table class="table table-bordered table-striped table-hover table-full-width dt-responsive nowrap" style="width:100%;text-decoration:none;" id="aptable" >
+                       <table class="table table-bordered table-striped table-hover table-full-width dt-responsive nowrap" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" style="width:100%;text-decoration:none;" id="aptable" >
                         <thead style="background-color:#3fbdeb;color:white;">
                             <tr>
                                 <th>Appointment Status</th>
@@ -84,8 +84,8 @@
             <tab heading="All Appointments">
                 <div class="card-body">
                     <div class="table-responsive" id="data">
-                       <table class="table table-bordered table-striped table-hover table-full-width dt-responsive nowrap" style="width:100%;text-decoration:none;" id="aptable" >
-                        <thead style="background-color:#3fbdeb;color:white;">
+                       <table class="table table-bordered table-striped table-hover table-full-width dt-responsive nowrap" datatable [dtOptions]="dtOptionsAll" [dtTrigger]="dtTriggerAll"  style="width:100%;text-decoration:none;" id="aptable" >
+                        <thead style="background-color:#3fbdeb;color:white;"> 
                             <tr>
                                 <th>Appointment Status</th>
                             <th>Visitor's Name</th>
