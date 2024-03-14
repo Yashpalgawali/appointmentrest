@@ -91,7 +91,7 @@ import { ActivityLogsComponent } from './MyComponents/activity-logs/activity-log
   ],
   
   providers: [LoginService,Location, 
-              //{provide: LocationStrategy, useClass: HashLocationStrategy}, 
+              {provide: LocationStrategy, useClass: HashLocationStrategy}, 
               {provide : HTTP_INTERCEPTORS, useClass : HttpInterceptorBasicAuthService , multi : true},
              DatePipe
             ],
