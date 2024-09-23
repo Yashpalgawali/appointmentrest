@@ -21,8 +21,15 @@ export class AdddepartmentComponent {
   comp !: Company;
   
   ngOnInit(): void {
+    /*if(sessionStorage.getItem('authenticatedUser'))
+       { this.compserv.getAllCompanies().subscribe(data=>this.clist=data);}
+    if(localStorage.getItem('authenticatedUser')!=null)
+      {
+        let user = JSON.parse(localStorage.getItem('authenticatedUser')|| '{}')
+        sessionStorage.setItem('authenticatedUser',user)
         this.compserv.getAllCompanies().subscribe(data=>this.clist=data);
-        
+      }*/
+      this.compserv.getAllCompanies().subscribe(data=>this.clist=data); 
   }
   onSubmit() {
     

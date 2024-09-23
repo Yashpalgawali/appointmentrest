@@ -22,11 +22,11 @@ export class AdddesignationComponent implements OnInit{
     this.desigserv.saveDesignation(this.designation).subscribe({
       complete:()=>{
         sessionStorage.setItem('response',this.designation.desig_name+' is saved successfully')
-        this.route.navigate(['viewdesignation'])
+        this.route.navigate(['designation'])
       },
       error:(e)=>{
         sessionStorage.setItem('reserr',this.designation.desig_name+' is not saved ')
-        this.route.navigate(['viewdesignation'])
+        this.route.navigate(['designation'])
       }
     });
   }

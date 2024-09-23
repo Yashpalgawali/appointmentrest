@@ -16,25 +16,7 @@ export class LoginService {
 
   public login(username:string , pass : string)
   {
-   return this.basicauthserv.executeAuthenticationService(username,pass);
-    // alert("Username = "+username+"\n"+pass )
-    //   let basicAuthHeaderString = this.createBasicAuthenticationHeader(username,pass)
-
-    //   let header = new HttpHeaders({
-    //       Authorization : basicAuthHeaderString
-    //   })
-    // //  return this.http.get(`${this.base_url}basicauth`, {headers : header ,});
-    // return this.http.get(`${this.base_url}basicauth`);
+    return this.basicauthserv.executeAuthenticationService(username,pass);
   }
 
-  // createBasicAuthenticationHeader(username:string,password:string) {
-
-  //   let basicHeaderString = 'Basic '+window.btoa(username+':'+password)
-  //   return basicHeaderString ;
-  // }
-
-  // registerSuccessLogin(uname:string,pass:string)
-  // {
-   
-  // }
 }

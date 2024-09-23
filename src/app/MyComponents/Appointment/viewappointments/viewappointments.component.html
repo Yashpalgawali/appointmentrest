@@ -59,6 +59,9 @@
                             <ng-container *ngIf="appoint.status=='declined'">
                                 <td style="text-transform: capitalize; color: red;">{{appoint.status}}</td>
                             </ng-container>
+                            <ng-container *ngIf="appoint.status=='completed'">
+                                <td style="text-transform: capitalize; color: rgb(255, 230, 0);">{{appoint.status}}</td>
+                            </ng-container>
                             <td>{{appoint.vis_name}}</td>
                             <td>{{appoint.vis_purpose}}</td>
                             <td>{{appoint.apdate  }}</td>

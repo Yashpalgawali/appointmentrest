@@ -19,10 +19,18 @@ export class AppComponent  implements OnInit{
 
   isUserLoggedIn() {
     if(sessionStorage.getItem('authenticatedUser'))
-    {
-      this.loggedUser = `${sessionStorage.getItem('authenticatedUser')}`
-     return AppComponent.islogged = true
-    }
+      {
+        this.loggedUser = `${sessionStorage.getItem('authenticatedUser')}`
+       return AppComponent.islogged = true
+      }
+
+      if(localStorage.getItem('authenticatedUser'))
+      {
+        sessionStorage.setItem('token',`${localStorage.getItem('token')}`)
+        sessionStorage.setItem('authenticatedUser',`${localStorage.getItem('authenticatedUser')}`)
+          this.loggedUser = `${sessionStorage.getItem('authenticatedUser')}`
+         return AppComponent.islogged = true
+      }
     else {
       return  AppComponent.islogged = false
     }
@@ -30,10 +38,14 @@ export class AppComponent  implements OnInit{
 
   ngOnInit(): void {
    
-     if(sessionStorage.getItem('authenticatedUser'))
-     {
-      AppComponent.islogged = true
-     }
+    if(sessionStorage.getItem('authenticatedUser'))
+      {
+       AppComponent.islogged = true
+      }
+      if(localStorage.getItem('authenticatedUser'))
+      {
+         AppComponent.islogged = true
+      }
      else {
       AppComponent.islogged = false
      }
