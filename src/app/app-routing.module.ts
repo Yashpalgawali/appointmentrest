@@ -33,17 +33,22 @@ const routes: Routes = [
   { path :"addcompany" , component : AddcompanyComponent , canActivate : [RouteGuardService]},
   { path :"company" , component : ViewcompanyComponent , canActivate : [RouteGuardService]},
   { path :"edit/company/:id" , component : EditcompanyComponent , canActivate : [RouteGuardService]},
+
   { path :"adddepartment" , component : AdddepartmentComponent , canActivate : [RouteGuardService]},
   { path :"department" , component : ViewdepartmentComponent, canActivate : [RouteGuardService]},
   { path :"edit/department/:id" , component : EditdepartmentComponent, canActivate : [RouteGuardService]},
+  
   { path :"adddesignation" , component : AdddesignationComponent, canActivate : [RouteGuardService]},
   { path :"designation" , component : ViewdesignationComponent, canActivate : [RouteGuardService]},
   { path :"edit/designation/:id" , component : EditdesignationComponent, canActivate : [RouteGuardService]},
+  
   { path :"addemployee" , component : AddemployeeComponent, canActivate : [RouteGuardService]},
   { path :"employee" , component : ViewemployeeComponent, canActivate : [RouteGuardService]},
   { path :"edit/employee/:id" , component : EditemployeeComponent, canActivate : [RouteGuardService]} ,
+  
   { path :"bookappointment" , component : BookappointmentComponent} ,
   { path :"appointments" , component : ViewappointmentsComponent},
+  
   { path :"edit/appointment/:id" , component : EditappointmentComponent, canActivate : [RouteGuardService]} ,
   { path :"login" , component : LoginComponent },
   { path :"" , component : HomeComponent},

@@ -84,9 +84,21 @@ export class BasicAuthenticationServiceService {
   }
 
   logout() {
-    sessionStorage.removeItem('authenticatedUser')
-    sessionStorage.removeItem('token')
-    localStorage.removeItem('authenticatedUser');
-    localStorage.removeItem('token');
+    return this.http.post(`${this.app_url}logouturl`, {}).subscribe({
+      next : (data) =>{
+       
+        sessionStorage.removeItem('authenticatedUser')
+        sessionStorage.removeItem('token')
+      
+        localStorage.removeItem('authenticatedUser');
+        localStorage.removeItem('token');
+        
+      },
+      error: (err) => {
+        console.error('Logout failed', err);
+        alert('Logout failed: ' + err.message);
+      }
+  })
+    
   }
 }

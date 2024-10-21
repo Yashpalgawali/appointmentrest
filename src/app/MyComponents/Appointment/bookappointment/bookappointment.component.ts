@@ -50,11 +50,11 @@ export class BookappointmentComponent implements OnInit {
 
   ngOnInit(): void {
     this.time = new Date(); // Initialize with the current time
-    this.minTime = new Date(); // Initialize with the current time
+//    this.minTime = new Date(); // Initialize with the current time
 
     // Disable the previous time by setting the minutes and seconds to 0
-    this.minTime.setMinutes(0);
-    this.minTime.setSeconds(0);
+    // this.minTime.setMinutes(0);
+    // this.minTime.setSeconds(0);
       this.logged_user = sessionStorage.getItem('authenticatedUser')
       this.empserv.getAllEmployees().subscribe(data=>this.emplist=data) 
   }

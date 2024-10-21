@@ -13,10 +13,9 @@ export class LogoutComponent implements OnInit{
   logoutsuccess !: string
 
   ngOnInit(): void {
+    alert('logout callled')
       this.basicauthserv.logout()
-      this.logoutsuccess="Successfully Logged Out"
-      sessionStorage.setItem('logoutsuccess',this.logoutsuccess)
-      this.router.navigate(['login'])
+     
   }
 
 }
